@@ -5,8 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
 var mongoose = require('mongoose')
 
 
@@ -29,6 +27,11 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
         console.log ('Successfully connected to: remote' + uristring);
     }
 });
+
+// Requiring Routes
+var routes = require('./routes/index');
+var users = require('./routes/users');
+var login = require('./routes/login');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -77,14 +80,14 @@ app.use(function(err, req, res, next) {
 });
 
 
-
+//  Registers the User and redirect you to login page.
 app.post('/register', function(req, res) {
   var referenceNo = req.body.referenceNo;
   //console.log(referenceNo);
   Reference.findById(referenceNo).exec(function(err, result){
     console.log(result);
     if(err)
-      console.log(err);
+      return console.log(err);
     if(result.state) {
       var email = req.body.email;
       var mob = req.body.mob;
@@ -119,7 +122,7 @@ app.post('/register', function(req, res) {
 });
 
 
-
+// This will generate a referance number and returns it .
 app.get('/generateReference', function(req, res){
   var newReference = new Reference({
     state : true
@@ -131,6 +134,11 @@ app.get('/generateReference', function(req, res){
     }
   });
 });
+
+
+
+
+app.post('/login', login);
 
 
 
