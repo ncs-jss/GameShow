@@ -7,7 +7,8 @@ var questionAssignedSchema = new Schema({
 	question_ID  : { type : ObjectID, ref : 'Question' },
 	timeOfAssignment : { type : Date, default : Date.now },
 	timeOfCompletion : { type : Date },
-	level : Number
+	duration : Number,
+	level : Number,
 	});
 
 var questionAnswered = mongoose.model('QuestionAssigned',  questionAssignedSchema);

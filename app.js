@@ -32,7 +32,10 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
-
+var getQuestion = require('./routes/getQuestion');
+var addQuestion = require('./routes/addQuestion');
+var getAllQuestion = require('./routes/getAllQuestion');
+var removeQuestion = require('./routes/removeQuestion');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -139,6 +142,14 @@ app.get('/generateReference', function(req, res){
 
 
 app.post('/login', login);
+
+app.post('/getQuestion', getQuestion);
+
+app.post('/addQuestion', addQuestion);
+
+app.get('/getAllQuestion', getAllQuestion);
+
+app.post('/removeQuestion', removeQuestion);
 
 
 
