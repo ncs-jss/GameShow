@@ -1,0 +1,153 @@
+
+.homebody {
+	background-image: url('../img/Techtrek.jpg');	
+}
+
+.loginbody {
+	background-image:url('../img/main_login.jpg'); 
+	background-repeat: no-repeat;
+	width : 100%;
+	height : 100%;
+}
+/* font*/
+@font-face{
+	font-family: thempo;
+	src:url('../fonts/Thempo.ttf');
+
+}
+.icon-bar{
+	color: #fff;
+}
+a,
+a:focus,
+a:hover{
+	color: #fff;
+}
+
+li,a{
+	font-family: thempo;
+	color: #ffae7e;
+	font-size: 20px;
+	padding-left: 10px;
+	letter-spacing: 1px;
+
+}
+.masthead-nav > li{
+	display: inline-block;
+
+}
+.masthead-nav > li > a {
+  
+  font-size: 20px;
+   /* IE8 proofing */
+  color: rgba(255,255,255,.75);
+  border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  color: #ffae7e;
+  border-bottom-color: #faa065;
+}
+
+
+/************ super extra small devies only***/
+@media (max-width: 319px){
+	.masthead-nav > li > a{
+		margin-right: 40px;
+	}
+
+}
+
+/************Extra small devices only*********/
+@media (max-width:767px){
+
+}
+
+
+
+/*media queries for small devices*/
+ @media (min-width:768px) and (max-width:991px){
+
+ }
+
+
+
+/*media queries for medium devices*/
+ @media (min-width:992px) and (max-width: 1199px) {
+
+ }
+
+
+
+
+
+/*media queries for large devices*/
+@media (min-width: 1200px){
+
+}
+
+/** Form or Modal styling**/
+
+#Form{
+	font-family: sans-serif;
+	font-style: bold;
+	font-size: 3em;
+	color:#180f36;
+	padding-left: 4%;
+
+}
+#container_ls{
+	width: 100%;
+}
+
+label{
+	font-family: helvetica;
+	font-size: 1.2em;
+	color: #403469;
+	padding-right: 50px;
+}
+
+#submit{
+	background-color: #403469;
+	color: #fff;
+}
+#submit:hover{	 
+     background-color: #180f36;
+     color: #fff;
+}
+#reset{
+	background-color: #403469;
+	color: #fff;
+}
+#reset:hover{
+	background-color: #180f36;
+    color: #fff;
+}
+
+/** Modal styling ends here**/
+
+/** styling  of rules as wells starts here**/
+
+.well{
+	margin-top: 20px;
+	background-color: #fff;
+	opacity: .4;
+	font-family: helvetica;
+	font-size: 15px;
+	font-weight:bold; 
+	font-color: #fff;
+	font-color:rgba(255,255,255,.75);
+}
+.well {
+	border-style: dotted;
+	border-width: 3px;
+	border-radius: 10px;
+	border-color: #360436;
+}
