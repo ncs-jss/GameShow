@@ -12,7 +12,7 @@ $(document).ready(function() {
         signup.year = $("#year").val();
         // console.log(signup);
         if (cpassword === signup.password) {
-            $.post("/register", signup,
+            $.post("http://localhost:8080/register", signup,
                 function(data, status) {
                     console.log("Data: " + data + "\nStatus: " + status);
                 });
@@ -21,7 +21,7 @@ $(document).ready(function() {
     $("#login").click(function() {
         login.email = $("#email").val();
         login.password = $("#password").val();
-        $.post("/login", login,
+        $.post("http://localhost:8080/login", login,
             function(data, status) {
                 console.log("Data: " + data + "\nStatus: " + status);
             });
