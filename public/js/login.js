@@ -8,8 +8,7 @@ $(document).ready(function() {
         signup.referenceNo = $("#referenceNo").val();
         signup.password = $("#password").val();
         var cpassword = $("#cpassword").val();
-        signup.mobileNumber = $("#number").val();
-        console.log($("#number").val())
+        signup.course = $("#course").val();
         signup.year = $("#year").val();
         // console.log(signup);
         if (cpassword === signup.password) {
@@ -21,8 +20,8 @@ $(document).ready(function() {
     });
     $("#login").click(function() {
         login.emailOrNumber = $("#emailOrNumber").val();
-        console.log($("#password").val());
-        login.password = $("#password").val();
+        login.password = $("#pass").val();
+        console.log(login);
         $.post("http://localhost:8080/login", login,
             function(data, status) {
                 console.log("Data: " + data + "\nStatus: " + status);
