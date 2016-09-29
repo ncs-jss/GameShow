@@ -5,7 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
+var ObjectID = require('mongoose').Types.ObjectId;
 
 
 var app = express();
@@ -36,6 +37,7 @@ var getQuestion = require('./routes/getQuestion');
 var addQuestion = require('./routes/addQuestion');
 var getAllQuestion = require('./routes/getAllQuestion');
 var removeQuestion = require('./routes/removeQuestion');
+var renderLogin = require('./routes/renderLogin');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -87,13 +89,15 @@ app.use(function(err, req, res, next) {
 app.post('/register', function(req, res) {
   var referenceNo = req.body.referenceNo;
   //console.log(referenceNo);
+  if((referenceNo.length != 24) || (new ObjectID(referenceNo) !=  referenceNo) )
+    return res.send("invalid Reference No");
   Reference.findById(referenceNo).exec(function(err, result){
     console.log(result);
     if(err)
       return console.log(err);
     if(result.state) {
       var email = req.body.email;
-      var mob = req.body.mob;
+      var mob = req.body.mobileNumber;
       var password = req.body.password;
       var avatar =  req.body.avatar;
       var name = req.body.name;
@@ -109,6 +113,8 @@ app.post('/register', function(req, res) {
       });
       newUser.save(function(err){
         if (err) {
+          console.log(err)
+
          return res.send("try new mobileNumber  or email_ID!!");
         }
         result.state = false;
@@ -116,11 +122,11 @@ app.post('/register', function(req, res) {
           if(err)
             console.log(err);
         });
-        res.end('You are registered!!');
+        res.end('Success');
       }); 
     }
     else
-    res.send("Reference number " + referenceNo + " is already used!!");
+    res.send("Reference number " + referenceNo + " is not valid!!");
   })
 });
 
@@ -140,6 +146,7 @@ app.get('/generateReference', function(req, res){
 
 
 
+app.get('/login', renderLogin);
 
 app.post('/login', login);
 
