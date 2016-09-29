@@ -12,4 +12,4 @@ $(document).ready(function() {
                 console.log("Data: " + data + "\nStatus: " + status);
             });
     });
-})
+});
