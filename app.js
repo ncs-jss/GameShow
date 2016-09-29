@@ -139,7 +139,7 @@ app.get('/generateReference', function(req, res){
   console.log("req received ")
   newReference.save(function(err) { 
     if(!err) {
-      res.send('new reference generated with value ' + newReference._id);
+      res.send({id:newReference._id});
     }
   });
 });
