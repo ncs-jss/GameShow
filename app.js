@@ -30,7 +30,7 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
 });
 
 // Requiring Routes
-var routes = require('./routes/index');
+var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
 var getQuestion = require('./routes/getQuestion');
@@ -38,7 +38,12 @@ var addQuestion = require('./routes/addQuestion');
 var getAllQuestion = require('./routes/getAllQuestion');
 var removeQuestion = require('./routes/removeQuestion');
 var renderLogin = require('./routes/renderLogin');
+//var renderHomePage = require ('./routes/renderHomePage')
+
+
 // view engine setup
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -50,7 +55,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+
 // app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -88,16 +93,15 @@ app.use(function(err, req, res, next) {
 //  Registers the User and redirect you to login page.
 app.post('/register', function(req, res) {
   var referenceNo = req.body.referenceNo;
-  //console.log(referenceNo);
   if((referenceNo.length != 24) || (new ObjectID(referenceNo) !=  referenceNo) )
-    return res.send("invalid Reference No");
+    return res.send("Invalid Reference No");
   Reference.findById(referenceNo).exec(function(err, result){
     console.log(result);
     if(err)
       return console.log(err);
     if(result.state) {
       var email = req.body.email;
-      var mob = req.body.mobileNumber;
+      var mobileNumber = req.body.mobileNumber;
       var password = req.body.password;
       var avatar =  req.body.avatar;
       var name = req.body.name;
@@ -108,14 +112,14 @@ app.post('/register', function(req, res) {
         'password'  : password,
         'name'  : name,
         'year' : year,
-        'mobileNumber' : mob,
+        'mobileNumber' : mobileNumber,
         'avatar' : avatar
       });
       newUser.save(function(err){
         if (err) {
           console.log(err)
 
-         return res.send("try new mobileNumber  or email_ID!!");
+         return res.send("try new mobileNumber or email_ID!!");
         }
         result.state = false;
         result.save(function(err){
@@ -144,7 +148,7 @@ app.get('/generateReference', function(req, res){
   });
 });
 
-
+app.get('/', index);
 
 app.get('/login', renderLogin);
 
