@@ -116,7 +116,7 @@ app.get('/login', renderLogin);
 
 app.post('/login', login);
 
-app.post('/getQuestion', getQuestion);
+app.get('/getQuestion', getQuestion);
 
 app.post('/addQuestion', addQuestion);
 
