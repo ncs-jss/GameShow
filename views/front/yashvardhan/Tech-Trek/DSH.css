@@ -1,0 +1,107 @@
+
+@font-face{
+    font-family: 'Milk';
+    src: url('fonts/LemonMilk.otf');
+    
+}
+
+body{
+    background-image: url('img/main_login.jpg');
+    font-family: 'Milk';
+}
+.dropdown{
+    float: left;
+    padding-left: 30px;
+}
+.drop{
+    float: right;
+    padding-right: 15px;
+    padding-top: 13px;
+}
+body h2{
+    color: #f58974;
+    float: left;
+    padding-left: 19px;
+    font-size: 32px;
+}
+.j-center{
+    display: flex;
+    justify-content: center;
+}
+p{
+    margin: 5px 12px 10px;
+    color: #6D1262;
+}
+/*Add attribute data-circle-skin = "white" to the div */
+/*Note :- This looks best on dark backgrounds*/
+.levelIndicator .loader-bg {
+  border-color: rgba(255,255,255,.15);
+  /*for unloaded bg*/
+  box-shadow: inset 2px 2px 20px 0 #fff; !important;
+}
+.levelIndicator .text {
+  font-size: 20px;
+  color: #f58974 !important;
+}
+.levelIndicator .loader-spinner {
+/*  border-color: #4c68a6;*/
+      border-color: #f58974;
+
+}
+.levelText{
+    font-size: 45
+    text-align: left;
+    color: #f58974;
+}
+.badges img{
+    width: 150px;
+    margin-top: 100px;
+    padding: 0px;
+    margin-left: 87px;
+}
+@media screen and (max-width: 768px){
+    .levelIndicatorBox{
+/*    justify-content: center;*/
+    }
+    .levelText {
+    text-align: center;
+        /*font-family: 'Racing Sans One', cursive;*/
+    }
+    hr{
+        width: 200px;
+        border-color: #7e91c3;
+    }
+.badges img{
+    width: 80px;
+    margin-left: 0;
+    margin-top:30px;
+    padding: 0;
+
+}
+.badges1 img
+{
+    width: 80px;
+    margin-top: 10px;
+    
+}
+.custom-dropdown{
+    background-color: #f58974;
+}
+.custom-dropdown li a{
+    font-size: 15px;
+}
+.custom-dropbtn
+{
+    margin-right: -30px;
+    background: transparent none repeat scroll 0% 0%;
+border: medium none;
+}
+.custom-dropbtn:hover,.custom-dropbtn:focus{
+        background: transparent none repeat scroll 0% 0% !important;
+border: medium none !important;
+}
+.declaimer{
+    padding-left:center;
+    font-size: 9px;
+}
+}
