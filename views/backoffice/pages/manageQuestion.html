@@ -9,23 +9,17 @@
     <meta name="author" content="">
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="/css/backoffice/metisMenu/metisMenu.min.css" rel="stylesheet">
     <!-- DataTables CSS -->
-    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="/css/backoffice/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
     <!-- DataTables Responsive CSS -->
-    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+    <link href="/css/backoffice/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/css/backoffice/sb-admin-2.min.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -87,7 +81,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Leaderboard</h1>
+                    <h1 class="page-header">Manage Questions</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -107,31 +101,23 @@
                                         <th>Question</th>
                                         <th>Tech Answer</th>
                                         <th>Non Tech Answer</th>
+                                        <th>Hint</th>
+                                        <th>Level</th>
                                         <th></th>
-
                                     </tr>
                                 </thead>
                                 <tbody class="questionList">
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Shaktiman</td>
-                                        <td>1</td>
-                                        <td>200</td>
+                                    <tr class="hidden">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td>
-                                            <div class="btn-group btn-justified pull-right">
-                                                <button class="btn btn-success">Edit</button>
-                                                <button class="btn btn-danger">Delete</button>
-                                            </div>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <!-- /.table-responsive -->
-                            <div class="well">
-                                <h4>DataTables Usage Information</h4>
-                                <p>DataTables is a very flexible, advanced tables plugin for jQuery. In SB Admin, we are using a specialized version of DataTables built for Bootstrap 3. We have also customized the table headings to use Font Awesome icons in place of images. For complete documentation on DataTables, visit their website at <a target="_blank" href="https://datatables.net/">https://datatables.net/</a>.</p>
-                                <a class="btn btn-default btn-lg btn-block" target="_blank" href="https://datatables.net/">View DataTables Documentation</a>
-                            </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -145,19 +131,20 @@
     </div>
     <!-- /#wrapper -->
     <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="/js/backoffice/metisMenu/metisMenu.min.js"></script>
     <!-- DataTables JavaScript -->
-    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+    <script src="/js/backoffice/datatables/jquery.dataTables.min.js"></script>
+    <script src="/js/backoffice/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="/js/backoffice/datatables-responsive/dataTables.responsive.js"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="/js/backoffice/sb-admin-2.js"></script>
+    <script src="/js/backoffice/manageQuestion.js"></script>
+
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script src="../dist/js/speechToText.js"></script>
     <script>
 
     $(document).ready(function() {
@@ -168,6 +155,7 @@
             startDictation("#searchSidebar");
         })
     });
+    </script>
     </script>
 </body>
 
