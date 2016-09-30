@@ -7,6 +7,8 @@
 
 body{
     background-image: url('img/main_login.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'Milk';
 }
 .dropdown{
@@ -22,7 +24,7 @@ body h2{
     color: #f58974;
     float: left;
     padding-left: 19px;
-    font-size: 32px;
+    font-size: 28px;
 }
 .j-center{
     display: flex;
@@ -49,15 +51,78 @@ p{
 
 }
 .levelText{
-    font-size: 45
-    text-align: left;
+    font-size: 45px;
+    text-align: center;
     color: #f58974;
 }
 .badges img{
-    width: 150px;
-    margin-top: 100px;
+    width: 80px;
+/*    margin-top: 100px;*/
     padding: 0px;
-    margin-left: 87px;
+    margin-left: 0px;
+}
+.sidebar {
+/*    width: 200px;*/
+}
+h1
+{
+    font-size: 25px;
+}
+.ques {
+    background: rgba(0,0,0,0.3);
+    border-radius: 8px;
+    padding: 20px 30px;
+    color: #fff;
+    margin-top: 30px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 2em;
+}
+.ans input {
+    background: rgba(0,0,0,0.3);
+    padding: 20px 15px;
+    margin-top: 20px;
+    border: none;
+    color: #f58974;
+    border-radius: 8px;
+    width: 100%;
+}
+.ans input:focus {
+    background: #fff;
+    border: none;
+    color: #333;
+    outline: none;
+}
+.submit_btn button{
+    background: #f58974 ;
+    padding: 13px 15px;
+    margin-top: 20px;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 40px;
+    
+}
+.custom-dropbtn
+{
+    margin-right: 30px;
+}
+.custom-dropbtn,.custom-dropbtn:hover,.custom-dropbtn:focus{
+        background: transparent !important;
+        border: none;
+    outline: none;
+}
+.custom-dropdown{
+    background-color: #f58974;
+    
+}
+.custom-dropdown a{
+    line-height: 2em;
+    color: #fff !important;
+    white-space: nowrap;
+    font-size: 14px;
 }
 @media screen and (max-width: 768px){
     .levelIndicatorBox{
@@ -72,8 +137,6 @@ p{
         border-color: #7e91c3;
     }
 .badges img{
-    width: 80px;
-    margin-left: 0;
     margin-top:30px;
     padding: 0;
 
@@ -103,5 +166,4 @@ border: medium none !important;
 .declaimer{
     padding-left:center;
     font-size: 9px;
-}
 }
