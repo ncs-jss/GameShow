@@ -139,7 +139,9 @@ app.get('/getAllQuestion', getAllQuestion);
 
 app.post('/removeQuestion', removeQuestion);
 
-app.get('/adminLogin', renderAdmin);
+app.get('/adminLogin', renderAdminLogin);
+
+app.post('admin' , adminLogin)
 
 
 
