@@ -11,9 +11,10 @@ router.post('/adminLogin', function(req, res, next) {
   var id =  req.body.id;
   var password = req.body.password;
   //console.log(password + emailOrNumber);
-  if (id == 'ncsncs12' && password == 'GameShow');
+  if (id == 'ncsncs12' && password == 'GameShow'){
    req.session.id = "admin"
 	 return res.send({'valid' : 1, 'redirect' : '/admin'});
+  }
   
 	res.send({ valid : 0});	
 });

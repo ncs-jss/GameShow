@@ -4,9 +4,9 @@ var router = express.Router();
 
 router.get('/admin', function(req, res) { 
 	console.log('req recieved for admin');
-	if(req.session.email && req.session.level)
-		return res.redirect('/');
-	res.sendFile('/views/front/login.html',{root : '.'});
-
+	if(req.session.id == 'admin')
+	res.sendFile('/views/front/index.html',{root : '.'});
+	else
+		res.redirect('/adminLogin');
 });
 module.exports = router;

@@ -6,8 +6,8 @@ var question = require ('../Models/question.js');
 
 
 router.get('/getQuestion', function(req,res){
-	if(!res.session.email ||  req.session.email == '') 
-		  res.redirect('/login');
+	if(!req.session.email ||  req.session.email == '') 
+		 return res.redirect('/login');
 
 		//all the code for gettimg question;
 		questionAssigned.findOne({'user_ID' : req.session.email , 'level' : req.session.level }, 
@@ -30,9 +30,9 @@ router.get('/getQuestion', function(req,res){
 
 
 var assignQuestion = function(req, res ) { 
-
+	console.log("level is " + req.session.level);
 	question.find({'level' : req.session.level}).exec(function(err, result) {
-
+		console.log("the length of result is " + result.length);
 		if(result.length == 0)
 			return res.send({'status' : "No questions for this level"});
 
