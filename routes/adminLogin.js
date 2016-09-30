@@ -15,7 +15,7 @@ router.post('/adminLogin', function(req, res, next) {
    req.session.email = "admin"
 	 return res.send({'valid' : 1, 'redirect' : '/admin'});
   }
-	res.send("kuch to gadbad hai!!");	
+	res.send({"incorrect admin credentials"});	
 });
 
 
