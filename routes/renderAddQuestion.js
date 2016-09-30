@@ -4,7 +4,7 @@ var router = express.Router();
 
 router.get('/addQuestion', function(req, res) { 
 	console.log('req recieved with req.session.email value' + req.session.email);
-	if(req.session.id && req.session.id == 'admin')
+	if(req.session.admin && req.session.admin == 'admin')
 		return res.sendFile('/views/backoffice/pages/addQuestion.html',{root : '.'});
 	else
 		return res.redirect('/adminLogin');
