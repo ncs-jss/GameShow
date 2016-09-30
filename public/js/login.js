@@ -23,9 +23,12 @@ $(document).ready(function() {
             $.post("http://localhost:8080/register", signup,
                 function(data, status) {
                     console.log("Data: " + data + "\nStatus: " + status);
-                    if(typeof data.redirect === "string"){
+                    if (typeof data.redirect === "string") {
                         window.location = data.redirect;
+                    } else {
+                        $("#signupmodal").find(".notifBox .notif-error").removeClass("hidden");
                     }
+
                 });
         }
     });
@@ -36,8 +39,10 @@ $(document).ready(function() {
         $.post("http://localhost:8080/login", login,
             function(data, status) {
                 console.log("Data: " + data + "\nStatus: " + status);
-                if(typeof data.redirect === "string"){
+                if (typeof data.redirect === "string") {
                     window.location = data.redirect;
+                } else {
+                    $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
                 }
             });
     });
