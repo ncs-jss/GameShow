@@ -3,7 +3,7 @@ var Schema = mongoose.Schema
 var ObjectID =  Schema.Types.ObjectId;
 
 var userInfoSchema = new Schema({
-	'refrenceNumber' : { type : ObjectID, unique : true, required : true, ref : 'Reference' },
+	'referenceNumber' : { type : ObjectID, unique : true, required : true, ref : 'Reference' },
 	'email_ID' : { type : String, unique : true,  required : true },
 	'password' : { type : String,  required : true },
 	'name' : String,

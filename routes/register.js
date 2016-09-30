@@ -27,7 +27,7 @@ router.post('/register', function(req, res) {
       var name = req.body.name;
       var year = req.body.year;
       var newUser = new User({
-        'refrenceNumber' : referenceNo,
+        'referenceNumber' : referenceNo,
         'email_ID'  : email,
         'password'  : password,
         'name'  : name,
