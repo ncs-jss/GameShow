@@ -6,13 +6,19 @@ var ObjectID = require('mongoose').Types.ObjectId;
 
 
 router.post('/register', function(req, res) {
+	if (req.session.email&& req.session.email != "")
+		return res.redirect('/');
   var referenceNo = req.body.referenceNo;
+  
   if((referenceNo.length != 24) || (new ObjectID(referenceNo) !=  referenceNo) )
     return res.send("Invalid Reference No");
+  
   Reference.findById(referenceNo).exec(function(err, result){
     console.log(result);
+    
     if(err)
       return console.log(err);
+    
     if(result.state) {
       var email = req.body.email;
       var mobileNumber = req.body.mobileNumber;
@@ -35,16 +41,23 @@ router.post('/register', function(req, res) {
 
          return res.send("try new mobileNumber or email_ID!!");
         }
+
+        //session going to be saved 
+        req.session.email = this.email_ID;
+        req.session.level = 0;
+
         result.state = false;
         result.save(function(err){
           if(err)
             console.log(err);
         });
-        res.end('Success');
+        res.redirect('/');
       }); 
     }
+
     else
     res.send("Reference number " + referenceNo + " is not valid!!");
+
   })
 });
 

@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -39,6 +40,10 @@ var getAllQuestion = require('./routes/getAllQuestion');
 var removeQuestion = require('./routes/removeQuestion');
 var renderLogin = require('./routes/renderLogin');
 var register = require('./routes/register');
+
+
+var renderAdmin = require('./routes/renderAdmin');
+
 //var renderHomePage = require ('./routes/renderHomePage')
 
 
@@ -50,11 +55,13 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(session({secret: '57eac3e1d6a4cc1134578440'}));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 // app.use('/users', users);
@@ -90,6 +97,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
+var sess;
 
 //  Registers the User and redirect you to login page.
 
@@ -108,15 +116,17 @@ app.get('/generateReference', function(req, res){
 });
 
 
-app.post('/register', register);
-
-app.get('/', index);
-
 app.get('/login', renderLogin);
+
+app.post('/register', register);
 
 app.post('/login', login);
 
+app.get('/', index);
+
 app.get('/getQuestion', getQuestion);
+
+//app.post('/checkAnswer', checkAnswer);
 
 app.post('/addQuestion', addQuestion);
 
@@ -124,6 +134,7 @@ app.get('/getAllQuestion', getAllQuestion);
 
 app.post('/removeQuestion', removeQuestion);
 
+app.get('/admin', renderAdmin);
 
 
 

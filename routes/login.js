@@ -5,6 +5,8 @@ var User = require('../Models/userInfo.js');
 
 /* GET users listing. */
 router.post('/login', function(req, res, next) {
+
+
   var emailOrNumber =  req.body.emailOrNumber;
   var password = req.body.password;
   //console.log(password + emailOrNumber);
@@ -14,7 +16,10 @@ router.post('/login', function(req, res, next) {
   					   			return console.log(err);
   					   		if (!err)
   					   			if ( result && (result.password == password) ) {
-  					   				return res.send("login Successfull Mr " + result.name);
+                      req.session.email = result.email_ID;
+                      console.log('reached here2');
+                      return res.redirect('/');
+  					   				//return res.send("login Successfull Mr " + result.name);
   					   			}
   					   			res.send("kuch to gadbad hai!!");	
   					   });
