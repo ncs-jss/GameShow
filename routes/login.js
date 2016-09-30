@@ -17,9 +17,8 @@ router.post('/login', function(req, res, next) {
   					   		if (!err)
   					   			if ( result && (result.password == password) ) {
                       req.session.email = result.email_ID;
-                      console.log('reached here2');
-                      return res.redirect('/');
-  					   				//return res.send("login Successfull Mr " + result.name);
+                     
+  					   				return res.send({'valid' : 1, 'redirect' : '/'});
   					   			}
   					   			res.send("kuch to gadbad hai!!");	
   					   });
