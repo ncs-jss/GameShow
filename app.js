@@ -42,7 +42,8 @@ var renderLogin = require('./routes/renderLogin');
 var register = require('./routes/register');
 
 
-var renderAdmin = require('./routes/renderAdmin');
+var renderAdminLogin = require('./routes/renderAdminLogin');
+var adminLogin = require('./routes/adminLogin');
 
 //var renderHomePage = require ('./routes/renderHomePage')
 
@@ -133,15 +134,15 @@ app.get('/getQuestion', getQuestion);
 //admin apis
 
 
+app.get('/adminLogin', renderAdminLogin); //to get Login page
+
+app.post('/adminLogin' , adminLogin)  //to post credentials of admin
+
 app.post('/addQuestion', addQuestion);
 
 app.get('/getAllQuestion', getAllQuestion);
 
 app.post('/removeQuestion', removeQuestion);
-
-app.get('/adminLogin', renderAdminLogin);
-
-app.post('admin' , adminLogin)
 
 
 

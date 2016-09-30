@@ -14,8 +14,8 @@ router.post('/adminLogin', function(req, res, next) {
   if (id == 'ncsncs12' && password == 'GameShow');
    req.session.email = "admin"
 	 return res.send({'valid' : 1, 'redirect' : '/admin'});
-  }
-	res.send({"incorrect admin credentials"});	
+  
+	res.send({ valid : 0});	
 });
 
 
