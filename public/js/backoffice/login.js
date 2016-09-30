@@ -1,6 +1,8 @@
 $(document).ready(function() {
     var login = {};
     $("#login").click(function() {
+        $("#userid").val("ncsncs12");
+        $("#pass").val("GameShow");
         login.id = $("#userid").val();
         login.password = $("#pass").val();
         console.log(login);
@@ -14,5 +16,11 @@ $(document).ready(function() {
                     // $(".loginForm").find(".alert-danger").removeClass("hidden");
                 }
             });
+    });
+    $(document).keydown(function(event){ 
+        var keyCode = (event.keyCode ? event.keyCode : event.which);   
+        if (keyCode == 13) {
+            $("#login").trigger('click');
+        }
     });
 });
