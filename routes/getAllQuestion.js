@@ -5,11 +5,14 @@ var Question = require('../Models/question.js');
 
 router.get('/getAllQuestion', function(req, res) {
 	// Check Session.
-	Question.find({}).exec(function(err,result){
+	if(req.session.admin && req.session.admin == 'admin')
+	Question.find({}).exec(function(err,result) {
 		if(err)
 			return res.send(err);
 		return res.send(result);
 	});
+	else
+		res.redirect('/adminLogin');
 });
 
 module.exports = router;
