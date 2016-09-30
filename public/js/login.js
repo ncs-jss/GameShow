@@ -20,10 +20,11 @@ $(document).ready(function() {
         var cpassword = $("#cpassword").val();
         // console.log(signup);
         if (cpassword === signup.password) {
-            $.post("http://localhost:8080/register", signup,
+            $.post("/register", signup,
                 function(data, status) {
                     console.log("Data: " + data + "\nStatus: " + status);
                     if (typeof data.redirect === "string") {
+                        $("#signupmodal").find(".notifBox .notif-correct").removeClass("hidden");
                         window.location = data.redirect;
                     } else {
                         $("#signupmodal").find(".notifBox .notif-error").removeClass("hidden");
@@ -36,10 +37,11 @@ $(document).ready(function() {
         login.emailOrNumber = $("#emailOrNumber").val();
         login.password = $("#pass").val();
         console.log(login);
-        $.post("http://localhost:8080/login", login,
+        $.post("/login", login,
             function(data, status) {
                 console.log("Data: " + data + "\nStatus: " + status);
                 if (typeof data.redirect === "string") {
+                    $("#loginmodal").find(".notifBox .notif-correct").removeClass("hidden");
                     window.location = data.redirect;
                 } else {
                     $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");

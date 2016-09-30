@@ -1,8 +1,19 @@
+/* font*/
+
+@font-face {
+    font-family: "Thempo";
+    src: url('../fonts/Thempo.ttf');
+}
+@font-face {
+    font-family: "LemonMilk";
+    src: url('../fonts/LemonMilk.otf');
+}
 .homebody {
     background-image: url('../img/Techtrek.jpg');
 }
 
 .loginbody {
+    font-family: "LemonMilk";
     background-image: url('../img/main_login.jpg');
     background-repeat: no-repeat;
     width: 100%;
@@ -10,12 +21,6 @@
 }
 
 
-/* font*/
-
-@font-face {
-    font-family: "thempo";
-    src: url('../fonts/Thempo.ttf');
-}
 
 .icon-bar {
     color: #fff;
@@ -30,7 +35,6 @@ a:hover {
 
 li,
 a {
-    font-family: "thempo";
     color: #ffae7e;
     font-size: 20px;
     padding-left: 10px;
@@ -63,39 +67,9 @@ a {
 }
 
 
-/************ super extra small devies only***/
-
-@media (max-width: 319px) {
-    .masthead-nav > li > a {
-        margin-right: 40px;
-    }
-}
-
-
-/************Extra small devices only*********/
-
-@media (max-width:767px) {}
-
-
-/*media queries for small devices*/
-
-@media (min-width:768px) and (max-width:991px) {}
-
-
-/*media queries for medium devices*/
-
-@media (min-width:992px) and (max-width: 1199px) {}
-
-
-/*media queries for large devices*/
-
-@media (min-width: 1200px) {}
-
-
 /** Form or Modal styling**/
 
 #Form {
-    font-family: "sans-serif";
     font-style: bold;
     font-size: 3em;
     /*color: #180f36;*/
@@ -108,7 +82,6 @@ a {
 }
 
 label {
-    font-family: "helvetica";
     font-size: 1.2em;
     color: #403469;
     padding-right: 50px;
@@ -144,7 +117,6 @@ label {
     margin-top: 20px;
     background-color: #fff;
     opacity: .4;
-    font-family: "helvetica";
     font-size: 15px;
     font-weight: bold;
     font-color: #fff;
@@ -210,3 +182,52 @@ label {
     background: transparent;
     border-left: 1px solid rgb(255, 255, 255);
 }
+
+/************ super extra small devies only***/
+
+@media (max-width: 319px) {
+    .masthead-nav > li > a {
+        margin-right: 40px;
+    }
+}
+
+
+/************Extra small devices only*********/
+
+@media (max-width:767px) {
+    .xsflexBox {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        min-height: 100vh;
+        position: relative;
+    }
+    .pos-top {
+        text-align: center;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 100%;
+    }
+    .pos-top * {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+/*media queries for small devices*/
+
+@media (min-width:768px) and (max-width:991px) {}
+
+
+/*media queries for medium devices*/
+
+@media (min-width:992px) and (max-width: 1199px) {}
+
+
+/*media queries for large devices*/
+
+@media (min-width: 1200px) {}
+
