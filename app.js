@@ -35,15 +35,19 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
 var getQuestion = require('./routes/getQuestion');
-var addQuestion = require('./routes/addQuestion');
 var getAllQuestion = require('./routes/getAllQuestion');
 var removeQuestion = require('./routes/removeQuestion');
 var renderLogin = require('./routes/renderLogin');
 var register = require('./routes/register');
 
 
+
+//for backOffice use routes
+
 var renderAdminLogin = require('./routes/renderAdminLogin');
 var adminLogin = require('./routes/adminLogin');
+var renderAdmin = require('./routes/admin')
+var addQuestion = require('./routes/addQuestion');
 
 //var renderHomePage = require ('./routes/renderHomePage')
 
@@ -61,7 +65,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 
 
@@ -138,12 +142,15 @@ app.get('/adminLogin', renderAdminLogin); //to get Login page
 
 app.post('/adminLogin' , adminLogin)  //to post credentials of admin
 
+app.get('/admin', renderAdmin)
+
 app.post('/addQuestion', addQuestion);
 
 app.get('/getAllQuestion', getAllQuestion);
 
 app.post('/removeQuestion', removeQuestion);
 
+//app.get('/')
 
 
 

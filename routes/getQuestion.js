@@ -6,7 +6,9 @@ var question = require ('../Models/question.js');
 
 
 router.get('/getQuestion', function(req,res){
-	if(res.session.email && req.session.email != '' && req.session.level&&req.session.level) {
+	if(!res.session.email ||  req.session.email == '') 
+		  res.redirect('/login');
+
 		//all the code for gettimg question;
 		questionAssigned.findOne({'user_ID' : req.session.email , 'level' : req.session.level }, 
 			function(err,result) {
@@ -18,7 +20,8 @@ router.get('/getQuestion', function(req,res){
 				else
 					assignQuestion(req, res);
 			});
-	}
+	
+
 
 
 
