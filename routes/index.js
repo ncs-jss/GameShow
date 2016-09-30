@@ -10,10 +10,10 @@ router.get('/', function(req, res) {
 	}
   	else 
   		req.session.destroy(function(err) {
-  			if(err) {
+  			if(err) 
   				return res.send(err);
   			res.redirect('/login');
-  			}
+  			
   		})
 });
 

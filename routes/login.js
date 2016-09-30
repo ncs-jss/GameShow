@@ -17,6 +17,7 @@ router.post('/login', function(req, res, next) {
   					   		if (!err)
   					   			if ( result && (result.password == password) ) {
                       req.session.email = result.email_ID;
+                      req.session.level = result.level;
                      
   					   				return res.send({'valid' : 1, 'redirect' : '/'});
   					   			}
