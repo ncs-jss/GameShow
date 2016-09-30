@@ -1,0 +1,21 @@
+.topNav {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+}
+.leaderBox {
+    min-height: 100vh;
+    /*background: #000;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.transparentBox {
+    height: 350px;
+    width: 800px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 4px;
+    overflow-y: scroll;
+}
+.leaderBox table{
+}
