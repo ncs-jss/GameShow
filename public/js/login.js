@@ -23,6 +23,9 @@ $(document).ready(function() {
             $.post("http://localhost:8080/register", signup,
                 function(data, status) {
                     console.log("Data: " + data + "\nStatus: " + status);
+                    if(typeof data.redirect === "string"){
+                        window.location = data.redirect;
+                    }
                 });
         }
     });
@@ -33,6 +36,9 @@ $(document).ready(function() {
         $.post("http://localhost:8080/login", login,
             function(data, status) {
                 console.log("Data: " + data + "\nStatus: " + status);
+                if(typeof data.redirect === "string"){
+                    window.location = data.redirect;
+                }
             });
     });
 });

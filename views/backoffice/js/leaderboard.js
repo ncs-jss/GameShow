@@ -1,20 +1,23 @@
 $(document).ready(function() {
-    $.get("http://localhost:8080/leaderboard", function(data) {
+    $.get("/getAllQuestion", function(data) {
         console.log(data);
         var openHtml = '<tr>';
-        var closeHtml = '<td><div class="btn-group btn-justified pull-right"><button class="btn btn-success">View</button><button class="btn btn-danger">Delete</button></div></td></tr>';
-        for (var i = 0,
-                var l = data.length; i < l; i++) {
-            // var allHtml = $(".questionList").html();
-            var allHtml = '';
-            $.each(data[i], function(key, value) {
-                allHtml += '<td>' + value + '</td>';
-            });
+        var closeHtml = '<td><div class="btn-group btn-justified pull-right"><button class="btn btn-success">Edit</button><button class="btn btn-danger deleteQuesBtn">Delete</button></div></td></tr>';
+        var allHtml;
+        for (var i = 0, l = data.length; i < l; i++) {
+            allHtml = '<td>' + i + '</td>\n';
+            allHtml += '<td>' + data[i].question + '</td>\n';
+            allHtml += '<td>' + data[i].technicalAnswer + '</td>\n';
+            allHtml += '<td>' + data[i].nonTechnicalAnswer + '</td>\n';
             allHtml = openHtml + allHtml + closeHtml;
             $(".questionList").append(allHtml);
         }
     });
-    // $('.addQuesBtn').click(function() {
-    //     ques.question = $(".question").val();
-    // });
-})
+    // Delete feature
+    $('.deleteQuesBtn').click(function() {
+        var question_ID = $(this).
+        $.post("/removeQuestion", question_ID, function(data, status) {
+            console.log("Data: " + data + "\nStatus: " + status);
+        });
+    });
+});
