@@ -37,8 +37,6 @@ var index = require('./routes/index');
 //var users = require('./routes/users');
 var login = require('./routes/login');
 var getQuestion = require('./routes/getQuestion');
-var getAllQuestion = require('./routes/getAllQuestion');
-var removeQuestion = require('./routes/removeQuestion');
 
 
 
@@ -48,9 +46,13 @@ var renderAdminLogin = require('./routes/renderAdminLogin');
 var adminLogin = require('./routes/adminLogin');
 var renderAdmin = require('./routes/admin')
 var renderAdminLeaderBoard = require('./routes/renderAdminLeaderBoard');
+var getAllQuestion = require('./routes/getAllQuestion');
+var renderRemoveQuestion = require('./routes/renderRemoveQuestion');
+var removeQuestion = require('./routes/removeQuestion');
 var addQuestion = require('./routes/addQuestion');
 var renderAddQuestion =require('./routes/renderAddQuestion');
-
+var logout = require ('./routes/logout');
+var leaderBoard = require ('./routes/leaderBoard')
 //var renderHomePage = require ('./routes/renderHomePage')
 
 
@@ -142,9 +144,9 @@ app.get('/getQuestion', getQuestion);
 
 app.get('/adminLogin', renderAdminLogin); //to get Login page
 
-app.post('/adminLogin', adminLogin)  //to post credentials of admin
+app.post('/adminLogin', adminLogin);  //to post credentials of admin
 
-app.get('/admin', renderAdmin)
+app.get('/admin', renderAdmin);
 
 app.get('/addQuestion', renderAddQuestion);
 
@@ -152,11 +154,15 @@ app.post('/addQuestion', addQuestion);
 
 app.get('/getAllQuestion', getAllQuestion);
 
+app.get('/removeQuestion', renderRemoveQuestion);
+
 app.post('/removeQuestion', removeQuestion);
 
 app.get('/adminLeaderBoard', renderAdminLeaderBoard );
 
+app.get('/leaderBoard', leaderBoard)
 
+app.get('/logout', logout)
 
 
 app.listen("8080", function(){

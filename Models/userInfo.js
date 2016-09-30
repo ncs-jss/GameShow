@@ -13,7 +13,8 @@ var userInfoSchema = new Schema({
 	'score' : {type : Number, default : 0 },
 	'level' : { type : Number, default : 1 },	//level of question he is going to attempt ; min = 1;
 	//'questionAssigned' : [{ type : ObjectID , ref: questionAssigned }],
-	'date' :  { type : Date, default : Date.now }
+	'date' :  { type : Date, default : Date.now },
+	'lastAttemptTime' : { type :Date }
 
 });
 
