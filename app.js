@@ -31,14 +31,14 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
 });
 
 // Requiring Routes
+var renderLogin = require('./routes/renderLogin');
+var register = require('./routes/register');
 var index = require('./routes/index');
-var users = require('./routes/users');
+//var users = require('./routes/users');
 var login = require('./routes/login');
 var getQuestion = require('./routes/getQuestion');
 var getAllQuestion = require('./routes/getAllQuestion');
 var removeQuestion = require('./routes/removeQuestion');
-var renderLogin = require('./routes/renderLogin');
-var register = require('./routes/register');
 
 
 
@@ -47,6 +47,7 @@ var register = require('./routes/register');
 var renderAdminLogin = require('./routes/renderAdminLogin');
 var adminLogin = require('./routes/adminLogin');
 var renderAdmin = require('./routes/admin')
+var renderAdminLeaderBoard = require('./routes/renderAdminLeaderBoard');
 var addQuestion = require('./routes/addQuestion');
 
 //var renderHomePage = require ('./routes/renderHomePage')
@@ -140,7 +141,7 @@ app.get('/getQuestion', getQuestion);
 
 app.get('/adminLogin', renderAdminLogin); //to get Login page
 
-app.post('/adminLogin' , adminLogin)  //to post credentials of admin
+app.post('/adminLogin', adminLogin)  //to post credentials of admin
 
 app.get('/admin', renderAdmin)
 
@@ -150,7 +151,7 @@ app.get('/getAllQuestion', getAllQuestion);
 
 app.post('/removeQuestion', removeQuestion);
 
-//app.get('/')
+app.get('/adminLeaderBoard', renderAdminLeaderBoard );
 
 
 
