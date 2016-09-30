@@ -128,13 +128,20 @@ app.get('/getQuestion', getQuestion);
 
 //app.post('/checkAnswer', checkAnswer);
 
+
+
+//admin apis
+
+
 app.post('/addQuestion', addQuestion);
 
 app.get('/getAllQuestion', getAllQuestion);
 
 app.post('/removeQuestion', removeQuestion);
 
-app.get('/admin', renderAdmin);
+app.get('/adminLogin', renderAdmin);
+
+
 
 
 
