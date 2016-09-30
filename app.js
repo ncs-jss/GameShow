@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 var ObjectID = require('mongoose').Types.ObjectId;
+var crypto = require('crypto');
 
 
 var app = express();
@@ -112,16 +113,23 @@ var sess;
 
 
 // This will generate a referance number and returns it .
-app.get('/generateReference', function(req, res){
-  var newReference = new Reference({
-    state : true
-  });
-  console.log("req received ")
-  newReference.save(function(err) { 
-    if(!err) {
-      res.send({id:newReference._id});
-    }
-  });
+app.post('/generateReference', function(req, res){
+  if(req.session.admin && req.session.admin == "admin") {
+    var newReference = new Reference({
+      state : true,
+      email_ID : req.body.email,
+      hash : crypto.createHash(md5).update(req.body.email).digest('hex')
+    });
+    
+    
+    newReference.save(function(err) { 
+      if(!err) {
+        res.send({id : newReference.hash});
+      }
+    });
+  }
+  else
+    res.send("log in first!");
 });
 
 

@@ -1,6 +1,7 @@
 var express = require ('express');
 var router = express.Router();
 var Question = require('../Models/question.js');
+var crypto = require('crypto');
 
 
 router.get('/getAllQuestion', function(req, res) {
