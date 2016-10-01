@@ -2,8 +2,6 @@ $(document).ready(function() {
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
     });
-    var signup = {};
-    var login = {};
     var modal = "";
     var toggled = false;
     $(".visibilityToggle").click(function() {
@@ -31,51 +29,51 @@ $(document).ready(function() {
             elem.addClass("hidden");
         }, 600);
     }
-    $("#submit").click(function() {
-        signup.email = $("#email").val();
-        var remail = new RegExp(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
-            rmobileNumber = new RegExp(/^[0-9]{1,10}$/),
-            rreferenceNo = new RegExp(/^[a-z0-9]+$/i);
-        signup.mobileNumber = $("#mob").val();
-        signup.password = $("#password").val();
-        signup.avatar = parseInt($(".avatarContainer input:checked").val());
-        signup.name = $("#name").val();
-        signup.year = $("#year").val();
-        signup.referenceNo = $("#referenceNo").val();
-        var cpassword = $("#cpassword").val();
-        console.log(signup);
-        if (cpassword === signup.password && signup.email.match(remail) && signup.mobileNumber.match(rmobileNumber) && signup.referenceNo.match(rreferenceNo)) {
-            $.post("/register", signup,
-                function(data, status) {
-                    console.log("Data: " + data + "\nStatus: " + status);
-                    if (typeof data.redirect === "string") {
-                        $("#signupmodal").find(".notifBox .notif-correct").removeClass("hidden");
-                        window.location = data.redirect;
-                    } else {
-                        showError($("#signupmodal"));
-                    }
+    // $("#submit").click(function() {
+    //     signup.email = $("#email").val();
+    //     var remail = new RegExp(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
+    //         rmobileNumber = new RegExp(/^[0-9]{1,10}$/),
+    //         rreferenceNo = new RegExp(/^[a-z0-9]+$/i);
+    //     signup.mobileNumber = $("#mob").val();
+    //     signup.password = $("#password").val();
+    //     signup.avatar = parseInt($(".avatarContainer input:checked").val());
+    //     signup.name = $("#name").val();
+    //     signup.year = $("#year").val();
+    //     signup.referenceNo = $("#referenceNo").val();
+    //     var cpassword = $("#cpassword").val();
+    //     console.log(signup);
+    //     if (cpassword === signup.password && signup.email.match(remail) && signup.mobileNumber.match(rmobileNumber) && signup.referenceNo.match(rreferenceNo)) {
+    //         $.post("/register", signup,
+    //             function(data, status) {
+    //                 console.log("Data: " + data + "\nStatus: " + status);
+    //                 if (typeof data.redirect === "string") {
+    //                     $("#signupmodal").find(".notifBox .notif-correct").removeClass("hidden");
+    //                     window.location = data.redirect;
+    //                 } else {
+    //                     showError($("#signupmodal"));
+    //                 }
 
-                });
-        } else {
-            showError($("#signupmodal"));
-        }
-    });
-    $("#login").click(function() {
-        $("#emailOrNumber").val("9911502984");
-        $("#pass").val("a");
-        login.emailOrNumber = $("#emailOrNumber").val();
-        login.password = $("#pass").val();
-        $.post("/login", login,
-            function(data, status) {
-                console.log("Data: " + data + "\nStatus: " + status);
-                if (typeof data.redirect === "string") {
-                    $("#loginmodal").find(".notifBox .notif-correct").removeClass("hidden");
-                    window.location = data.redirect;
-                } else {
-                    // $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
-                }
-            });
-    });
+    //             });
+    //     } else {
+    //         showError($("#signupmodal"));
+    //     }
+    // });
+    // $("#login").click(function() {
+    //     $("#emailOrNumber").val("9911502984");
+    //     $("#pass").val("a");
+    //     login.emailOrNumber = $("#emailOrNumber").val();
+    //     login.password = $("#pass").val();
+    //     $.post("/login", login,
+    //         function(data, status) {
+    //             console.log("Data: " + data + "\nStatus: " + status);
+    //             if (typeof data.redirect === "string") {
+    //                 $("#loginmodal").find(".notifBox .notif-correct").removeClass("hidden");
+    //                 window.location = data.redirect;
+    //             } else {
+    //                 // $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
+    //             }
+    //         });
+    // });
     $(".checkModal1").click(function() {
         modal = $("#submit");
     });
