@@ -30,3 +30,9 @@ body{
 	width: 180px;
 	height: 10px;
 }
+@media screen and(max-width:600px){
+.setwidth img{
+    width: 20px;
+    height: 20px;
+}
+}

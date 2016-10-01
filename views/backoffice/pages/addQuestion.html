@@ -116,10 +116,18 @@
                                             </div>
                                             <div class="form-group col-xs-12 col-md-6">
                                                 <label>Level</label>
-                                                <input class="form-control level" placeholder="Level">
+                                                <input class="form-control level" placeholder="Level" type="number">
                                             </div>
                                         </div>
-                                        <button class="btn btn-success pull-right addQuesBtn">Add Question</button>
+                                        <div class="row">
+                                        <div class="col-xs-12 col-sm-8 alertBox">
+                                            <div class="alert alert-danger hidden"><strong>Error !</strong> Question Not Added</div>
+                                            <div class="alert alert-success hidden"><strong>Success !</strong> Question Added</div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4">
+                                            <button class="btn btn-success pull-right addQuesBtn">Add Question</button>
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
@@ -142,7 +150,6 @@
         <script src="/js/backoffice/metisMenu/metisMenu.min.js"></script>
         <!-- Custom Theme JavaScript -->
         <script src="/js/backoffice/sb-admin-2.js"></script>
-        <script src="/js/backoffice/leaderboard.js"></script>
 
         <script src="/js/backoffice/addQuestion.js"></script>
 </body>

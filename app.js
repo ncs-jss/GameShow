@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var ObjectID = require('mongoose').Types.ObjectId;
 var crypto = require('crypto');
+var MongoStore = require('connect-mongo/es5')(session);
 
 
 var app = express();
@@ -38,6 +39,7 @@ var index = require('./routes/index');
 //var users = require('./routes/users');
 var login = require('./routes/login');
 var getQuestion = require('./routes/getQuestion');
+var checkAnswer = require('./routes/checkAnswer');
 
 
 
@@ -45,15 +47,16 @@ var getQuestion = require('./routes/getQuestion');
 
 var renderAdminLogin = require('./routes/renderAdminLogin');
 var adminLogin = require('./routes/adminLogin');
-var renderAdmin = require('./routes/admin')
+var renderAdmin = require('./routes/admin');
 var renderAdminLeaderBoard = require('./routes/renderAdminLeaderBoard');
+var leaderBoard = require ('./routes/leaderBoard')
 var getAllQuestion = require('./routes/getAllQuestion');
 var renderRemoveQuestion = require('./routes/renderRemoveQuestion');
 var removeQuestion = require('./routes/removeQuestion');
 var addQuestion = require('./routes/addQuestion');
 var renderAddQuestion =require('./routes/renderAddQuestion');
+var renderGenerateReference = require('./routes/renderGenerateReference');
 var logout = require ('./routes/logout');
-var leaderBoard = require ('./routes/leaderBoard')
 //var renderHomePage = require ('./routes/renderHomePage')
 
 
@@ -65,7 +68,10 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(session({secret: '57eac3e1d6a4cc1134578440'}));
+app.use(session({
+  secret: '57eac3e1d6a4cc1134578440',
+  store : new MongoStore({ mongooseConnection: mongoose.connection 
+})}));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -126,11 +132,15 @@ app.post('/generateReference', function(req, res){
       if(!err) {
         res.send({id : newReference.hash});
       }
+      else
+        console.log(err);
     });
   }
   else
     res.send("log in first!");
 });
+
+
 
 
 app.get('/login', renderLogin);
@@ -143,7 +153,7 @@ app.get('/', index);
 
 app.get('/getQuestion', getQuestion);
 
-//app.post('/checkAnswer', checkAnswer);
+app.post('/checkAnswer', checkAnswer);
 
 
 
@@ -155,6 +165,8 @@ app.get('/adminLogin', renderAdminLogin); //to get Login page
 app.post('/adminLogin', adminLogin);  //to post credentials of admin
 
 app.get('/admin', renderAdmin);
+
+app.get('/generateReference', renderGenerateReference)
 
 app.get('/addQuestion', renderAddQuestion);
 
@@ -168,7 +180,9 @@ app.post('/removeQuestion', removeQuestion);
 
 app.get('/adminLeaderBoard', renderAdminLeaderBoard );
 
-app.get('/leaderBoard', leaderBoard)
+app.get('/leaderBoard', leaderBoard);
+
+
 
 app.get('/logout', logout)
 

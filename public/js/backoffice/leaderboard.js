@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $.get("/leaderBoard", function(data) {
         console.log(data);
-        var openHtml = '<tr>';
+        var openHtml = '<tr class="text-center">';
         var closeHtml = '<td><div class="btn-group btn-justified pull-right"><button class="btn btn-success">Edit</button><button class="btn btn-danger deleteQuesBtn">Delete</button></div></td></tr>';
         var allHtml;
         var j;
@@ -20,10 +20,11 @@ $(document).ready(function() {
         }
         // Delete feature
         $('.deleteQuesBtn').click(function() {
-            var question_ID = $(this)[0].dataset.id;
-            console.log(question_ID);
-            $.post("/removeQuestion", { question_ID: question_ID }, function(data, status) {
+            var user_ID = $(this)[0].dataset.id;
+            console.log(user_ID);
+            $.post("/removeUser", { user_ID: user_ID }, function(data, status) {
                 console.log("Data: " + data + "\nStatus: " + status);
+                location.reload();
             });
         });
     });

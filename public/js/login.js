@@ -1,14 +1,7 @@
 $(document).ready(function() {
     var signup = {};
     var login = {};
-    /*Testing code
-    $.get("http://localhost:8080/generateReference", function(data) {
-        $("#referenceNo").val(data.id);
-    });
-    $.get("http://localhost:8080/getAllQuestion", function(data) {
-        console.log(data);
-    });
-    */
+    var modal = "";
     $("#submit").click(function() {
         signup.email = $("#email").val();
         signup.mobileNumber = $("#mob").val();
@@ -34,6 +27,8 @@ $(document).ready(function() {
         }
     });
     $("#login").click(function() {
+        $("#emailOrNumber").val("9911502984");
+        $("#pass").val("a");
         login.emailOrNumber = $("#emailOrNumber").val();
         login.password = $("#pass").val();
         console.log(login);
@@ -47,5 +42,19 @@ $(document).ready(function() {
                     $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
                 }
             });
+    });
+    $(".checkModal1").click(function(){
+        modal = $("#submit");
+    });
+    $(".checkModal2").click(function(){
+        modal = $("#login");
+    });
+    $(document).keydown(function(event) {
+        var keyCode = (event.keyCode ? event.keyCode : event.which);
+        if (keyCode == 13) {
+            if(modal){
+                modal.trigger('click');
+            }
+        }
     });
 });
