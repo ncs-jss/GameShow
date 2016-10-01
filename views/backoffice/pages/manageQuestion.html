@@ -33,26 +33,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.html">Tech Trek v2.0</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
+                <li><a href="/logout" class="logOut"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
             </ul>
             <!-- /.navbar-top-links -->
             <div class="navbar-default sidebar" role="navigation">
@@ -70,7 +55,16 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="/admin"><i class="fa fa-bar-chart fa-fw"></i> Leaderboard</a>
+                        </li>
+                        <li>
+                            <a href="/addQuestion"><i class="fa fa-plus fa-fw"></i> Add Question</a>
+                        </li>
+                        <li>
+                            <a href="/removeQuestion"><i class="fa fa-puzzle-piece fa-fw"></i> Manage Questions</a>
+                        </li>
+                        <li>
+                            <a href="/generateReference"><i class="fa fa-barcode fa-fw"></i> Generate Reference</a>
                         </li>
                     </ul>
                 </div>

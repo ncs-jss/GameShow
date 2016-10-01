@@ -28,6 +28,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- Custom styles for this template -->
+    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="/css/notif.css" rel="stylesheet">
     <link href="/css/login.css" rel="stylesheet">
 </head>
@@ -84,16 +85,20 @@
                                 <div class="col-xs-12 col-sm-5 col-sm-offset-1">
                                     <input placeholder="Email" type="email" name="email" class="form-control" id="email" />
                                 </div>
-                                <div class="col-xs-11">
-                                    <input placeholder="Reference No." type="text" name="referenceNo" class="form-control" id="referenceNo" />
+                                <div class="col-xs-11" data-toggle="tooltip" title="is alphanumeric!" data-placement="left">
+                                    <input placeholder="Reference No." pattern="[a-zA-Z0-9]{40}" type="text" name="referenceNo" class="form-control" id="referenceNo" />
                                 </div>
-                                <div class="col-xs-12 col-sm-5 col-sm-offset-0">
+                                <div class="col-xs-12 col-sm-5 col-sm-offset-0 icon-cont" data-toggle="tooltip" title="Must be Cool" data-placement="left">
                                     <input placeholder="Password" type="password" name="password" class="form-control" id="password" />
+                                    <span class="visibilityToggle">
+                                        <span class="fa fa-eye"></span>
+                                        <span class="fa fa-eye-slash hidden"></span>
+                                    </span>
                                 </div>
-                                <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+                                <div class="col-xs-12 col-sm-5 col-sm-offset-1" data-toggle="tooltip" title="Must be matching" data-placement="right">
                                     <input placeholder="Confirm Password" type="password" name="cpassword" class="form-control" id="cpassword" />
                                 </div>
-                                <div class="col-xs-12 col-sm-5 col-sm-offset-0">
+                                <div class="col-xs-12 col-sm-5 col-sm-offset-0" data-toggle="tooltip" title="is of 10 digits" data-placement="left">
                                     <input placeholder="Mobile" type="text" name="mob" class="form-control" id="mob" />
                                 </div>
                                 <div class="col-xs-12 col-sm-5 col-sm-offset-1">
@@ -137,8 +142,12 @@
                                 <div class="col-xs-12 col-sm-5 col-sm-offset-1">
                                     <input placeholder="Email" type="email" name="email" class="form-control" id="emailOrNumber" />
                                 </div>
-                                <div class="col-xs-12 col-sm-5 col-sm-offset-0">
+                                <div class="col-xs-12 col-sm-5 col-sm-offset-0 icon-cont">
                                     <input placeholder="Password" type="password" name="pass" class="form-control" id="pass" />
+                                    <span class="visibilityToggle">
+                                        <span class="fa fa-eye"></span>
+                                        <span class="fa fa-eye-slash hidden"></span>
+                                    </span>
                                 </div>
                             </div>
                         </div>

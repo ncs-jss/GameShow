@@ -153,6 +153,13 @@ label {
     padding-bottom: 15px;
 
 }
+.icon-cont .visibilityToggle{
+    position: absolute;
+    right: 20px;
+    top: 0px;
+    z-index: 1;
+    color: #fff;
+}
 .transparentModal:after{
     content: " ";
     filter: blur(5px);
