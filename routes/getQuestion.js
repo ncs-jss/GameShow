@@ -15,7 +15,7 @@ router.get('/getQuestion', function(req,res){
 				console.log(result);
 				if(result) {
 					//populate question details then send
-					res.send(result);
+					res.send({"question" :result.question_ID.question});
 				}
 				else
 					assignQuestion(req, res);
