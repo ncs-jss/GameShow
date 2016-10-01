@@ -3,11 +3,11 @@ $(document).ready(function() {
     $.get("/getQuestion", function(data) {
         $(".ques").html(data.question);
 
-        $.get("/getUser", function(data) {
+        $.get("/User", function(data) {
             new Circlebar({
                 element: "#circle-1",
                 type: "progress",
-                maxValue: "72"
+                maxValue: Math.floor(data.score/2)
             });
             $(".userName").html(data.name);
             $(".levelText h1 strong").html(data.level);

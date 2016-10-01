@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('.genBtn').click(function(){
-        $.get("/generateReference", function(data) {
+        $.post("/generateReference",{email_ID : $(".emailId").val()}, function(data) {
             $('.referenceId').html(data.id);
         });
     });

@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var ObjectID = require('mongoose').Types.ObjectId;
 var crypto = require('crypto');
-var MongoStore = require('connect-mongo')(session);
+var MongoStore = require('connect-mongo/es5')(session);
 
 
 var app = express();
