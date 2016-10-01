@@ -127,6 +127,8 @@ app.post('/generateReference', function(req, res){
       if(!err) {
         res.send({id : newReference.hash});
       }
+      else
+        console.log(err);
     });
   }
   else
