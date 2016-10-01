@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var ObjectID = require('mongoose').Types.ObjectId;
 var crypto = require('crypto');
+var MongoStore = require('connect-mongo')(session);
 
 
 var app = express();
@@ -67,7 +68,10 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(session({secret: '57eac3e1d6a4cc1134578440'}));
+app.use(session({
+  secret: '57eac3e1d6a4cc1134578440',
+  store : new MongoStore({ mongooseConnection: mongoose.connection 
+})}));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
