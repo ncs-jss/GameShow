@@ -1,68 +1,90 @@
-body{
+    body {
     background-image: url('../img/main_login.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Milk';
 }
-.dropdown{
+
+.dropdown {
     float: left;
     padding-left: 30px;
 }
-.drop{
+
+.drop {
     float: right;
     padding-right: 15px;
     padding-top: 13px;
 }
-body h2{
+.trekNav{
+    background: rgba(0, 0, 0, 0.2);
+}
+.trekNav img {
+    width: 44px;
+    margin-top: 10px;
+}
+
+.userName {
     color: #f58974;
     float: left;
     padding-left: 19px;
-    font-size: 28px;
+    font-size: 20px;
 }
-.j-center{
+
+.j-center {
     display: flex;
     justify-content: center;
 }
-p{
+
+.badgesBox p {
     margin: 5px 12px 10px;
     color: #6D1262;
 }
-/*Add attribute data-circle-skin = "white" to the div */
-/*Note :- This looks best on dark backgrounds*/
-.levelIndicator .loader-bg {
-  border-color: rgba(255,255,255,.15);
-  /*for unloaded bg*/
-  box-shadow: inset 2px 2px 20px 0 #fff; !important;
-}
-.levelIndicator .text {
-  font-size: 20px;
-  color: #f58974 !important;
-}
-.levelIndicator .loader-spinner {
-/*  border-color: #4c68a6;*/
-      border-color: #f58974;
 
+
+/*Add attribute data-circle-skin = "white" to the div */
+
+
+/*Note :- This looks best on dark backgrounds*/
+
+.levelIndicator .loader-bg {
+    border-color: rgba(255, 255, 255, .15);
+    /*for unloaded bg*/
+    box-shadow: inset 2px 2px 20px 0 rgba(0, 0, 0, 0.1) !important;
 }
-.levelText{
+
+.levelIndicator .text {
+    font-size: 20px;
+    color: #f58974 !important;
+}
+
+.levelIndicator .loader-spinner {
+    /*  border-color: #4c68a6;*/
+    border-color: #f58974;
+}
+
+.levelText {
     font-size: 45px;
     text-align: center;
     color: #f58974;
 }
-.badges img{
+
+.badges img {
     width: 80px;
-/*    margin-top: 100px;*/
+    /*    margin-top: 100px;*/
     padding: 0px;
     margin-left: 0px;
 }
+
 .sidebar {
-/*    width: 200px;*/
+    /*    width: 200px;*/
 }
-h1
-{
+
+h1 {
     font-size: 25px;
 }
+
 .ques {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 8px;
     padding: 20px 30px;
     color: #fff;
@@ -71,8 +93,9 @@ h1
     font-size: 16px;
     line-height: 2em;
 }
+
 .ans input {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     padding: 17px 15px;
     margin-top: 20px;
     border: none;
@@ -81,14 +104,16 @@ h1
     width: 100%;
     transition: .6s;
 }
+
 .ans input:focus {
     background: #fff;
     border: none;
     color: #333;
     outline: none;
 }
-.submit_btn button{
-    background: #f58974 ;
+
+.submit_btn button {
+    background: #f58974;
     padding: 12px 15px;
     margin-top: 20px;
     border: none;
@@ -97,67 +122,119 @@ h1
     font-size: 20px;
     width: 100%;
     margin-bottom: 40px;
-    
 }
-.custom-dropbtn
-{
+
+.custom-dropbtn {
     margin-right: 30px;
 }
-.custom-dropbtn,.custom-dropbtn:hover,.custom-dropbtn:focus{
-        background: transparent !important;
-        border: none;
+
+.custom-dropbtn,
+.custom-dropbtn:hover,
+.custom-dropbtn:focus {
+    background: transparent !important;
+    border: none;
     outline: none;
 }
-.custom-dropdown{
+
+.custom-dropdown {
     background-color: #f58974;
-    
 }
-.custom-dropdown a{
+
+.custom-dropdown a {
     line-height: 2em;
     color: #fff !important;
     white-space: nowrap;
     font-size: 14px;
 }
-@media screen and (max-width: 768px){
-    .levelIndicatorBox{
-/*    justify-content: center;*/
+.trekNav li a {
+    font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+    .trekNav {
+        min-height: 80px;
     }
+    .trekNav .container-fluid {
+        display: flex;
+        height: 80px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .trekNav li a:hover {
+        color: #fff;
+        background: rgba(0, 0, 0, 0.1);
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .trekNav {
+        margin-bottom: 20px;
+        /*border-bottom: 1px solid #f58974;*/
+    }
+    .userName {
+        font-size: 13px;
+        line-height: 63px;
+    }
+    .ques {
+        border-radius: 4px;
+        padding: 15px 10px;
+        margin-top: 10px;
+        font-size: 13px;
+    }
+    .submit_btn button {
+        background: #f58974;
+        padding: 12px 8px;
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+    .badges img {
+        width: 56px;
+    }
+
     .levelText {
-    text-align: center;
+        text-align: center;
         /*font-family: 'Racing Sans One', cursive;*/
     }
-    hr{
+    hr {
         width: 200px;
         border-color: #7e91c3;
     }
-.badges img{
-    margin-top:30px;
-    padding: 0;
-
-}
-.badges1 img
-{
-    width: 80px;
-    margin-top: 10px;
-    
-}
-.custom-dropdown{
-    background-color: #f58974;
-}
-.custom-dropdown li a{
-    font-size: 15px;
-}
-.custom-dropbtn
-{
-    margin-right: -30px;
-    background: transparent none repeat scroll 0% 0%;
-border: medium none;
-}
-.custom-dropbtn:hover,.custom-dropbtn:focus{
+    .badges img {
+        margin-top: 30px;
+        padding: 0;
+    }
+    .badges1 img {
+        width: 80px;
+        margin-top: 10px;
+    }
+    .badgesBox p {
+        margin: 0;
+        margin-left: 5px;
+        margin-top: 10px;
+        font-size: 12px;
+    }
+    .ans input {
+        padding: 16px 10px;
+        font-size: 12px;
+    }
+    .custom-dropdown {
+        background-color: #f58974;
+    }
+    .custom-dropdown li a {
+        font-size: 15px;
+    }
+    .custom-dropbtn {
+        margin-right: -30px;
+        background: transparent none repeat scroll 0% 0%;
+        border: medium none;
+    }
+    .custom-dropbtn:hover,
+    .custom-dropbtn:focus {
         background: transparent none repeat scroll 0% 0% !important;
-border: medium none !important;
-}
-.declaimer{
-    padding-left:center;
-    font-size: 9px;
-}
+        border: medium none !important;
+    }
+    .declaimer {
+        padding-left: center;
+        font-size: 9px;
+    }

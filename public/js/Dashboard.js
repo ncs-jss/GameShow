@@ -1,13 +1,18 @@
 $(document).ready(function() {
     $('.dropdown-toggle').dropdown();
     $.get("/getQuestion", function(data) {
-        $(".ques").html(data.question);
+        setTimeout(function() {
+            $(".ques p").addClass("animated");
+            $(".ques p").addClass("fadeIn");
+            $(".ques p").html(data.question);
+
+        }, 1000);
 
         $.get("/User", function(data) {
             new Circlebar({
                 element: "#circle-1",
                 type: "progress",
-                maxValue: Math.floor(data.score/2)
+                maxValue: Math.floor(data.score / 2)
             });
             $(".userName").html(data.name);
             $(".levelText h1 strong").html(data.level);

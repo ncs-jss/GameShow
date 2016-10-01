@@ -12,11 +12,8 @@
     <title>Tech-Trek</title>
     <!-- Custom styles for this template -->
     <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/circle.css" rel="stylesheet">
     <!-- Latest compiled and minified JavaScript -->
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/circlebars@1.0.3/dist/circle.css">
-    <script src="https://unpkg.com/circlebars@1.0.3/dist/jquery.min.js"></script>
-    <script src="https://unpkg.com/circlebars@1.0.3/dist/circle.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/circlebars@1.0.3/dist/skins/whitecircle.css">
 
     <!-- Bootstrap core CSS -->
     <link href="/css/animate.min.css" rel="stylesheet">
@@ -32,28 +29,33 @@
 </head>
 
 <body>
-    <h2 class="userName">yash's Dashboard</h2>
-    <div class="drop">
-        <!--        <img src="/img/Dropdown.png">-->
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle custom-dropbtn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img src="img/Dropdown.png">
-            </button>
-            <ul class="dropdown-menu custom-dropdown" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Rules</a></li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">LeaderBoard</a></li>
-                <li><a href="#">Forum</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Logout</a></li>
-            </ul>
+    <nav class="navbar trekNav">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <img src="/img/Dropdown.png">
+          </button>
+          <span class="userName navbar-brand">yash's Dashboard</span>
         </div>
-    </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right" aria-labelledby="dropdownMenu1">
+              <li><a href="#">Rules</a></li>
+              <li class="active"><a href="#">Dashboard</a></li>
+              <li><a href="#">LeaderBoard</a></li>
+              <li><a href="#">Forum</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div style="clear:both;"></div>
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-6">
+                <h4 style="color: #f58974;margin-left: 10px;">Question</h4>
                 <div class="ques">
-                    Loading Question ... Hold Your Horses !
+                    <p>Loading Question ... Hold Your Horses !</p>
                 </div>
                 <div class="row">
                     <div class="ans col-md-8">
@@ -74,7 +76,7 @@
                   </div>
                 </div>
             </div>
-            <div class="col-md-5 col-md-offset-1">
+            <div class="col-xs-12 col-md-5 col-md-offset-1">
                 <div class=" levelIndicatorBox">
                     <div class="row">
                         <div class="col-xs-12 j-center">
@@ -92,7 +94,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row badgesBox">
                         <div class="col-xs-4 badges">
                             <img src="/img/Badge.png">
                             <p>Badge-1</p>
@@ -122,11 +124,12 @@
             </div>
         </div>
     </div>
-    <div class="declaimer">
+    <div class="declaimer hidden">
         <p>DECLAIMER : The fastest to collect all the badges will win a cash prize
             <p>
     </div>
     <script type="text/javascript" src="/js/Dashboard.js"></script>
+    <script src="/js/circle.js"></script>
 </body>
 
 </html>
