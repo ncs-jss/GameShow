@@ -26,21 +26,13 @@
     <!--fonts-->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!-- <script src="js/ie-emulation-modes-warning.js"></script> -->
-    <!--animation -->
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-     <![endif]-->
-    <!-- Custom styles for this template -->
+    <link href="/css/notif.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/Dashboard.css">
+
 </head>
 
 <body>
-    <h2>yash's Dashboard</h2>
+    <h2 class="userName">yash's Dashboard</h2>
     <div class="drop">
         <!--        <img src="/img/Dropdown.png">-->
         <div class="dropdown">
@@ -61,15 +53,25 @@
         <div class="row">
             <div class="col-xs-12 col-md-6">
                 <div class="ques">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor quibusdam eum architecto vel quo assumenda, inventore magnam sit. Autem cupiditate consectetur eos deserunt sed veritatis dignissimos repellat, ut similique molestias.
+                    Loading Question ... Hold Your Horses !
                 </div>
                 <div class="row">
                     <div class="ans col-md-8">
-                        <input type="text" placeholder="What's The Answer ?">
+                        <input type="text" placeholder="I Seek an Answer ">
                     </div>
                     <div class="col-md-4 submit_btn">
                         <button>Check</button>
                     </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 notifBox">
+                      <div class="notif notif-error hidden">
+                          <strong>Really Starlord !</strong> That's What you thought ?.
+                      </div>
+                      <div class="notif notif-correct hidden">
+                          <strong> My Dear Holmes ! </strong>You're Right.
+                      </div>
+                  </div>
                 </div>
             </div>
             <div class="col-md-5 col-md-offset-1">

@@ -1,14 +1,6 @@
 $(document).ready(function() {
     var signup = {};
     var login = {};
-    /*Testing code
-    $.get("http://localhost:8080/generateReference", function(data) {
-        $("#referenceNo").val(data.id);
-    });
-    $.get("http://localhost:8080/getAllQuestion", function(data) {
-        console.log(data);
-    });
-    */
     var modal = "";
     $("#submit").click(function() {
         signup.email = $("#email").val();
@@ -35,6 +27,8 @@ $(document).ready(function() {
         }
     });
     $("#login").click(function() {
+        $("#emailOrNumber").val("9911502984");
+        $("#pass").val("a");
         login.emailOrNumber = $("#emailOrNumber").val();
         login.password = $("#pass").val();
         console.log(login);

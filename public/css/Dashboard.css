@@ -1,10 +1,3 @@
-
-@font-face{
-    font-family: 'Milk';
-    src: url('fonts/LemonMilk.otf');
-    
-}
-
 body{
     background-image: url('../img/main_login.jpg');
     background-repeat: no-repeat;
@@ -80,12 +73,13 @@ h1
 }
 .ans input {
     background: rgba(0,0,0,0.3);
-    padding: 20px 15px;
+    padding: 17px 15px;
     margin-top: 20px;
     border: none;
     color: #f58974;
-    border-radius: 8px;
+    border-radius: 4px;
     width: 100%;
+    transition: .6s;
 }
 .ans input:focus {
     background: #fff;
@@ -95,7 +89,7 @@ h1
 }
 .submit_btn button{
     background: #f58974 ;
-    padding: 13px 15px;
+    padding: 12px 15px;
     margin-top: 20px;
     border: none;
     color: #fff;
