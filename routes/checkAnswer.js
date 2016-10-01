@@ -15,7 +15,9 @@ router.post('/checkAnswer', function(req, res) {
 				console.log('the result is' + result );
 				if(req.body.answer) {
 					console.log("the answercoming from req is "+ req.body.answer);
-					if(req.body.answer == result.question_ID.technicaAnswer) {
+					console.log('the TechnicalAnswer answer is'+ result.question_ID.technicalAnswer )
+					
+					if(req.body.answer == result.question_ID.technicalAnswer) {
 						
 						user.findOne({email_ID : req.session.email}, function(err, data) {
 							data.score +=10;
@@ -42,8 +44,8 @@ router.post('/checkAnswer', function(req, res) {
 						});
 					}
 
+					else if(req.body.answer ==  result.question_ID.nonTechnicalAnswer) {
 					console.log('the nonTechnicalAnswer answer is'+ result.question_ID.nonTechnicalAnswer )
-					if(req.body.answer ==  result.question_ID.nonTechnicalAnswer) {
 						user.findOne({email_ID : req.session.email}, function(err, data) {
 							data.score +=5;
 							data.lastAttemptTime = Date.now();
@@ -68,7 +70,7 @@ router.post('/checkAnswer', function(req, res) {
 
 						});
 					}
-					else
+					else 
 						res.send({valid : 0, comment : "incorrect choice"});
 
 				}

@@ -28,6 +28,7 @@ router.get('/getQuestion', function(req,res){
 
 var assignQuestion = function(req, res ) { 
 	console.log("Assigning question for: level : " + req.session.level);
+	
 	question.find({'level' : req.session.level}).exec(function(err, result) {
 		console.log("the length of result is " + result.length);
 		if(result.length == 0)
@@ -52,8 +53,10 @@ var assignQuestion = function(req, res ) {
 					newQuestionToBeAssigned.save(function(Err) {
 						if(err)
 							console.log(err)
-						else 
+						else {
+							console.log("successfully default question assigned  with data \n"+newQuestionToBeAssigned);
 							res.redirect('/');
+						}
 
 					});
 
