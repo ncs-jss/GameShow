@@ -29,7 +29,7 @@ body{
     color: aliceblue;
 }
 .table-style td.pad{
-    padding-right: 300px;
+    padding-right: 50px;
 }
 .table-score{
     font-size: 40px;
@@ -37,7 +37,7 @@ body{
     width: 20px;
 }
 .table-score span{
-    border-left: 1px solid #fff !important;
+    border-left: 2px solid rgba(162, 133, 133, 0.29) !important;
     padding-left: 30px;
 }
 td{
@@ -52,4 +52,7 @@ td{
 }
 .table-img img{
     width: 76px;
+}
+.table-style > tbody > tr:hover {
+    background-color: rgba(0,0,0,0.4);
 }
