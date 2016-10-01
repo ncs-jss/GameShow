@@ -6,7 +6,7 @@ router.get('/', function(req, res) {
 	console.log(req.session.email);
 	if(req.session.email && req.session.email != "") {
 		console.log('reached request');
-  		res.sendFile('/views/front/Tech-trek.html',{root : '.'});
+  		res.sendFile('/views/front/Dashboard.html',{root : '.'});
 	}
   	else 
   		req.session.destroy(function(err) {
