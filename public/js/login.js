@@ -72,7 +72,7 @@ $(document).ready(function() {
                     $("#loginmodal").find(".notifBox .notif-correct").removeClass("hidden");
                     window.location = data.redirect;
                 } else {
-                    $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
+                    // $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
                 }
             });
     });

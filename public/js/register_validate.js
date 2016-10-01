@@ -5,6 +5,7 @@ var valMob=1;
 var valpassword=1;
 var valcpassword=1;
 var valyear=1;
+var signup={};
 
 function initRegister()
 {
@@ -76,50 +77,30 @@ $("#submit").click(function() {
 
 	if(valName==0 && valEmail==0 && valUser==0 && valMob==0 && valpassword==0 && valcpassword==0 && valyear==0)
 	{
-		var q={"name":name,"email":email,"referenceNo":referenceNo,"mob":mob,"password":password};
-  		q="q="+JSON.stringify(q);
-  		// console.log(q);
-  		var xmlhttp = new XMLHttpRequest();
-  		xmlhttp.onreadystatechange = function()
-  		{
-		    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-		    {
-		      	result=JSON.parse(xmlhttp.responseText);
-		      	// console.log(result);
-		        if(result['location'])
-		        {
-		        	location.href=result['location'];
-		        }
-		        if(result['name'])
-		        {
-					showNameError(result['name']);
-		        }
-		        if(result['password'])
-		        {
-					showPassErrorRegister(result['password']);
-		        }
-		        if(result['email'])
-		        {
-		        	showEmailError(result['email']);
-		        }
-		        if(result['referenceNo'])
-		        {
-		        	showReferenceError(result['referenceNo']);
-		        }
-		        if(result['mob'])
-		        {
-		        	showMobError(result['mob']);
-		        }
-		    }
-  		};
-		xmlhttp.open("POST", "ajax/validate_register.php", true);
-		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xmlhttp.send(q);
+        signup.email = $("#email").val();
+		signup.mobileNumber = $("#mob").val();
+        signup.password = $("#password").val();
+        signup.avatar = parseInt($(".avatarContainer input:checked").val());
+        signup.name = $("#name").val();
+        signup.year = $("#year").val();
+        signup.referenceNo = $("#referenceNo").val();
+
+		$.post("/register", signup,
+                function(data, status) {
+                    console.log("Data: " + data + "\nStatus: " + status);
+                    if (typeof data.redirect === "string") {
+                        $("#signupmodal").find(".notifBox .notif-correct").removeClass("hidden");
+                        window.location = data.redirect;
+                    } else {
+		$("#signupmodal").find(".notifBox .notif-error strong").html("Something's wrong");
+                        $("#signupmodal").find(".notifBox .notif-error").removeClass("hidden");
+                    }
+                });
 	}
 	else
 	{
-		// alert("Please Fill correct details");
-		$("#myModal").modal()
+		$("#signupmodal").find(".notifBox .notif-error strong").html('Rectify the errors');
+        $("#signupmodal").find(".notifBox .notif-error").removeClass("hidden");
 	}
 });
 
@@ -276,6 +257,7 @@ function passwordRegister()
 		$("#password").css({"outline":"none","border-color":"white"});
 		valpassword=0;
 	}
+	passwordConfirm();
 }
 
 function passwordConfirm()

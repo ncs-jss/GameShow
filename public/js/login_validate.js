@@ -1,5 +1,6 @@
 var valLogin=1;
 var valPass=1;
+var log={};
 
 function initLogin()
 {
@@ -32,41 +33,26 @@ $("#login").click(function() {
 	// console.log(login);
 	if(valLogin==0 && valPass==0)
 	{
-		var q={"login":login,"password":password};
-	  	q="q="+JSON.stringify(q);
-	  	// console.log(q);
-	  	var xmlhttp = new XMLHttpRequest();
-	  	xmlhttp.onreadystatechange = function()
-	  	{
-		    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-		    {
-		      	result=JSON.parse(xmlhttp.responseText);
-		        if(result['location'])
-		        {
-		        	location.href=result['location'];
-		        }
-		        if(result['login'])
-		        {
-		        	$("#emailOrNumberLabel span").remove("span");
-					showLoginError(result['login']);
-		        }
-		        if(result['password'])
-		        {
-		        	$("#passLabelLogin span").remove("span");
-					showPassErrorLogin(result['password']);
-		        }
-		    }
-	  	};
-		xmlhttp.open("POST", "ajax/validate_login.php", true);
-		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xmlhttp.send(q);
+		log.emailOrNumber = $("#emailOrNumber").val();
+        log.password = $("#pass").val();
+		$.post("/login", log,
+            function(data, status) {
+                console.log("Data: " + data + "\nStatus: " + status);
+                if (typeof data.redirect === "string") {
+                    $("#loginmodal").find(".notifBox .notif-correct").removeClass("hidden");
+                    window.location = data.redirect;
+                } else {
+				$("#loginmodal").find(".notifBox .notif-error strong").html("Something's wrong");
+                    $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
+                }
+            });
 	}
 	else
 	{
-		// alert("Enter correct details");
-		$("#myModal").modal()
-
+		$("#loginmodal").find(".notifBox .notif-error strong").html('Rectify the errors');
+        $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
 	}
+
 });
 
 function showLoginError(txt)
