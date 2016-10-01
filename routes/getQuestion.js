@@ -27,7 +27,7 @@ router.get('/getQuestion', function(req,res){
 
 
 var assignQuestion = function(req, res ) { 
-	console.log("level is " + req.session.level);
+	console.log("Assigning question for: level : " + req.session.level);
 	question.find({'level' : req.session.level}).exec(function(err, result) {
 		console.log("the length of result is " + result.length);
 		if(result.length == 0)
