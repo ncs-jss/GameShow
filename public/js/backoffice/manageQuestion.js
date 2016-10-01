@@ -18,12 +18,12 @@ $(document).ready(function() {
             $(".questionList").append(allHtml);
             document.querySelectorAll(".questionList .deleteQuesBtn")[i].dataset.id = data[i]._id;
         }
-        
+
         // Delete feature
         $('.deleteQuesBtn').click(function() {
             var question_ID = $(this)[0].dataset.id;
             console.log(question_ID);
-            $.post("/removeQuestion", question_ID, function(data, status) {
+            $.post("/removeQuestion", { question_ID: question_ID }, function(data, status) {
                 console.log("Data: " + data + "\nStatus: " + status);
             });
         });
