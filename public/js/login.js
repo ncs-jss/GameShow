@@ -38,12 +38,12 @@ $(document).ready(function() {
             rreferenceNo = new RegExp(/^[a-z0-9]+$/i);
         signup.mobileNumber = $("#mob").val();
         signup.password = $("#password").val();
-        signup.avatar = "";
+        signup.avatar = $(".avatarContainer input:checked").val();
         signup.name = $("#name").val();
         signup.year = $("#year").val();
         signup.referenceNo = $("#referenceNo").val();
         var cpassword = $("#cpassword").val();
-        // console.log(signup);
+        console.log(signup);
         if (cpassword === signup.password && signup.email.match(remail) && signup.mobileNumber.match(rmobileNumber) && signup.referenceNo.match(rreferenceNo)) {
             $.post("/register", signup,
                 function(data, status) {
