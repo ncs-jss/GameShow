@@ -1,4 +1,12 @@
-.topNav {
+@font-face {
+    font-family: lemon;
+    src: url(../fonts/LemonMilk.otf);
+}
+body{
+    background-image: url(../img/main_login.jpg);
+    font-family: lemon;
+}
+@font.topNav {
     position: absolute;
     z-index: 2;
     width: 100%;
@@ -17,5 +25,31 @@
     border-radius: 4px;
     overflow-y: scroll;
 }
-.leaderBox table{
+.table-style tr{
+    color: aliceblue;
+}
+.table-style td.pad{
+    padding-right: 300px;
+}
+.table-score{
+    font-size: 40px;
+    padding: 10px 0px;
+    width: 20px;
+}
+.table-score span{
+    border-left: 1px solid #fff !important;
+    padding-left: 30px;
+}
+td{
+    border: none !important;
+}
+.table-name{
+    font-size: 28px;
+}
+.table-id{
+    font-size: 10px;
+/*    text-align: right;*/
+}
+.table-img img{
+    width: 76px;
 }

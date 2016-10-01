@@ -1,5 +1,7 @@
 body{
 	background-image: url('../img/Techtrek.jpg');
+    background: cover;
+    background-repeat: no-repeat;
 	height: 100%;
 	width: 100%;
 	
@@ -7,7 +9,7 @@ body{
 /* font*/
 @font-face{
     font-family: 'Milk';
-    src: url('fonts/LemonMilk.otf');  
+    src: url('../fonts/LemonMilk.otf');  
 }
 .icon-bar{
 	color: #fff;
@@ -18,7 +20,7 @@ a:hover{
 	color: #fff;
 }
 
-li,a{
+li a{
 	font-family: Milk;
 	color: #ffae7e;
 	font-size: 20px;
@@ -52,7 +54,10 @@ li,a{
 .modal-content {
     background-image: url(modal_1);
 }
-
+#main_navbar ul{
+    font-family: "Milk";
+    font-size: 10px;
+}
 
 /************ super extra small devies only***/
 @media (max-width: 319px){
@@ -61,25 +66,77 @@ li,a{
 	}
 
 }
-
+.box {
+    background: rgba(0,0,0,0.3);
+    border: none;
+    border-radius: 8px;
+    padding: 20px 30px;
+    color: #fff;
+    margin-top: 30px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 2em;
+    overflow: auto;
+    height: 435px;
+}
 /************Extra small devices only*********/
 @media (max-width:767px){
-
+.box{
+    font-size: 12px;
+    height: 350px;
 }
+    .dropdown{
+    float: left;
+    padding-left: 30px;
+}
+.drop{
+    float: right;
+    padding-right: 15px;
+    padding-top: 13px;}
+    
+    .custom-dropbtn
+{
+    margin-right: 30px;
+}
+.custom-dropbtn,.custom-dropbtn:hover,.custom-dropbtn:focus{
+        background: transparent !important;
+        border: none;
+    outline: none;
+}
+.custom-dropdown{
+    background-color: #f58974;
+    
+}
+.custom-dropdown a{
+    line-height: 2em;
+    color: #fff !important;
+    white-space: nowrap;
+    font-size: 14px;
+}
+}
+
 
 
 
 /*media queries for small devices*/
  @media (min-width:768px) and (max-width:991px){
 
+.box{
+    font-size: 12px;
+}
  }
+
 
 
 
 /*media queries for medium devices*/
  @media (min-width:992px) and (max-width: 1199px) {
 
+
+.box{
+    font-size: 12px;
  }
+}
 
 
 
@@ -164,9 +221,3 @@ li,a{
 /** Modal styling ends here**/
 
 /** styling  of rules as wells starts here**/
-
-.well{
-	background-color: #fff;
-	opacity: .2;
-	font-family: 
-}
