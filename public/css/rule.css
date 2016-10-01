@@ -1,0 +1,8 @@
+@font-face {
+    font-family: lemon;
+    src: url("../fonts/LemonMilk.otf");
+}
+body{
+    background-image: url("../img/main_login.jpg");
+    font-family: lemon;
+}

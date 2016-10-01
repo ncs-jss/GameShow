@@ -1,0 +1,223 @@
+body{
+	background-image: url('../img/Techtrek.jpg');
+    background: cover;
+    background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+	
+}
+/* font*/
+@font-face{
+    font-family: 'Milk';
+    src: url('../fonts/LemonMilk.otf');  
+}
+.icon-bar{
+	color: #fff;
+}
+a,
+a:focus,
+a:hover{
+	color: #fff;
+}
+
+li a{
+	font-family: Milk;
+	color: #ffae7e;
+	font-size: 20px;
+	padding-left: 10px;
+	letter-spacing: 1px;
+
+}
+.masthead-nav > li{
+	display: inline-block;
+
+}
+.masthead-nav > li > a {
+  
+  font-size: 20px;
+   /* IE8 proofing */
+  color: rgba(255,255,255,.75);
+  border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  color: #ffae7e;
+  border-bottom-color: #faa065;
+}
+.modal-content {
+    background-image: url(modal_1);
+}
+#main_navbar ul{
+    font-family: "Milk";
+    font-size: 10px;
+}
+
+/************ super extra small devies only***/
+@media (max-width: 319px){
+	.masthead-nav > li > a{
+		margin-right: 40px;
+	}
+
+}
+.box {
+    background: rgba(0,0,0,0.3);
+    border: none;
+    border-radius: 8px;
+    padding: 20px 30px;
+    color: #fff;
+    margin-top: 30px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 2em;
+    overflow: auto;
+    height: 435px;
+}
+/************Extra small devices only*********/
+@media (max-width:767px){
+.box{
+    font-size: 12px;
+    height: 350px;
+}
+    .dropdown{
+    float: left;
+    padding-left: 30px;
+}
+.drop{
+    float: right;
+    padding-right: 15px;
+    padding-top: 13px;}
+    
+    .custom-dropbtn
+{
+    margin-right: 30px;
+}
+.custom-dropbtn,.custom-dropbtn:hover,.custom-dropbtn:focus{
+        background: transparent !important;
+        border: none;
+    outline: none;
+}
+.custom-dropdown{
+    background-color: #f58974;
+    
+}
+.custom-dropdown a{
+    line-height: 2em;
+    color: #fff !important;
+    white-space: nowrap;
+    font-size: 14px;
+}
+}
+
+
+
+
+/*media queries for small devices*/
+ @media (min-width:768px) and (max-width:991px){
+
+.box{
+    font-size: 12px;
+}
+ }
+
+
+
+
+/*media queries for medium devices*/
+ @media (min-width:992px) and (max-width: 1199px) {
+
+
+.box{
+    font-size: 12px;
+ }
+}
+
+
+
+
+
+/*media queries for large devices*/
+@media (min-width: 1200px){
+
+}
+
+/** Form or Modal styling**/
+.yash{
+        background-image: url('../img/Techtrek.jpg');
+}
+#Form{
+	font-family: sans-serif;
+	font-style: bold;
+	font-size: 3em;
+	color:#180f36;
+	padding-left: 4%;
+
+}
+#container_ls{
+	width: 100%;
+	
+	
+}
+#user{
+	font-family: helvetica;
+	font-size: 1.2em;
+	color: #403469;
+	padding-right: 50px;
+}
+
+#pass{
+	font-family: helvetica;
+	font-size: 1.2em;
+	color: #403469;
+	padding-right: 50px;
+
+}
+#Course{
+	font-family: helvetica;
+	font-size: 1.2em;
+	color: #403469;
+	padding-right: 50px;
+}
+#Branch{
+	font-family: helvetica;
+	font-size: 1.2em;
+	color: #403469;
+	padding-right: 50px;
+}
+#Year{
+	font-family: helvetica;
+	font-size: 1.2em;
+	color: #403469;
+	padding-right: 50px;
+}
+#submit{
+	
+	margin-top: 10px;
+	background-color: #403469;
+	color: #fff;
+}
+#submit:hover{
+	 
+     background-color: #180f36;
+     color: #fff;
+}
+#reset{
+	margin-bottom: 10px;
+	margin-top: 10px;
+	background-color: #403469;
+	color: #fff;
+}
+#reset:hover{
+	background-color: #180f36;
+    color: #fff;
+}
+
+/** Modal styling ends here**/
+
+/** styling  of rules as wells starts here**/
