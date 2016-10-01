@@ -38,6 +38,7 @@ var index = require('./routes/index');
 //var users = require('./routes/users');
 var login = require('./routes/login');
 var getQuestion = require('./routes/getQuestion');
+var checkAnswer = require('./routes/checkAnswer');
 
 
 
@@ -148,7 +149,7 @@ app.get('/', index);
 
 app.get('/getQuestion', getQuestion);
 
-//app.post('/checkAnswer', checkAnswer);
+app.post('/checkAnswer', checkAnswer);
 
 
 
@@ -175,7 +176,9 @@ app.post('/removeQuestion', removeQuestion);
 
 app.get('/adminLeaderBoard', renderAdminLeaderBoard );
 
-app.get('/leaderBoard', leaderBoard)
+app.get('/leaderBoard', leaderBoard);
+
+
 
 app.get('/logout', logout)
 

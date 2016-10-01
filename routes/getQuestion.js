@@ -10,7 +10,7 @@ router.get('/getQuestion', function(req,res){
 		 return res.redirect('/login');
 
 		//all the code for gettimg question;
-		questionAssigned.findOne({'user_ID' : req.session.email , 'level' : req.session.level }).populate(question_ID)
+		questionAssigned.findOne({'user_ID' : req.session.email , 'level' : req.session.level }).populate('question_ID')
 		.exec(function(err,result) {
 				console.log(result);
 				if(result) {
