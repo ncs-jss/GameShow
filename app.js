@@ -20,7 +20,7 @@ var Reference = require('./Models/reference.js');
 var User = require('./Models/userInfo.js');
 
 
-var uristring ='mongodb://localhost/fresh';
+var uristring ='mongodb://localhost/first';
 var mongoOptions = { db: { safe: true } };
 
 // Connect to Database
@@ -123,17 +123,20 @@ app.post('/generateReference', function(req, res){
   if(req.session.admin && req.session.admin == "admin") {
     var newReference = new Reference({
       state : true,
-      email_ID : req.body.email,
-      hash : crypto.createHash(md5).update(req.body.email).digest('hex')
+      email_ID : req.body.email_ID,
+      referenceNumber: crypto.createHash('md5').update(req.body.email_ID).digest('hex')
     });
     
     
     newReference.save(function(err) { 
       if(!err) {
-        res.send({id : newReference.hash});
+        res.send({id : newReference.referenceNumber});
       }
-      else
+      else {
         console.log(err);
+        res.send("try new email_ID")
+      }
+
     });
   }
   else
