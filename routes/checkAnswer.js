@@ -16,9 +16,10 @@ router.post('/checkAnswer', function(req, res) {
 				if(req.body.answer) {
 					console.log("the answercoming from req is "+ req.body.answer);
 					console.log('the TechnicalAnswer answer is'+ result.question_ID.technicalAnswer )
-					
+					console.log('the nonTechnicalAnswer answer is'+ result.question_ID.nonTechnicalAnswer )
+					console.log('now lets have this ' + (req.body.answer == result.question_ID.technicalAnswer));
 					if(req.body.answer == result.question_ID.technicalAnswer) {
-						
+						console.log("technicalAnswer Matched");
 						user.findOne({email_ID : req.session.email}, function(err, data) {
 							data.score +=10;
 							data.lastAttemptTime = Date.now();
@@ -45,7 +46,6 @@ router.post('/checkAnswer', function(req, res) {
 					}
 
 					else if(req.body.answer ==  result.question_ID.nonTechnicalAnswer) {
-					console.log('the nonTechnicalAnswer answer is'+ result.question_ID.nonTechnicalAnswer )
 						user.findOne({email_ID : req.session.email}, function(err, data) {
 							data.score +=5;
 							data.lastAttemptTime = Date.now();
@@ -70,8 +70,10 @@ router.post('/checkAnswer', function(req, res) {
 
 						});
 					}
-					else 
+					else {
+						console.log("no Answer Matched");
 						res.send({valid : 0, comment : "incorrect choice"});
+					}
 
 				}
 				else
