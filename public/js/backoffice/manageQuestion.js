@@ -24,7 +24,7 @@ $(document).ready(function() {
             var question_ID = $(this)[0].dataset.id;
             console.log(question_ID);
             $.post("/removeQuestion", { question_ID: question_ID }, function(data, status) {
-                console.log("Data: " + data + "\nStatus: " + status);
+                location.reload();
             });
         });
     });

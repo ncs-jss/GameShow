@@ -20,10 +20,11 @@ $(document).ready(function() {
         }
         // Delete feature
         $('.deleteQuesBtn').click(function() {
-            var question_ID = $(this)[0].dataset.id;
-            console.log(question_ID);
-            $.post("/removeQuestion", { question_ID: question_ID }, function(data, status) {
+            var user_ID = $(this)[0].dataset.id;
+            console.log(user_ID);
+            $.post("/removeQuestion", { user_ID: user_ID }, function(data, status) {
                 console.log("Data: " + data + "\nStatus: " + status);
+                location.reload();
             });
         });
     });
