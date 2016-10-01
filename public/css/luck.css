@@ -1,0 +1,38 @@
+@font-face {
+    font-family: "lemon";
+    src: url("../fonts/LemonMilk.otf");}
+body{
+    background-image: url("../img/Untitled-2.jpg") !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: "lemon";
+    color: #fff;
+}
+.j-center{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.setwidth img{
+    width: 210px;
+    height: 210px;
+}
+.flexCont .row.largegap{
+	margin-bottom: 80px;
+}
+.flexCont .row.smallgap{
+	margin-bottom: 10px;
+}
+.underline {
+	border-bottom: 1px solid #fff;
+	width: 180px;
+	height: 10px;
+}
+@media screen and(max-width:600px){
+.setwidth img{
+    width: 20px;
+    height: 20px;
+}
+}

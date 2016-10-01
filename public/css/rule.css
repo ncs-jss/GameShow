@@ -6,3 +6,19 @@ body{
     background-image: url("../img/main_login.jpg");
     font-family: lemon;
 }
+.overlay_anime{
+    position: absolute;
+    z-index: -1;
+}
+@media screen and(max-width: 768px){
+    .overlay_anime{
+        display: none;
+    }
+    .table-score span{
+    border-left: 2px solid rgba(162, 133, 133, 0.29) !important;
+    padding-left: 10px;
+}
+    .Pad_m{
+        margin-left: -20px !important;
+    }
+}

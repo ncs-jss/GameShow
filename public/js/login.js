@@ -38,7 +38,7 @@ $(document).ready(function() {
             rreferenceNo = new RegExp(/^[a-z0-9]+$/i);
         signup.mobileNumber = $("#mob").val();
         signup.password = $("#password").val();
-        signup.avatar = $(".avatarContainer input:checked").val();
+        signup.avatar = parseInt($(".avatarContainer input:checked").val());
         signup.name = $("#name").val();
         signup.year = $("#year").val();
         signup.referenceNo = $("#referenceNo").val();
