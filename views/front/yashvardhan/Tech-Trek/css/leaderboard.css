@@ -5,6 +5,7 @@
 body{
     background-image: url(../img/main_login.jpg);
     font-family: lemon;
+    overflow-x: hidden;
 }
 @font.topNav {
     position: absolute;
@@ -21,7 +22,7 @@ body{
 .transparentBox {
     height: 350px;
     width: 800px;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.4);
     border-radius: 4px;
     overflow-y: scroll;
 }
@@ -33,18 +34,20 @@ body{
 }
 .table-score{
     font-size: 40px;
+    color: #FAAD7E;
     padding: 10px 0px;
     width: 20px;
 }
 .table-score span{
     border-left: 2px solid rgba(162, 133, 133, 0.29) !important;
-    padding-left: 30px;
+    padding-left: 20px;
 }
 td{
     border: none !important;
 }
 .table-name{
     font-size: 28px;
+    color: #FAAD7E;
 }
 .table-id{
     font-size: 10px;
@@ -55,4 +58,8 @@ td{
 }
 .table-style > tbody > tr:hover {
     background-color: rgba(0,0,0,0.4);
+}
+.overlay_anime{
+    position: absolute;
+    z-index: -1;
 }

@@ -6,3 +6,7 @@ body{
     background-image: url("../img/main_login.jpg");
     font-family: lemon;
 }
+.overlay_anime{
+    position: absolute;
+    z-index: -1;
+}

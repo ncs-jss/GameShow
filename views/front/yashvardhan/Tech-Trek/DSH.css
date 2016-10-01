@@ -162,8 +162,3 @@ border: medium none;
 .custom-dropbtn:hover,.custom-dropbtn:focus{
         background: transparent none repeat scroll 0% 0% !important;
 border: medium none !important;
-}
-.declaimer{
-    padding-left:center;
-    font-size: 9px;
-}
