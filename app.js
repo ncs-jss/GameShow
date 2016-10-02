@@ -40,7 +40,7 @@ var index = require('./routes/index');
 var login = require('./routes/login');
 var getQuestion = require('./routes/getQuestion');
 var checkAnswer = require('./routes/checkAnswer');
-var makeChoice = require('./routes/makeChoice');
+var renderMakeChoice = require('./routes/makeChoice');
 var user = require("./routes/user");
 
 
@@ -162,7 +162,9 @@ app.get('/getQuestion', getQuestion);
 
 app.post('/checkAnswer', checkAnswer);
 
-app.get("/makeChoice", makeChoice);
+app.get("/makeChoice", renderMakeChoice);
+
+app.post("/makeChoice")
 
 
 
