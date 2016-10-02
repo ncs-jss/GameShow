@@ -58,7 +58,7 @@ var renderAddQuestion =require('./routes/renderAddQuestion');
 var addQuestion = require('./routes/addQuestion');
 var renderRemoveQuestion = require('./routes/renderRemoveQuestion');
 var removeQuestion = require('./routes/removeQuestion');
-var removeQuestion = require('./routes/removeUser');
+var removeUser = require('./routes/removeUser');
 var renderGenerateReference = require('./routes/renderGenerateReference');
 
 var logout = require ('./routes/logout');
@@ -199,7 +199,7 @@ app.post('/removeQuestion', removeQuestion);
 
 
 
-app.post('/removeQuestion', removeQuestion)
+app.post('/removeUser', removeUser)
      
 
 

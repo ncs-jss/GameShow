@@ -11,7 +11,7 @@ router.post('/removeUser', function(req, res, next) {
     User.remove({_id : id },function(err) {
       if(err)
         return console.log(err)
-      res.send({valid : 1 , redirect : '/adminLeaderBoard'});
+      res.send({valid : 1 , redirect : '/admin'});
     })
     }
 });
