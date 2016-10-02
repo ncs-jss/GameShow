@@ -15,20 +15,6 @@
     padding-right: 15px;
     padding-top: 13px;
 }
-.trekNav{
-    background: rgba(0, 0, 0, 0.2);
-}
-.trekNav img {
-    width: 44px;
-    margin-top: 10px;
-}
-
-.userName {
-    color: #f58974;
-    float: left;
-    padding-left: 19px;
-    font-size: 20px;
-}
 
 .j-center {
     display: flex;
@@ -146,36 +132,10 @@ h1 {
     white-space: nowrap;
     font-size: 14px;
 }
-.trekNav li a {
-    font-size: 14px;
-}
 
-@media screen and (min-width: 768px) {
-    .trekNav {
-        min-height: 80px;
-    }
-    .trekNav .container-fluid {
-        display: flex;
-        height: 80px;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .trekNav li a:hover {
-        color: #fff;
-        background: rgba(0, 0, 0, 0.1);
-    }
-}
 
 
 @media screen and (max-width: 768px) {
-    .trekNav {
-        margin-bottom: 20px;
-        /*border-bottom: 1px solid #f58974;*/
-    }
-    .userName {
-        font-size: 13px;
-        line-height: 63px;
-    }
     .ques {
         border-radius: 4px;
         padding: 15px 10px;
@@ -194,7 +154,6 @@ h1 {
 
     .levelText {
         text-align: center;
-        /*font-family: 'Racing Sans One', cursive;*/
     }
     hr {
         width: 200px;
@@ -238,3 +197,4 @@ h1 {
         padding-left: center;
         font-size: 9px;
     }
+}
