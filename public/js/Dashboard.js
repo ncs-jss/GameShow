@@ -20,6 +20,7 @@ $(document).ready(function() {
                 });
                 $(".userName").html(data.name.split(" ")[0] + "'s DashBoard");
                 $(".levelText h1 strong").html(data.level);
+                $(".avatarBox input").val(data.avatar);
             });
         }
     });

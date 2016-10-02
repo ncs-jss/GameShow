@@ -11,40 +11,48 @@
     <link rel="icon" href="../../favicon.ico">
     <title>Tech-Trek</title>
     <!-- Custom styles for this template -->
-    <link href="/css/main.css" rel="stylesheet">
     <link href="/css/circle.css" rel="stylesheet">
     <!-- Latest compiled and minified JavaScript -->
-
     <!-- Bootstrap core CSS -->
     <link href="/css/animate.min.css" rel="stylesheet">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <link href="/css/main.css" rel="stylesheet">
     <link href="/css/notif.css" rel="stylesheet">
+    <link href="/css/avatar.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/Dashboard.css">
-
 </head>
 
 <body>
     <nav class="navbar trekNav">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <img src="/img/Dropdown.png">
-          </button>
-          <span class="userName navbar-brand">yash's Dashboard</span>
+        <div class="container-fluid">
+            <label class="avatarBox">
+                <input type="radio" name="selectAvatar" class="hidden">
+                <div class="avatar"></div>
+            </label>
+            <div class="navbar-header">
+                <div class="row">
+                    <div class="col-xs-10 col-sm-12">
+                        <span class="userName navbar-brand"></span>
+                    </div>
+                    <div class="col-xs-2 col-sm-0">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <img src="/img/Dropdown.png">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right" aria-labelledby="dropdownMenu1">
+                    <li><a href="/rules">Rules</a></li>
+                    <li class="active"><a href="#">Dashboard</a></li>
+                    <li><a href="/leader">LeaderBoard</a></li>
+                    <li><a href="https://www.facebook.com/nibblecomputersociety/" target="_blank">Forum</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right" aria-labelledby="dropdownMenu1">
-              <li><a href="#">Rules</a></li>
-              <li class="active"><a href="#">Dashboard</a></li>
-              <li><a href="#">LeaderBoard</a></li>
-              <li><a href="#">Forum</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="/logout">Logout</a></li>
-          </ul>
-        </div>
-      </div>
     </nav>
     <div style="clear:both;"></div>
     <div class="container">
@@ -63,14 +71,14 @@
                     </div>
                 </div>
                 <div class="row">
-                  <div class="col-xs-12 notifBox">
-                      <div class="notif notif-error hidden">
-                          <strong>Really Starlord !</strong> That's What you thought ?.
-                      </div>
-                      <div class="notif notif-correct hidden">
-                          <strong> My Dear Holmes ! </strong>You're Right.
-                      </div>
-                  </div>
+                    <div class="col-xs-12 notifBox">
+                        <div class="notif notif-error hidden">
+                            <strong>Really Starlord !</strong> That's What you thought ?.
+                        </div>
+                        <div class="notif notif-correct hidden">
+                            <strong> My Dear Holmes ! </strong>You're Right.
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-5 col-md-offset-1">

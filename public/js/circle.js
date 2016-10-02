@@ -17,7 +17,7 @@ function Circlebar(prefs) {
         that = this;
     this.initialise = function() {
         that.value = parseInt(attribs.circleStarttime) || parseInt(prefs.startTime) || 0;
-        that.maxValue = parseInt(attribs.circleMaxvalue) || parseInt(prefs.maxValue) || 60;
+        that.maxValue = parseInt(attribs.circleMaxvalue) || parseInt(prefs.maxValue) || 0;
         that.counter = parseInt(attribs.circleCounter) || parseInt(prefs.counter) || 1000;
         that.dialWidth = parseInt(attribs.circleDialwidth) || parseInt(prefs.dialWidth) || 5;
         that.size = attribs.circleSize || prefs.size || "150px";

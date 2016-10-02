@@ -1,8 +1,13 @@
-    body {
+body {
     background-image: url('../img/main_login.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Milk';
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
 }
 
 .dropdown {
@@ -134,8 +139,12 @@ h1 {
 }
 
 
-
 @media screen and (max-width: 768px) {
+    .avatarBox {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
     .ques {
         border-radius: 4px;
         padding: 15px 10px;
@@ -151,7 +160,6 @@ h1 {
     .badges img {
         width: 56px;
     }
-
     .levelText {
         text-align: center;
     }

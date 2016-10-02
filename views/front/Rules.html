@@ -13,6 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
+
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/rule.css" rel="stylesheet">
 
@@ -24,27 +25,29 @@
 
 <body>
     <div class="container">
-        <nav class="navbar trekNav">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <img src="/img/Dropdown.png">
-                    </button>
-                    <span class="userName navbar-brand">yash's Dashboard</span>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Rules</a></li>
-                        <li class="active"><a href="#">Dashboard</a></li>
-                        <li><a href="#">LeaderBoard</a></li>
-                        <li><a href="#">Forum</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="/logout">Logout</a></li>
-                    </ul>
+    <nav class="navbar trekNav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <img src="/img/Dropdown.png">
+                        </button>
+                    </div>
                 </div>
             </div>
-        </nav>
-        <!-- rules contents starts here-->
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right" aria-labelledby="dropdownMenu1">
+                    <li><a href="/rules">Rules</a></li>
+                    <li class="active"><a href="#">Dashboard</a></li>
+                    <li><a href="/leader">LeaderBoard</a></li>
+                    <li><a href="">Forum</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>        <!-- rules contents starts here-->
         <div>
             <div class="row overlay_anime hidden-xs">
                 <div class="col-md-3 col-md-offset-9 animated slideInRight">
