@@ -52,7 +52,7 @@ router.post('/register', function(req, res) {
           if(err)
             console.log(err);
         });
-        res.redirect({valid: 1, redirect :'/'});
+        res.send({valid: 1, redirect :'/'});
       }); 
     }
 
