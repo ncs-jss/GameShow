@@ -40,7 +40,6 @@ $(document).ready(function() {
                     $(".notifBox").find(".notif-error").addClass("animated fadeIn");
                     $(".notifBox").find(".notif-error").addClass("hidden");
                 }, 1000);
-
             }
         });
     });

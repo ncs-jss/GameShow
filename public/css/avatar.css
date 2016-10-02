@@ -32,31 +32,22 @@ input[type="radio"]:checked + .avatar {
     transition: 0.4s;
 }
 input[value="0"]+.avatar{
-    background-image: url("../img/astro.png");
+    background-image: url("../img/0.png");
 }
 input[value="1"]+.avatar{
-    background-image: url("../img/alien.png");
+    background-image: url("../img/1.png");
 }
 input[value="2"]+.avatar{
-    background-image: url("../img/astro.png");
+    background-image: url("../img/2.png");
 }
 input[value="3"]+.avatar{
-    background-image: url("../img/astro.png");
+    background-image: url("../img/3.png");
 }
 input[value="4"]+.avatar{
-    background-image: url("../img/astro.png");
+    background-image: url("../img/4.png");
 }
 input[value="5"]+.avatar{
-    background-image: url("../img/astro.png");
-}
-input[value="6"]+.avatar{
-    background-image: url("../img/astro.png");
-}
-input[value="7"]+.avatar{
-    background-image: url("../img/astro.png");
-}
-input[value="8"]+.avatar{
-    background-image: url("../img/astro.png");
+    background-image: url("../img/5.png");
 }
 
 /************Extra small devices only*********/

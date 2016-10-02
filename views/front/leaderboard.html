@@ -14,37 +14,42 @@
     <link href="/css/animate.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/avatar.css" rel="stylesheet">
     <!-- Latest compiled and minified JavaScript -->
     <link href="/css/leaderboard.css" rel="stylesheet">
 </head>
 <!--Body starts-->
 
 <body>
-    <div class="container topNav">
-        <div class="row">
-            <div class="col-sm-8 col-md-2">
-                <img src="img/ttlogo_new.png" class="animated bounceIn" style="padding-top:10px;">
-                <button type="button" class="navbar-toggle col-sm-2" data-toggle="collapse" data-target="#main_navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="col-sm-4 col-md-offset-1 col-md-8">
-                <!-- menu items-->
-                <div class="collapse navbar-collapse" id="main_navbar">
-                    <nav>
-                        <ul class="nav masthead-nav">
-                            <li><a href="file:///C:/Users/yash/Desktop/GameShow/views/front/yashvardhan/Tech-Trek/rules.html">Rules</a></li>
-                            <li><a href="file:///C:/Users/yash/Desktop/GameShow/views/front/yashvardhan/Tech-Trek/Dashboard.html">Dashboard</a></li>
-                            <li class="active"><a href="file:///C:/Users/yash/Desktop/GameShow/views/front/yashvardhan/Tech-Trek/leaderboard.html">Leaderboard</a></li>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Logout</a></li>
-                        </ul>
-                    </nav>
+    <nav class="navbar trekNav">
+        <div class="container-fluid">
+            <label class="avatarBox">
+                <input type="radio" name="selectAvatar" class="hidden">
+                <div class="avatar"></div>
+            </label>
+            <div class="navbar-header">
+                <div class="row">
+                    <div class="col-xs-10 col-sm-12">
+                        <span class="userName navbar-brand"></span>
+                    </div>
+                    <div class="col-xs-2 col-sm-0">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <img src="/img/Dropdown.png">
+                        </button>
+                    </div>
                 </div>
             </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right" aria-labelledby="dropdownMenu1">
+                    <li><a href="/rules">Rules</a></li>
+                    <li class="active"><a href="/">Dashboard</a></li>
+                    <li><a href="/leader">LeaderBoard</a></li>
+                    <li><a href="https://www.facebook.com/nibblecomputersociety/" target="_blank">Forum</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
     </div>
     <div class="container">
         <div class="row overlay_anime">
@@ -58,30 +63,12 @@
         <div class="leaderBox animated fadeInUp">
             <div class="transparentBox">
                 <table class="table table-hover table-style">
-                    <tbody>
+                    <tbody class="userList">
                         <tr>
-                            <td class="table-img"><img src="img/shuttle.png"></td>
-                            <td class="pad"><span class="table-name text-right">Yashvardhan</span>
-                                <br><span class="table-id text-right">yashapril30@gmail.com</span></td>
-                            <td class="table-score"><span>45</span></td>
-                        </tr>
-                        <tr>
-                            <td class="table-img"><img src="img/astro.png"></td>
+                            <td class="table-img"><img src="img/5.png"></td>
                             <td class="pad"><span class="table-name text-right">Abhay Rawat</span>
                                 <br><span class="table-id text-right">yashapril30@gmail.com</span></td>
                             <td class="table-score"><span>20</span></td>
-                        </tr>
-                        <tr>
-                            <td class="table-img"><img src="img/alien.png"></td>
-                            <td class="pad"><span class="table-name text-right">Aditya Aggarwal</span>
-                                <br><span class="table-id text-right">yashapril30@gmail.com</span></td>
-                            <td class="table-score"><span>15</span></td>
-                        </tr>
-                        <tr>
-                            <td class="table-img"><img src="img/alien_1.png"></td>
-                            <td class="pad"><span class="table-name text-right">Abhinav</span>
-                                <br><span class="table-id text-right">yashapril30@gmail.com</span></td>
-                            <td class="table-score"><span>10</span></td>
                         </tr>
                     </tbody>
                 </table>
