@@ -5,8 +5,7 @@ $(document).ready(function() {
             window.location = data.redirect;
         } else {
             setTimeout(function() {
-                $(".ques p").addClass("animated");
-                $(".ques p").addClass("fadeIn");
+                $(".ques p").addClass("animated fadeIn");
                 $(".ques p").html(data.question);
 
             }, 600);
@@ -24,23 +23,31 @@ $(document).ready(function() {
             });
         }
     });
-    $(".submit_btn").click(function() {
+    $(".submit_btn button").click(function() {
         $.post("/checkAnswer", { answer: $(".ans input").val() }, function(data) {
             console.log(data);
             if (data.valid == 1) {
-                $("#loginmodal").find(".notifBox .notif-correct").removeClass("hidden");
+                console.log('test');
+                $(".notifBox").find(".notif-correct").removeClass("hidden");
                 setTimeout(function() {
                     window.location = data.redirect;
                 }, 1000);
             } else {
-                $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
+                console.log('testi');
+                console.log($(".notifBox").find(".notif-error"));
+                $(".notifBox").find(".notif-error").removeClass("hidden");
+                setTimeout(function() {
+                    $(".notifBox").find(".notif-error").addClass("animated fadeIn");
+                    $(".notifBox").find(".notif-error").addClass("hidden");
+                }, 1000);
+
             }
         });
     });
     $(document).keydown(function(event) {
         var keyCode = (event.keyCode ? event.keyCode : event.which);
         if (keyCode == 13) {
-            $(".submit_btn").trigger("click");
+            $(".submit_btn button").trigger("click");
         }
     });
 
