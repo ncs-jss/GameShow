@@ -17,8 +17,10 @@ $(document).ready(function() {
                     type: "progress",
                     maxValue: parseInt(data.score / 2)
                 });
+                $("#circle-1 .text").html(data.score);
                 $(".userName").html(data.name.split(" ")[0] + "'s DashBoard");
-                $(".levelText h1 strong").html(data.level);
+                $(".levelText .level strong").html(data.level);
+                $(".levelText .score strong").html(data.score);
                 $(".avatarBox input").val(data.avatar);
             });
         }

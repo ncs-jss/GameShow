@@ -58,6 +58,9 @@ body {
     text-align: center;
     color: #f58974;
 }
+.levelText span{
+    font-size: 24px;
+}
 
 .badges img {
     width: 80px;
