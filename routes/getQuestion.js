@@ -55,7 +55,7 @@ var assignQuestion = function(req, res ) {
 							console.log(err)
 						else {
 							console.log("successfully default question assigned  with data \n");
-							res.redirect('/');
+							res.send({valid : 1 , redirect : '/'});
 						}
 
 					});
@@ -91,8 +91,12 @@ var assignQuestion = function(req, res ) {
 					newQuestionToBeAssigned.save(function(Err) {
 						if(Err)
 							console.log(Err)
-						else 
-							res.redirect('/');
+						else {
+							console.log("Question with choice assigned");
+							req.session.choice = null;
+							res.send({valid : 1,redirect:'/'});
+
+						}
 
 					});
 

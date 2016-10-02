@@ -35,14 +35,14 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
 // Requiring Routes
 var renderLogin = require('./routes/renderLogin');
 var register = require('./routes/register');
+var login = require('./routes/login');
 var index = require('./routes/index');
 //var users = require('./routes/users');
-var login = require('./routes/login');
+var user = require("./routes/user");
 var getQuestion = require('./routes/getQuestion');
 var checkAnswer = require('./routes/checkAnswer');
 var renderMakeChoice = require('./routes/makeChoice');
-var user = require("./routes/user");
-
+var makeChoice = require('./routes/makeChoice');
 
 
 //for backOffice use routes
@@ -164,7 +164,7 @@ app.post('/checkAnswer', checkAnswer);
 
 app.get("/makeChoice", renderMakeChoice);
 
-app.post("/makeChoice")
+app.post("/makeChoice", makeChoice);
 
 
 
