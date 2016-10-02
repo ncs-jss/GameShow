@@ -19,7 +19,7 @@ router.get('/user', function(req, res) {
 				avatar : result.avatar,
 				level : result.level,
 				score : result.score,
-				numberOfBadges : result.numberOfBadges
+				badges : result.badges
 				});
 			}
 			else

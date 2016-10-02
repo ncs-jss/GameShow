@@ -128,10 +128,10 @@ app.post('/generateReference', function(req, res){
   if(req.session.admin && req.session.admin == "admin") {
     var newReference = new Reference({
       state : true,
-      email_ID : req.body.email_ID,
-      referenceNumber: crypto.createHash('md5').update(req.body.email_ID).digest('hex')
+      email_ID : req.body.email_ID
     });
     
+      newReference.referenceNumber= newReference._id     //crypto.createHash('md5').update(req.body.email_ID).digest('hex')
     
     newReference.save(function(err) { 
       if(!err) {

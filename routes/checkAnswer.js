@@ -29,7 +29,8 @@ router.post('/checkAnswer', function(req, res) {
 
 							questionAssigned.find({ level : req.session.level, duration : {$gte: 1}}).populate('question_ID')
 							.exec(function (err, isAnswered) {	
-							 if(!isAnswered) {
+								console.log("the value")
+							 if(isAnswered.length==0) {
 							 	var badgeWon = true;
 							 	}
 
@@ -40,8 +41,20 @@ router.post('/checkAnswer', function(req, res) {
 										data.score +=10;
 										data.lastAttemptTime = Date.now();
 										data.level ++;
-										if(badgesCouldBeWon&&badgeWon)
-											data.numberOfBadges ++;
+										if(badgesCouldBeWon&&badgeWon){
+											data.badges.push({
+												name : 'FastestFingers',
+												level : req.session.level,
+												timeOfAssignment : Date.now()
+											});
+										}
+										if(badgesCouldBeWon){
+											data.badges.push({
+													name : 'MileStone',
+													level : req.session.level,
+													timeOfAssignment : Date.now()
+												});
+										}
 										result.timeOfCompletion  = Date.now();
 										result.duration = result.timeOfCompletion.getTime()-result.timeOfAssignment.getTime();
 										data.save(function(err) {
@@ -58,7 +71,7 @@ router.post('/checkAnswer', function(req, res) {
 
 										});
 										req.session.level = data.level;
-										res.send({valid: 1, redirect:'/'});
+										return res.send({valid: 1, redirect:'/'});
 
 									});
 								}
@@ -68,8 +81,21 @@ router.post('/checkAnswer', function(req, res) {
 										data.score +=5;
 										data.lastAttemptTime = Date.now();
 										data.level ++;
-										if(badgesCouldBeWon&&badgeWon)
-											data.numberOfBadges ++;
+										if(badgesCouldBeWon&&badgeWon){
+											data.badges.push({
+												name : 'FastestFingers',
+												level : req.session.level,
+												timeOfAssignment : Date.now()
+											});
+										}
+										if(badgesCouldBeWon){										
+											data.badges.push({
+													name : 'MileStone',
+													level : req.session.level,
+													timeOfAssignment : Date.now()
+												});
+										}
+
 										result.timeOfCompletion  = Date.now();
 										result.duration = result.timeOfCompletion.getTime()-result.timeOfAssignment.getTime();
 										data.save(function(err) {
