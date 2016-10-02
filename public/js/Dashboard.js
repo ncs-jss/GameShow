@@ -12,6 +12,7 @@ $(document).ready(function() {
 
             $.get("/user", function(data) {
                 console.log(data);
+                localStorage.setItem('data',JSON.stringify(data));
                 new Circlebar({
                     element: "#circle-1",
                     type: "progress",
