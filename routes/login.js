@@ -17,14 +17,15 @@ router.post('/login', function(req, res, next) {
     }, function(err, result) {
         if (err)
             return console.log(err);
-        if (!err)
-            if (result && (result.password == password)) {
+
+        if (result)
+            if (result.password == password) {
                 req.session.email = result.email_ID;
                 req.session.level = result.level;
 
                 return res.send({ 'valid': 1, 'redirect': '/' });
             }
-        res.send("kuch to gadbad hai!!");
+        res.send({valid : 0, comment : "Incorrect Email or Number"});
     });
 
 });

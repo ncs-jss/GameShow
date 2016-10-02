@@ -14,13 +14,14 @@ router.post('/register', function(req, res) {
   if((referenceNo.length != 32) )
     return res.send("Invalid Reference No");
   
-  Reference.findOne({'referenceNumber' : referenceNo }).exec(function(err, result){
+  Reference.findOne({'referenceNumber' : referenceNo, state : true }).exec(function(err, result){
     console.log(result);
     
+
     if(err)
       return console.log(err);
-    
-    if(result && result.state) {
+
+    if(result) {
       var email = req.body.email;
       var mobileNumber = req.body.mobileNumber;
       var password = req.body.password;
@@ -39,8 +40,7 @@ router.post('/register', function(req, res) {
       newUser.save(function(err){
         if (err) {
           console.log(err)
-
-         return res.send("try new mobileNumber or email_ID!!");
+          return res.send({valid : 0 , comment :"try new mobileNumber or email_ID!!"});
         }
 
         //session going to be saved 
@@ -52,12 +52,13 @@ router.post('/register', function(req, res) {
           if(err)
             console.log(err);
         });
+        
         res.send({valid: 1, redirect :'/'});
       }); 
     }
 
     else
-    res.send("Reference number " + referenceNo + " is not valid!!");
+      res.send({ valid : 0, comment : "ReferenceNo is InValid!!"});
 
   });
 });

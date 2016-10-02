@@ -54,11 +54,13 @@ var renderAdmin = require('./routes/admin');
 var renderAdminLeaderBoard = require('./routes/renderAdminLeaderBoard');
 var leaderBoard = require ('./routes/leaderBoard')
 var getAllQuestion = require('./routes/getAllQuestion');
+var renderAddQuestion =require('./routes/renderAddQuestion');
+var addQuestion = require('./routes/addQuestion');
 var renderRemoveQuestion = require('./routes/renderRemoveQuestion');
 var removeQuestion = require('./routes/removeQuestion');
-var addQuestion = require('./routes/addQuestion');
-var renderAddQuestion =require('./routes/renderAddQuestion');
+var removeQuestion = require('./routes/removeUser');
 var renderGenerateReference = require('./routes/renderGenerateReference');
+
 var logout = require ('./routes/logout');
 //var renderHomePage = require ('./routes/renderHomePage')
 
@@ -196,6 +198,8 @@ app.get('/adminLeaderBoard', renderAdminLeaderBoard );
 
 app.get('/leaderBoard', leaderBoard);
 
+app.post('/removeQuestion', removeQuestion)
+     
 
 
 app.get('/logout', logout)
