@@ -2,81 +2,103 @@
     font-family: "lemon";
     src: url(../fonts/LemonMilk.otf);
 }
+
 .topNav {
     position: absolute;
     z-index: 2;
     width: 100%;
 }
+
 body {
     font-family: "lemon";
     height: 100vh;
     overflow: hidden;
 }
+
 .leaderBox {
     /*background: #000;*/
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .transparentBox {
     height: 350px;
     width: 800px;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 4px;
     overflow-y: scroll;
     padding: 5px 20px;
 }
+
 .transparentBox::-webkit-scrollbar {
     width: 8px;
 }
-.transparentBox::-webkit-scrollbar-thumb{
+
+.transparentBox::-webkit-scrollbar-thumb {
     width: 8px;
     background: #f58974;
-
 }
-.table-style tr{
+
+.table-style tr {
     color: aliceblue;
 }
-.table-style td.pad{
+
+.table-style td.pad {
     padding-right: 50px;
 }
-.table-score{
+
+.table-score {
     font-size: 40px;
     color: #FAAD7E;
     padding: 10px 0px;
     width: 20px;
 }
-.table-score span{
+
+.table-score span {
     border-left: 2px solid rgba(162, 133, 133, 0.29) !important;
     padding-left: 20px;
 }
-td{
+
+td {
     border: none !important;
 }
-.table-name{
+
+.table-name {
     font-size: 28px;
     color: #FAAD7E;
 }
-.table-id{
+
+.table-id {
     font-size: 10px;
-/*    text-align: right;*/
+    /*    text-align: right;*/
 }
-.table-img img{
+
+.table-img img {
     width: 76px;
 }
+
 .table-style > tbody > tr:hover {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
-.overlay_anime{
+
+.overlay_anime {
     position: absolute;
     z-index: -1;
 }
-@media screen and(max-width: 768px){
-    .overlay_anime{
+@media screen and(max-width: 768px) {
+    .overlay_anime {
         display: none;
     }
-    .table-score span{
-    border-left: 2px solid rgba(162, 133, 133, 0.29) !important;
-    padding-left: 10px;
-}
+    .table-score span {
+        border-left: 2px solid rgba(162, 133, 133, 0.29) !important;
+        padding-left: 10px;
+    }
+    .transparentBox {
+        height: 200px;
+        width: 100%;
+    }
+    .table-img img {
+        width: 40px;
+    }
 }
