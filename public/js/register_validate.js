@@ -85,17 +85,10 @@ $("#submit").click(function() {
 
         $.post("/register", signup,
             function(data, status) {
-<<<<<<< HEAD
                 console.log("Data: " + data + "\nStatus: " + status);
                 console.log(data.comment);
                 if (data.valid == 1) {
                     $("#signupmodal").find(".notifBox .notif-error").addClass("hidden");
-=======
-                // console.log("Data: " + data + "\nStatus: " + status);
-                // console.log(data.comment);
-                if (typeof data.redirect === "string") {
-                    $("#signupmodal").find(".notifBox .notif-error").addClass("hidden");
->>>>>>> bad52287c3f306169c67dea00e0fbc861735cdd8
                     $("#signupmodal").find(".notifBox .notif-correct").removeClass("hidden");
                     window.location = data.redirect;
                 } else {
@@ -253,12 +246,7 @@ function year() {
     if (year == "") {
         valyear = 1;
         showYearError(" *Please input your year");
-    }
-    else if(year > 4 || year <1) {
-        valyear=1;
-        showYearError(" *Please input correct year");
-    }
-    else {
+    } else {
         $("#year").css({ "outline": "none", "border-color": "white" });
         valyear = 0;
     }
