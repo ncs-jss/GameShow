@@ -10,14 +10,14 @@ $(document).ready(function() {
             $(".ques p").addClass("fadeIn");
             $(".ques p").html(data.question);
 
-        }, 1000);
+        }, 600);
 
         $.get("/user", function(data) {
             console.log(data);
             new Circlebar({
                 element: "#circle-1",
                 type: "progress",
-                maxValue: Math.floor(data.score / 2)
+                maxValue: parseInt(data.score / 2)
             });
             $(".userName").html(data.name.split(" ")[0] + "'s DashBoard");
             $(".levelText h1 strong").html(data.level);
@@ -28,7 +28,9 @@ $(document).ready(function() {
             console.log(data);
             if (data.valid) {
                 $("#loginmodal").find(".notifBox .notif-correct").removeClass("hidden");
-                location.reload();
+                setTimeout(function() {
+                    window.location = data.redirect;
+                }, 1000);
             } else {
                 $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
             }
