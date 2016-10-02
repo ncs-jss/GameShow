@@ -6,7 +6,7 @@ var ObjectID = require('mongoose').Types.ObjectId;
 
 
 router.post('/register', function(req, res) {
-	if(req.session.email && req.session.level)
+  if(req.session.email && req.session.level)
     return res.send({valid :0,redirect :'/'});
 
   var referenceNo = req.body.referenceNo;
@@ -52,7 +52,6 @@ router.post('/register', function(req, res) {
           if(err)
             console.log(err);
         });
-        console.log()
         res.send({valid: 1, redirect :'/'});
       }); 
     }

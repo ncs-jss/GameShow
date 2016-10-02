@@ -15,7 +15,7 @@ router.get('/getQuestion', function(req,res){
 				console.log(result);
 				if(result) {
 					//populate question details then send
-					res.send({"question" :result.question_ID.question});
+					res.send({valid :1, "question" :result.question_ID.question});
 				}
 				else
 					assignQuestion(req, res);
@@ -55,7 +55,7 @@ var assignQuestion = function(req, res ) {
 							console.log(err)
 						else {
 							console.log("successfully default question assigned  with data \n");
-							res.send({valid : 1 , redirect : '/'});
+							res.send({valid : 0 , redirect : '/'});
 						}
 
 					});
@@ -94,7 +94,7 @@ var assignQuestion = function(req, res ) {
 						else {
 							console.log("Question with choice assigned");
 							req.session.choice = null;
-							res.send({valid : 1,redirect:'/'});
+							res.send({valid : 0,redirect:'/'});
 
 						}
 
