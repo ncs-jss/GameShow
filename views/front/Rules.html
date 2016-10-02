@@ -63,7 +63,8 @@
                 </div>
             </div>
             <div class="well box animated fadeInUp">
-                <ul class="Pad_m" style="padding-left:0px;">
+                <h1 class="pageheading">Rules</h1>
+                <ul class="Pad_m">
                     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur tempore, asperiores atque ullam unde non magni, labore quasi deserunt. Repellat reprehenderit aperiam placeat. Consequuntur repellat odit dolores perspiciatis nihil, culpa!</li>
                     <li>Nemo molestias consequatur necessitatibus doloremque ipsa id, laborum, eius tempora nulla explicabo fugit quam accusamus autem ipsam ea impedit eveniet inventore accusantium, beatae deleniti! Eos harum mollitia temporibus vitae quia.</li>
                     <li>Sed velit ex aut, placeat repudiandae, temporibus consectetur quaerat ut porro saepe ullam ipsum, natus quo impedit expedita. Dolorum eveniet unde, amet, aliquid provident aspernatur voluptates iste id cumque architecto?</li>
@@ -82,7 +83,7 @@
                 $.get("/user", function(data) {
                     userdata = data;
                 });
-            } 
+            }
             $(".userName").html(userdata.name);
             $(".avatarBox input").val(userdata.avatar);
         });
