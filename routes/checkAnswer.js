@@ -76,7 +76,7 @@ router.post('/checkAnswer', function(req, res) {
 									});
 								}
 
-								if(req.body.answer ==  result.question_ID.nonTechnicalAnswer) {
+								else if(req.body.answer ==  result.question_ID.nonTechnicalAnswer) {
 									user.findOne({email_ID : req.session.email}, function(err, data) {
 										data.score +=5;
 										data.lastAttemptTime = Date.now();
