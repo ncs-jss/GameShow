@@ -14,11 +14,16 @@ router.get('/', function(req, res) {
   		req.session.destroy(function(err) {
   			if(err) 
   				return res.send(err);
-  			res.redirect('/login');
+  			res.send({valid : 0, redirect :'/login'});
   			
   		})
     })
-}
+  }
+  else
+    res.redirect('/login');
+    
+
+
 });
 
 module.exports = router;
