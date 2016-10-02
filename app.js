@@ -44,6 +44,8 @@ var getQuestion = require('./routes/getQuestion');
 var checkAnswer = require('./routes/checkAnswer');
 var renderMakeChoice = require('./routes/renderMakeChoice');
 var makeChoice = require('./routes/makeChoice');
+var leaderBoard = require ('./routes/leaderBoard')
+var renderLeaderBoard = require('./routes/renderLeaderBoard');
 
 
 //for backOffice use routes
@@ -51,8 +53,6 @@ var makeChoice = require('./routes/makeChoice');
 var renderAdminLogin = require('./routes/renderAdminLogin');
 var adminLogin = require('./routes/adminLogin');
 var renderAdmin = require('./routes/admin');
-var renderAdminLeaderBoard = require('./routes/renderAdminLeaderBoard');
-var leaderBoard = require ('./routes/leaderBoard')
 var getAllQuestion = require('./routes/getAllQuestion');
 var renderAddQuestion =require('./routes/renderAddQuestion');
 var addQuestion = require('./routes/addQuestion');
@@ -171,6 +171,9 @@ app.get('/makeChoice', renderMakeChoice);
 
 app.post("/makeChoice", makeChoice);
 
+app.get('/Leader', renderLeaderBoard );
+
+app.get('/leaderBoard', leaderBoard);
 
 
 //admin apis
@@ -194,9 +197,7 @@ app.get('/removeQuestion', renderRemoveQuestion);
 
 app.post('/removeQuestion', removeQuestion);
 
-app.get('/adminLeaderBoard', renderAdminLeaderBoard );
 
-app.get('/leaderBoard', leaderBoard);
 
 app.post('/removeQuestion', removeQuestion)
      
