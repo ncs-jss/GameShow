@@ -27,7 +27,8 @@ router.get('/getQuestion', function(req,res){
 
 
 var assignQuestion = function(req, res ) { 
-	console.log("level is " + req.session.level);
+	console.log("Assigning question for: level : " + req.session.level);
+	
 	question.find({'level' : req.session.level}).exec(function(err, result) {
 		console.log("the length of result is " + result.length);
 		if(result.length == 0)
@@ -52,8 +53,10 @@ var assignQuestion = function(req, res ) {
 					newQuestionToBeAssigned.save(function(Err) {
 						if(err)
 							console.log(err)
-						else 
-							res.redirect('/');
+						else {
+							console.log("successfully default question assigned  with data \n");
+							res.send({valid : 1 , redirect : '/'});
+						}
 
 					});
 
@@ -66,7 +69,7 @@ var assignQuestion = function(req, res ) {
 			if(!req.session.choice || req.session.choice == null) {
 				console.log('sending 3 doors page');
 				//res.sendFile('')
-				res.send('3 doors page will popup here');
+				res.send({valid : 0, redirect: '/makeChoice'});
 
 			}
 			else if (req.session.choice) {
@@ -88,8 +91,12 @@ var assignQuestion = function(req, res ) {
 					newQuestionToBeAssigned.save(function(Err) {
 						if(Err)
 							console.log(Err)
-						else 
-							res.redirect('/');
+						else {
+							console.log("Question with choice assigned");
+							req.session.choice = null;
+							res.send({valid : 1,redirect:'/'});
+
+						}
 
 					});
 

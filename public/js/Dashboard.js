@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $('.dropdown-toggle').dropdown();
     $.get("/getQuestion", function(data) {
+        
         setTimeout(function() {
             $(".ques p").addClass("animated");
             $(".ques p").addClass("fadeIn");
@@ -14,7 +15,7 @@ $(document).ready(function() {
                 type: "progress",
                 maxValue: Math.floor(data.score / 2)
             });
-            $(".userName").html(data.name);
+            $(".userName").html(data.name+"'s DashBoard");
             $(".levelText h1 strong").html(data.level);
         });
     });

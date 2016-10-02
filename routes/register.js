@@ -7,20 +7,20 @@ var ObjectID = require('mongoose').Types.ObjectId;
 
 router.post('/register', function(req, res) {
 	if(req.session.email && req.session.level)
-    return res.redirect('/');
+    return res.send({valid :0,redirect :'/'});
 
   var referenceNo = req.body.referenceNo;
-  
-  if((referenceNo.length != 24) || (new ObjectID(referenceNo) !=  referenceNo) )
+  console.log(referenceNo)
+  if((referenceNo.length != 32) )
     return res.send("Invalid Reference No");
   
-  Reference.findById(referenceNo).exec(function(err, result){
+  Reference.findOne({'referenceNumber' : referenceNo }).exec(function(err, result){
     console.log(result);
     
     if(err)
       return console.log(err);
     
-    if(result.state) {
+    if(result && result.state) {
       var email = req.body.email;
       var mobileNumber = req.body.mobileNumber;
       var password = req.body.password;
@@ -44,15 +44,15 @@ router.post('/register', function(req, res) {
         }
 
         //session going to be saved 
-        req.session.email = this.email_ID;
-        req.session.level = 0;
+        req.session.email = email;
+        req.session.level = 1;
 
         result.state = false;
         result.save(function(err){
           if(err)
             console.log(err);
         });
-        res.redirect('/');
+        res.redirect({valid: 1, redirect :'/'});
       }); 
     }
 
