@@ -1,6 +1,11 @@
 $(document).ready(function() {
     $.get("/leaderboard", function(data) {
         var userdata = JSON.parse(localStorage.getItem('userdata'));
+        if (!userdata) {
+            $.get("/user", function(data) {
+                userdata = data;
+            });
+        } 
         $(".userName").html(userdata.name);
         $(".avatarBox input").val(userdata.avatar);
         console.log(data);

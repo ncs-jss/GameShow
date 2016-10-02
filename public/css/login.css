@@ -1,10 +1,6 @@
 /* font*/
 
 @font-face {
-    font-family: "Thempo";
-    src: url('../fonts/Thempo.ttf');
-}
-@font-face {
     font-family: "LemonMilk";
     src: url('../fonts/LemonMilk.otf');
 }

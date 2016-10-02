@@ -6,6 +6,19 @@
     text-align: center;
     margin-bottom: 20px;
 }
+.avatarContainer::-webkit-scrollbar {
+    width: 8px;
+    /*background: rgb(0,0,0,0.3);*/
+    background: #391847;
+    /*color: #fff;*/
+
+}
+.avatarContainer::-webkit-scrollbar-thumb{
+    width: 8px;
+    background: #f58974;
+    /*color: #fff;*/
+
+}
 .avatarContainer>div{
     display: flex;
     justify-content: space-around;
