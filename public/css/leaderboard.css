@@ -1,19 +1,18 @@
 @font-face {
-    font-family: lemon;
+    font-family: "lemon";
     src: url(../fonts/LemonMilk.otf);
-}
-body{
-    background-image: url(../img/main_login.jpg);
-    font-family: lemon;
-    overflow-x: hidden;
 }
 .topNav {
     position: absolute;
     z-index: 2;
     width: 100%;
 }
+body {
+    font-family: "lemon";
+    height: 100vh;
+    overflow: hidden;
+}
 .leaderBox {
-    min-height: 100vh;
     /*background: #000;*/
     display: flex;
     justify-content: center;
@@ -25,6 +24,15 @@ body{
     background: rgba(0,0,0,0.4);
     border-radius: 4px;
     overflow-y: scroll;
+    padding: 5px 20px;
+}
+.transparentBox::-webkit-scrollbar {
+    width: 8px;
+}
+.transparentBox::-webkit-scrollbar-thumb{
+    width: 8px;
+    background: #f58974;
+
 }
 .table-style tr{
     color: aliceblue;

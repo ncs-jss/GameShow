@@ -10,6 +10,18 @@ body{
     position: absolute;
     z-index: -1;
 }
+.Pad_m li{
+    font-size: 12px;
+    line-height: 32px;
+}
+.box::-webkit-scrollbar {
+    width: 8px;
+}
+.box::-webkit-scrollbar-thumb{
+    width: 8px;
+    background: #f58974;
+
+}
 @media screen and(max-width: 768px){
     .overlay_anime{
         display: none;
