@@ -86,19 +86,33 @@ td {
     position: absolute;
     z-index: -1;
 }
-@media screen and(max-width: 768px) {
+
+@media screen and (max-width: 768px) {
     .overlay_anime {
         display: none;
+    }
+    table {
+        border: none !important;
     }
     .table-score span {
         border-left: 2px solid rgba(162, 133, 133, 0.29) !important;
         padding-left: 10px;
     }
     .transparentBox {
-        height: 200px;
+        height: 288px;
         width: 100%;
+        padding: 5px 10px;
     }
     .table-img img {
         width: 40px;
+    }
+    .table-name {
+        font-size: 12px;
+    }
+    .table-style td.pad {
+        padding-right: 0px;
+    }
+    .table-score {
+        font-size: 14px;
     }
 }
