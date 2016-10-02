@@ -41,6 +41,7 @@ var login = require('./routes/login');
 var getQuestion = require('./routes/getQuestion');
 var checkAnswer = require('./routes/checkAnswer');
 var makeChoice = require('./routes/makeChoice');
+var user = require("./routes/user");
 
 
 
@@ -155,11 +156,15 @@ app.post('/login', login);
 
 app.get('/', index);
 
+app.get('/user',user);
+
 app.get('/getQuestion', getQuestion);
 
 app.post('/checkAnswer', checkAnswer);
 
 app.get("/makeChoice", makeChoice);
+
+
 
 //admin apis
 
