@@ -56,7 +56,7 @@ router.post('/register', function(req, res) {
             console.log(err);
         });
 
-        res.send({valid: 1, redirect :'/'});
+        res.send({valid: 1, redirect :'/rules'});
       });
     }
 
