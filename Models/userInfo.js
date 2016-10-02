@@ -15,7 +15,7 @@ var userInfoSchema = new Schema({
 	//'questionAssigned' : [{ type : ObjectID , ref: questionAssigned }],
 	'date' :  { type : Date, default : Date.now },
 	'lastAttemptTime' : { type :Date },
-	'numberOfBadges' : {type: Number, default :0}
+	'badges' : []
 
 });
 

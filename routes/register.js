@@ -11,7 +11,7 @@ router.post('/register', function(req, res) {
 
   var referenceNo = req.body.referenceNo;
   console.log(referenceNo)
-  if((referenceNo.length != 32) )
+  if((referenceNo.length != 24) )
     return res.send({valid : 0, comment:"*Invalid Reference No", type:"referenceNo"});
 
   Reference.findOne({'referenceNumber' : referenceNo, state : true }).exec(function(err, result){
@@ -56,7 +56,7 @@ router.post('/register', function(req, res) {
             console.log(err);
         });
 
-        res.send({valid: 1, redirect :'/'});
+        res.send({valid: 1, redirect :'/rules'});
       });
     }
 
