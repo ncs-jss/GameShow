@@ -40,6 +40,7 @@ var index = require('./routes/index');
 var login = require('./routes/login');
 var getQuestion = require('./routes/getQuestion');
 var checkAnswer = require('./routes/checkAnswer');
+var makeChoice = require('./routes/makeChoice');
 
 
 
@@ -158,7 +159,7 @@ app.get('/getQuestion', getQuestion);
 
 app.post('/checkAnswer', checkAnswer);
 
-
+app.get("/makeChoice", makeChoice);
 
 //admin apis
 

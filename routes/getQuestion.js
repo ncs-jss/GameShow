@@ -54,7 +54,7 @@ var assignQuestion = function(req, res ) {
 						if(err)
 							console.log(err)
 						else {
-							console.log("successfully default question assigned  with data \n"+newQuestionToBeAssigned);
+							console.log("successfully default question assigned  with data \n");
 							res.redirect('/');
 						}
 
@@ -69,7 +69,7 @@ var assignQuestion = function(req, res ) {
 			if(!req.session.choice || req.session.choice == null) {
 				console.log('sending 3 doors page');
 				//res.sendFile('')
-				res.send('3 doors page will popup here');
+				res.send({valid : 0, redirect: '/makeChoice'});
 
 			}
 			else if (req.session.choice) {
