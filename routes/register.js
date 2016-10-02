@@ -22,6 +22,9 @@ router.post('/register', function(req, res) {
       return console.log(err);
 
     if(result) {
+      if(result.email_ID != req.body.email)
+        return res.send({valid: 0 ,comment : "Email not ccorresponding to Reference Number"});
+
       var email = req.body.email;
       var mobileNumber = req.body.mobileNumber;
       var password = req.body.password;
@@ -40,7 +43,7 @@ router.post('/register', function(req, res) {
       newUser.save(function(err){
         if (err) {
           console.log(err)
-          return res.send({valid : 0 , comment :"try new mobileNumber or email_ID!!"});
+          return res.send({valid : 0 , comment :"try  another mobileNumber"});
         }
 
         //session going to be saved 
