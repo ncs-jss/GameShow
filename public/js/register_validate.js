@@ -74,20 +74,20 @@ $("#submit").click(function() {
     initRegister();
 
     if (valName == 0 && valEmail == 0 && valUser == 0 && valMob == 0 && valpassword == 0 && valcpassword == 0 && valyear == 0) {
-        signup.email = $("#email").val();
-        signup.mobileNumber = $("#mob").val();
-        signup.password = $("#password").val();
+        signup.email = email;
+        signup.mobileNumber = mob;
+        signup.password = password;
         signup.avatar = parseInt($(".avatarContainer input:checked").val());
-        signup.name = $("#name").val();
-        signup.year = $("#year").val();
-        signup.referenceNo = $("#referenceNo").val();
-        console.log(signup);
+        signup.name = name;
+        signup.year = year;
+        signup.referenceNo = referenceNo;
+        // console.log(signup);
 
         $.post("/register", signup,
             function(data, status) {
                 console.log("Data: " + data + "\nStatus: " + status);
-                console.log(data.valid, data.redirect);
                 if (typeof data.redirect === "string") {
+                	$("#signupmodal").find(".notifBox .notif-error").addClass("hidden");
                     $("#signupmodal").find(".notifBox .notif-correct").removeClass("hidden");
                     window.location = data.redirect;
                 } else {

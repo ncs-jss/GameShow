@@ -31,6 +31,7 @@ $("#login").click(function() {
         $.post("/login", log, function(data, status) {
             console.log("Data: " + data + "\nStatus: " + status);
             if (typeof data.redirect === "string") {
+                $("#loginmodal").find(".notifBox .notif-error").addClass("hidden");
                 $("#loginmodal").find(".notifBox .notif-correct").removeClass("hidden");
                 window.location = data.redirect;
             } else {
