@@ -30,11 +30,14 @@ $("#login").click(function() {
         console.log(log);
         $.post("/login", log, function(data, status) {
             console.log("Data: " + data + "\nStatus: " + status);
+                console.log(data.comment);
             if (typeof data.redirect === "string") {
                 $("#loginmodal").find(".notifBox .notif-error").addClass("hidden");
                 $("#loginmodal").find(".notifBox .notif-correct").removeClass("hidden");
                 window.location = data.redirect;
             } else {
+                if(data.type == "login")
+                        showLoginError(data.comment);
                 $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
             }
         });

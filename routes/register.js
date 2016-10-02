@@ -12,7 +12,7 @@ router.post('/register', function(req, res) {
   var referenceNo = req.body.referenceNo;
   console.log(referenceNo)
   if((referenceNo.length != 32) )
-    return res.send({valid : 0, comment:"Invalid Reference No", type:"referenceNo"});
+    return res.send({valid : 0, comment:"*Invalid Reference No", type:"referenceNo"});
 
   Reference.findOne({'referenceNumber' : referenceNo, state : true }).exec(function(err, result){
     console.log(result);
@@ -23,7 +23,7 @@ router.post('/register', function(req, res) {
 
     if(result) {
       if(result.email_ID != req.body.email)
-        return res.send({valid: 0 ,comment :"Email is not corresponding to Reference Number", type: "email"});
+        return res.send({valid: 0 ,comment :"*Email is not corresponding to Reference Number", type: "email"});
 
       var email = req.body.email;
       var mobileNumber = req.body.mobileNumber;
@@ -43,7 +43,7 @@ router.post('/register', function(req, res) {
       newUser.save(function(err){
         if (err) {
           console.log(err)
-          return res.send({valid : 0 , comment :"try  another mobile Number", type:"mob"});
+          return res.send({valid : 0 , comment :"*try  another mobile Number", type:"mob"});
         }
 
         //session going to be saved
@@ -61,7 +61,7 @@ router.post('/register', function(req, res) {
     }
 
     else
-      res.send({ valid : 0, comment : "ReferenceNo is InValid!!", type:"referenceNo"});
+      res.send({ valid : 0, comment : "*ReferenceNo is InValid!!", type:"referenceNo"});
 
   });
 });

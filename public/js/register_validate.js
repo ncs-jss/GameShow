@@ -85,8 +85,8 @@ $("#submit").click(function() {
 
         $.post("/register", signup,
             function(data, status) {
-                console.log("Data: " + data + "\nStatus: " + status);
-                console.log(data.comment);
+                // console.log("Data: " + data + "\nStatus: " + status);
+                // console.log(data.comment);
                 if (typeof data.redirect === "string") {
                 	$("#signupmodal").find(".notifBox .notif-error").addClass("hidden");
                     $("#signupmodal").find(".notifBox .notif-correct").removeClass("hidden");
@@ -253,7 +253,12 @@ function year() {
     if (year == "") {
         valyear = 1;
         showYearError(" *Please input your year");
-    } else {
+    }
+    else if(year > 4 || year <1) {
+    	valyear=1;
+    	showYearError(" *Please input correct year");
+    }
+    else {
         $("#year").css({ "outline": "none", "border-color": "white" });
         valyear = 0;
     }
