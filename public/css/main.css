@@ -8,7 +8,10 @@ body {
     overflow-x: hidden;
 }
 
-
+.avatar {
+    width: 56px;
+    height: 56px;
+}
 /* font*/
 
 @font-face {

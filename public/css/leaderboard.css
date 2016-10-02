@@ -7,7 +7,7 @@ body{
     font-family: lemon;
     overflow-x: hidden;
 }
-@font.topNav {
+.topNav {
     position: absolute;
     z-index: 2;
     width: 100%;

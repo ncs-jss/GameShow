@@ -13,24 +13,27 @@
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-
+    <link href="/css/avatar.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/rule.css" rel="stylesheet">
-
     <!--animation -->
     <link href="/css/animate.min.css" rel="stylesheet">
-
 </head>
 <!--Body starts-->
 
 <body>
-    <div class="container">
     <nav class="navbar trekNav">
         <div class="container-fluid">
+            <label class="avatarBox">
+                <input type="radio" name="selectAvatar" class="hidden">
+                <div class="avatar"></div>
+            </label>
             <div class="navbar-header">
                 <div class="row">
-                    <div class="col-xs-12 ">
-                        
+                    <div class="col-xs-10 col-sm-12">
+                        <span class="userName navbar-brand"></span>
+                    </div>
+                    <div class="col-xs-2 col-sm-0">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                             <img src="/img/Dropdown.png">
                         </button>
@@ -39,15 +42,17 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right" aria-labelledby="dropdownMenu1">
-                    <li class="active"><a href="/rules">Rules</a></li>
+                    <li><a href="/rules">Rules</a></li>
                     <li><a href="/">Dashboard</a></li>
-                    <li><a href="/leader">LeaderBoard</a></li>
-                    <li><a href="">Forum</a></li>
+                    <li class="active"><a href="/leader">LeaderBoard</a></li>
+                    <li><a href="https://www.facebook.com/nibblecomputersociety/" target="_blank">Forum</a></li>
                     <li><a href="/logout">Logout</a></li>
                 </ul>
             </div>
         </div>
-    </nav>        <!-- rules contents starts here-->
+    </nav>
+    <!-- rules contents starts here-->
+    <div class="container">
         <div>
             <div class="row overlay_anime hidden-xs">
                 <div class="col-md-3 col-md-offset-9 animated slideInRight">
@@ -70,6 +75,13 @@
         </div>
         <script type="text/javascript" src="/js/jquery.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            var userdata = JSON.parse(localStorage.getItem('userdata'));
+            $(".userName").html(userdata.name);
+            $(".avatarBox input").val(userdata.avatar);
+        });
+        </script>
 </body>
 
 </html>

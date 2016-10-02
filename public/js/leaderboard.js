@@ -1,5 +1,8 @@
 $(document).ready(function() {
     $.get("/leaderboard", function(data) {
+        var userdata = JSON.parse(localStorage.getItem('userdata'));
+        $(".userName").html(userdata.name);
+        $(".avatarBox input").val(userdata.avatar);
         console.log(data);
         var openHtml = '<tr>';
         var closeHtml = '</tr>';
