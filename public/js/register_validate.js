@@ -247,7 +247,7 @@ function year() {
         valyear = 1;
         showYearError(" *Please input your year");
     }
-    else if(year <= 4 && year >=1) {
+    else if(year <= 4 && year >=1 && year.indexOf(".")==-1) {
         $("#year").css({ "outline": "none", "border-color": "white" });
         valyear = 0;
     }
