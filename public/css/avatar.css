@@ -42,22 +42,22 @@ input[type="radio"]:checked + .avatar {
     transition: 0.4s;
 }
 input[value="0"]+.avatar{
-    background-image: url("../img/0.png");
+    background-image: url("../img/yash/0.png");
 }
 input[value="1"]+.avatar{
-    background-image: url("../img/1.png");
+    background-image: url("../img/yash/1.png");
 }
 input[value="2"]+.avatar{
-    background-image: url("../img/2.png");
+    background-image: url("../img/yash/2.png");
 }
 input[value="3"]+.avatar{
-    background-image: url("../img/3.png");
+    background-image: url("../img/yash/3.png");
 }
 input[value="4"]+.avatar{
-    background-image: url("../img/4.png");
+    background-image: url("../img/yash/4.png");
 }
 input[value="5"]+.avatar{
-    background-image: url("../img/5.png");
+    background-image: url("../img/yash/5.png");
 }
 
 /************Extra small devices only*********/
