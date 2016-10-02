@@ -3,7 +3,8 @@ $(document).ready(function() {
     $.get("/getAllQuestion", function(data) {
         console.log(data);
         var openHtml = '<tr>';
-        var closeHtml = '<td><div class="btn-group btn-justified pull-right"><button class="btn btn-success">Edit</button><button class="btn btn-danger deleteQuesBtn">Delete</button></div></td></tr>';
+        var closeHtml = '<td><div class="pull-right"><button class="btn btn-danger deleteQuesBtn">Delete</button></div></td></tr>';
+        // var closeHtml = '<td><div class="btn-group btn-justified pull-right"><button class="btn btn-success">Edit</button><button class="btn btn-danger deleteQuesBtn">Delete</button></div></td></tr>';
         var allHtml;
         var j;
         for (var i = 0, l = data.length; i < l; i++) {

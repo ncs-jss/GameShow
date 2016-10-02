@@ -210,6 +210,7 @@ label {
         flex-direction: column;
         min-height: 100vh;
         position: relative;
+        overflow: hidden;
     }
     .pos-top {
         text-align: center;
@@ -230,6 +231,9 @@ label {
         width: 100%;
         height: 50px;
         margin-left: -10%;
+    }
+    .close{
+        color: #EAD7D7;
     }
 }
 
