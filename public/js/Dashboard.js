@@ -1,32 +1,32 @@
 $(document).ready(function() {
     $('.dropdown-toggle').dropdown();
     $.get("/getQuestion", function(data) {
-        if (data.redirect) {
+        if (data.valid == 0) {
             window.location = data.redirect;
-        }
+        } else {
+            setTimeout(function() {
+                $(".ques p").addClass("animated");
+                $(".ques p").addClass("fadeIn");
+                $(".ques p").html(data.question);
 
-        setTimeout(function() {
-            $(".ques p").addClass("animated");
-            $(".ques p").addClass("fadeIn");
-            $(".ques p").html(data.question);
+            }, 600);
 
-        }, 600);
-
-        $.get("/user", function(data) {
-            console.log(data);
-            new Circlebar({
-                element: "#circle-1",
-                type: "progress",
-                maxValue: parseInt(data.score / 2)
+            $.get("/user", function(data) {
+                console.log(data);
+                new Circlebar({
+                    element: "#circle-1",
+                    type: "progress",
+                    maxValue: parseInt(data.score / 2)
+                });
+                $(".userName").html(data.name.split(" ")[0] + "'s DashBoard");
+                $(".levelText h1 strong").html(data.level);
             });
-            $(".userName").html(data.name.split(" ")[0] + "'s DashBoard");
-            $(".levelText h1 strong").html(data.level);
-        });
+        }
     });
     $(".submit_btn").click(function() {
         $.post("/checkAnswer", { answer: $(".ans input").val() }, function(data) {
             console.log(data);
-            if (data.valid) {
+            if (data.valid == 1) {
                 $("#loginmodal").find(".notifBox .notif-correct").removeClass("hidden");
                 setTimeout(function() {
                     window.location = data.redirect;
