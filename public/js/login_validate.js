@@ -30,26 +30,13 @@ $("#login").click(function() {
         console.log(log);
         $.post("/login", log, function(data, status) {
             console.log("Data: " + data + "\nStatus: " + status);
-<<<<<<< HEAD
             console.log(data.comment);
             if (data.valid == 1) {
-=======
-                console.log(data.comment);
-            if (typeof data.redirect === "string") {
->>>>>>> bad52287c3f306169c67dea00e0fbc861735cdd8
                 $("#loginmodal").find(".notifBox .notif-error").addClass("hidden");
                 $("#loginmodal").find(".notifBox .notif-correct").removeClass("hidden");
                 window.location = data.redirect;
             } else {
-<<<<<<< HEAD
                 showError($("#loginmodal"),data.comment);
-=======
-                if(data.type == "login")
-                    showLoginError(data.comment);
-                if(data.type == "pass")
-                    showPassErrorLogin(data.comment);
-                $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
->>>>>>> bad52287c3f306169c67dea00e0fbc861735cdd8
             }
         });
     } else {
