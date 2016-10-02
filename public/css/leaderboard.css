@@ -1,0 +1,74 @@
+@font-face {
+    font-family: lemon;
+    src: url(../fonts/LemonMilk.otf);
+}
+body{
+    background-image: url(../img/main_login.jpg);
+    font-family: lemon;
+    overflow-x: hidden;
+}
+@font.topNav {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+}
+.leaderBox {
+    min-height: 100vh;
+    /*background: #000;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.transparentBox {
+    height: 350px;
+    width: 800px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 4px;
+    overflow-y: scroll;
+}
+.table-style tr{
+    color: aliceblue;
+}
+.table-style td.pad{
+    padding-right: 50px;
+}
+.table-score{
+    font-size: 40px;
+    color: #FAAD7E;
+    padding: 10px 0px;
+    width: 20px;
+}
+.table-score span{
+    border-left: 2px solid rgba(162, 133, 133, 0.29) !important;
+    padding-left: 20px;
+}
+td{
+    border: none !important;
+}
+.table-name{
+    font-size: 28px;
+    color: #FAAD7E;
+}
+.table-id{
+    font-size: 10px;
+/*    text-align: right;*/
+}
+.table-img img{
+    width: 76px;
+}
+.table-style > tbody > tr:hover {
+    background-color: rgba(0,0,0,0.4);
+}
+.overlay_anime{
+    position: absolute;
+    z-index: -1;
+}
+@media screen and(max-width: 768px){
+    .overlay_anime{
+        display: none;
+    }
+    .table-score span{
+    border-left: 2px solid rgba(162, 133, 133, 0.29) !important;
+    padding-left: 10px;
+}
+}
