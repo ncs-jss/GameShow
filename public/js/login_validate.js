@@ -30,16 +30,17 @@ $("#login").click(function() {
         console.log(log);
         $.post("/login", log, function(data, status) {
             console.log("Data: " + data + "\nStatus: " + status);
-            if (typeof data.redirect === "string") {
+            console.log(data.comment);
+            if (data.valid == 1) {
                 $("#loginmodal").find(".notifBox .notif-error").addClass("hidden");
                 $("#loginmodal").find(".notifBox .notif-correct").removeClass("hidden");
                 window.location = data.redirect;
             } else {
-                $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
+                showError($("#loginmodal"),data.comment);
             }
         });
     } else {
-        $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
+        showError($("#loginmodal"),"Please Corrrect The Errors");
     }
 
 });

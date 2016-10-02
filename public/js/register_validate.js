@@ -87,23 +87,16 @@ $("#submit").click(function() {
             function(data, status) {
                 console.log("Data: " + data + "\nStatus: " + status);
                 console.log(data.comment);
-                if (typeof data.redirect === "string") {
-                	$("#signupmodal").find(".notifBox .notif-error").addClass("hidden");
+                if (data.valid == 1) {
+                    $("#signupmodal").find(".notifBox .notif-error").addClass("hidden");
                     $("#signupmodal").find(".notifBox .notif-correct").removeClass("hidden");
                     window.location = data.redirect;
                 } else {
-                	if(data.type == "referenceNo")
-                		showReferenceError(data.comment);
-                	else if(data.type == "mob")
-                		showMobError(data.comment);
-                	else if(data.type == "email")
-                		showEmailError(data.comment);
-                    $("#signupmodal").find(".notifBox .notif-error").removeClass("hidden");
+                    showError($("#signupmodal"),data.comment);
                 }
             });
     } else {
-        $("#signupmodal").find(".notifBox .notif-error").html('Rectify the errors');
-        $("#signupmodal").find(".notifBox .notif-error").removeClass("hidden");
+        showError($("#signupmodal"),"Please Corrrect The Errors");
     }
 });
 

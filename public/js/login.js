@@ -1,3 +1,11 @@
+function showError(elem,comment) {
+    var elem = elem.find(".notifBox .notif-error");
+    elem.html(comment);
+    elem.removeClass("hidden");
+    setTimeout(function() {
+        elem.addClass("hidden");
+    }, 800);
+}
 $(document).ready(function() {
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
@@ -20,15 +28,7 @@ $(document).ready(function() {
         }
         input.trigger("focus");
 
-    })
-
-    function showError(elem) {
-        var elem = elem.find(".notifBox .notif-error");
-        elem.removeClass("hidden");
-        setTimeout(function() {
-            elem.addClass("hidden");
-        }, 600);
-    }
+    });
     
     $(".checkModal1").click(function() {
         modal = $("#submit");
