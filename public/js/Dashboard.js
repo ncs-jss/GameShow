@@ -33,7 +33,7 @@ $(document).ready(function() {
                 $(".notifBox").find(".notif-correct").removeClass("hidden");
                 setTimeout(function() {
                     window.location = data.redirect;
-                }, 1000);
+                }, 4000);
             } else {
                 console.log('testi');
                 console.log($(".notifBox").find(".notif-error"));
@@ -41,7 +41,7 @@ $(document).ready(function() {
                 setTimeout(function() {
                     $(".notifBox").find(".notif-error").addClass("animated fadeIn");
                     $(".notifBox").find(".notif-error").addClass("hidden");
-                }, 1000);
+                }, 4000);
             }
         });
     });
