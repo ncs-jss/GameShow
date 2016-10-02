@@ -1,5 +1,7 @@
 $(document).ready(function() {
+    console.log('test');
     $.get("/getAllQuestion", function(data) {
+        console.log(data);
         var openHtml = '<tr>';
         var closeHtml = '<td><div class="btn-group btn-justified pull-right"><button class="btn btn-success">Edit</button><button class="btn btn-danger deleteQuesBtn">Delete</button></div></td></tr>';
         var allHtml;

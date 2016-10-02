@@ -1,7 +1,10 @@
 $(document).ready(function() {
     $('.dropdown-toggle').dropdown();
     $.get("/getQuestion", function(data) {
-        
+        if (data.redirect) {
+            window.location = data.redirect;
+        }
+
         setTimeout(function() {
             $(".ques p").addClass("animated");
             $(".ques p").addClass("fadeIn");
@@ -9,13 +12,14 @@ $(document).ready(function() {
 
         }, 1000);
 
-        $.get("/User", function(data) {
+        $.get("/user", function(data) {
+            console.log(data);
             new Circlebar({
                 element: "#circle-1",
                 type: "progress",
                 maxValue: Math.floor(data.score / 2)
             });
-            $(".userName").html(data.name+"'s DashBoard");
+            $(".userName").html(data.name.split(" ")[0] + "'s DashBoard");
             $(".levelText h1 strong").html(data.level);
         });
     });
