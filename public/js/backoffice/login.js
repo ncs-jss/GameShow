@@ -1,8 +1,8 @@
 $(document).ready(function() {
     var login = {};
     $("#login").click(function() {
-        $("#userid").val("ncsncs12");
-        $("#pass").val("GameShow");
+        // $("#userid").val("ncsncs12");
+        // $("#pass").val("GameShow");
         login.id = $("#userid").val();
         login.password = $("#pass").val();
         console.log(login);
