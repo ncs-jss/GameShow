@@ -18,7 +18,8 @@ router.get('/user', function(req, res) {
 				year : result.year,
 				avatar : result.avatar,
 				level : result.level,
-				score : result.score
+				score : result.score,
+				numberOfBadges : result.numberOfBadges
 				});
 			}
 			else
