@@ -9,16 +9,18 @@ router.get('/', function(req, res) {
 		//console.log('reached request');
   		if(result)
       res.sendFile('/views/front/Dashboard.html',{root : '.'});
-	
-  	else 
+
+  	else
   		req.session.destroy(function(err) {
-  			if(err) 
+  			if(err)
   				return res.send(err);
   			res.redirect('/login');
-  			
+
   		})
     })
 }
+else
+res.redirect('/login');
 });
 
 module.exports = router;
