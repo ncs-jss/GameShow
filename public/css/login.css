@@ -17,7 +17,10 @@
 }
 
 
-
+.close{
+    color: #fff;
+    opacity: 1;
+}
 .icon-bar {
     color: #fff;
 }
