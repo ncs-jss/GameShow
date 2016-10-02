@@ -13,12 +13,14 @@ body {
     height: 56px;
 }
 /* font*/
-
+@import 'https://fonts.googleapis.com/css?family=Lato';
 @font-face {
     font-family: 'Milk';
     src: url('../fonts/LemonMilk.otf');
 }
-
+input {
+    font-family: 'Lato', sans-serif !important;
+}
 .icon-bar {
     color: #fff;
 }
