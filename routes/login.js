@@ -19,17 +19,17 @@ router.post('/login', function(req, res, next) {
             return console.log(err);
 
         if (result)
-           { 
+           {
             if (result.password == password) {
                 req.session.email = result.email_ID;
                 req.session.level = result.level;
 
                 return res.send({ 'valid': 1, 'redirect': '/' });
             }
-            else 
-              return res.send({valid : 0, comment : "Incorrect password"})
+            else
+              return res.send({valid : 0, comment : "*Incorrect password", type:"pass"});
           }
-        res.send({valid : 0, comment : "Incorrect Email or Number"});
+        res.send({valid : 0, comment : "*Incorrect Email or Number", type:"login"});
     });
 
 });

@@ -37,7 +37,9 @@ $("#login").click(function() {
                 window.location = data.redirect;
             } else {
                 if(data.type == "login")
-                        showLoginError(data.comment);
+                    showLoginError(data.comment);
+                if(data.type == "pass")
+                    showPassErrorLogin(data.comment);
                 $("#loginmodal").find(".notifBox .notif-error").removeClass("hidden");
             }
         });
