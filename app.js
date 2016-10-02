@@ -37,11 +37,12 @@ var renderLogin = require('./routes/renderLogin');
 var register = require('./routes/register');
 var login = require('./routes/login');
 var index = require('./routes/index');
+var rules =  require('./routes/rules');
 //var users = require('./routes/users');
 var user = require("./routes/user");
 var getQuestion = require('./routes/getQuestion');
 var checkAnswer = require('./routes/checkAnswer');
-var renderMakeChoice = require('./routes/makeChoice');
+var renderMakeChoice = require('./routes/renderMakeChoice');
 var makeChoice = require('./routes/makeChoice');
 
 
@@ -156,13 +157,15 @@ app.post('/login', login);
 
 app.get('/', index);
 
+app.get('/rules', rules);
+
 app.get('/user',user);
 
 app.get('/getQuestion', getQuestion);
 
 app.post('/checkAnswer', checkAnswer);
 
-app.get("/makeChoice", renderMakeChoice);
+app.get('/makeChoice', renderMakeChoice);
 
 app.post("/makeChoice", makeChoice);
 

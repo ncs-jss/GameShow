@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
+
 var question = require('../Models/question.js');
 var questionAssigned = require('../Models/questionAssigned.js');
 /* GET home page. */
-router.get('/makeChoice', function(req, res) {
-	console.log(req.session.email);
+router.get('/makeChoice', function (req,res) {
+	console.log("req recieved with email "+req.session.email);
 	if(req.session.email && req.session.email != "") {
 		console.log('reached request to makeChoice');
 
