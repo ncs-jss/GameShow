@@ -8,7 +8,7 @@ function showError(elem,comment) {
 }
 $(document).ready(function() {
     $(document).ready(function() {
-        $('[data-toggle="tooltip"]').tooltip();
+        toolTIP();
     });
     var modal = "";
     var toggled = false;
@@ -29,7 +29,7 @@ $(document).ready(function() {
         input.trigger("focus");
 
     });
-    
+
     $(".checkModal1").click(function() {
         modal = $("#submit");
     });
@@ -44,4 +44,17 @@ $(document).ready(function() {
             }
         }
     });
+
+
+    // $( window ).resize(function() {
+    //     toolTIP();
+    // });
+
+    function toolTIP()
+    {
+        if(window.innerWidth < 500) {
+            $('[data-toggle="tooltip"]').tooltip({'placement' : 'top'});
+        }
+        $('[data-toggle="tooltip"]').tooltip();
+    }
 });
