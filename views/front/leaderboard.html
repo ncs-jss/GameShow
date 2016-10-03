@@ -23,7 +23,25 @@
 <body>
     <nav class="navbar trekNav">
         <div class="container-fluid">
-            <label class="avatarBox">
+            <div class="row">
+                <div class="col-xs-3 col-sm-2">
+                    <label class="avatarBox">
+                        <input type="radio" name="selectAvatar" class="hidden">
+                        <div class="avatar"></div>
+                    </label>
+                </div>
+                <div class="col-xs-7 col-sm-9 col-sm-offset-1">
+                    <div class="navbar-header">
+                        <span class="userName navbar-brand"></span>
+                    </div>
+                </div>
+                <div class="col-xs-2 col-sm-0">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <img src="/img/Dropdown.png">
+                    </button>
+                </div>
+            </div>
+            <!-- <label class="avatarBox">
                 <input type="radio" name="selectAvatar" class="hidden">
                 <div class="avatar"></div>
             </label>
@@ -38,7 +56,7 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right" aria-labelledby="dropdownMenu1">
                     <li><a href="/rules">Rules</a></li>

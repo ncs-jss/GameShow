@@ -30,7 +30,7 @@ body {
     margin: 5px 12px 10px;
     color: #6D1262;
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
-    
+
 }
 
 
@@ -148,7 +148,11 @@ h1 {
     .avatarBox {
         display: flex;
         justify-content: center;
-        width: 100%;
+        display: inline-block;
+        padding-top: 10px;
+    }
+    .navbar-brand {
+        display: inline-block;
     }
     .ques {
         border-radius: 4px;

@@ -94,6 +94,15 @@ td {
 }
 
 @media screen and (max-width: 768px) {
+    .avatarBox {
+        display: flex;
+        justify-content: center;
+        display: inline-block;
+        padding-top: 10px;
+    }
+    .navbar-brand {
+        display: inline-block;
+    }
     .pageheading{
         margin: 0;
         margin-bottom: 10px;
