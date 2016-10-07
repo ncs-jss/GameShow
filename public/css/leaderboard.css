@@ -92,7 +92,22 @@ td {
     position: absolute;
     z-index: -1;
 }
-
+.popover{
+    background: rgba(0,0,0,0.5);
+    border:none;
+}
+.popover img{
+    width: 36px;
+}
+.popover.top>.arrow:after{
+    border-top-color: rgba(0,0,0,0.3);
+}
+.popover.left>.arrow:after{
+    border-left-color: rgba(0,0,0,0.3);
+}
+.popover.bottom>.arrow:after{
+    border-bottom-color: rgba(0,0,0,0.3);
+}
 @media screen and (max-width: 768px) {
     .avatarBox {
         display: flex;

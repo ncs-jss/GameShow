@@ -1,14 +1,12 @@
 $(document).ready(function() {
     $.get("/leaderboard", function(data) {
-        var userdata = JSON.parse(localStorage.getItem('userdata'));
-        if (!userdata) {
-            $.get("/user", function(data) {
-                userdata = data;
-            });
-        } 
-        $(".userName").html(userdata.name);
-        $(".avatarBox input").val(userdata.avatar);
-        console.log(data);
+        var userdata;
+        $.get("/user", function(data) {
+            userdata = data;
+            console.log(userdata);
+            $(".userName").html(userdata.name);
+            $(".avatarBox input").val(userdata.avatar);
+        });
         var openHtml = '<tr>';
         var closeHtml = '</tr>';
         var allHtml;
@@ -22,6 +20,12 @@ $(document).ready(function() {
             allHtml += '<td class="table-score"><span>' + data[i].score + '</span></td>\n';
             allHtml = openHtml + allHtml + closeHtml;
             $(".userList").append(allHtml);
+            $(".userList tr:nth-child("+j+")").popover({
+                placement: 'bottom',
+                trigger: 'hover',
+                html: true,
+                content: '<span><img src="img/avatars/' + data[i].avatar + '.png" > <img src="img/avatars/' + data[i].avatar + '.png"></span>'
+            });
         }
     });
 });

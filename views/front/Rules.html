@@ -71,6 +71,7 @@
     </nav>
     <!-- rules contents starts here-->
     <div class="container">
+                <h1 class="pageheading text-center">Rules</h1>
         <div>
             <div class="row overlay_anime hidden-xs">
                 <div class="col-md-3 col-md-offset-9 animated slideInRight">
@@ -81,7 +82,6 @@
                 </div>
             </div>
             <div class="well box animated fadeInUp">
-                <h1 class="pageheading">Rules</h1>
                 <ul class="Pad_m">
                     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur tempore, asperiores atque ullam unde non magni, labore quasi deserunt. Repellat reprehenderit aperiam placeat. Consequuntur repellat odit dolores perspiciatis nihil, culpa!</li>
                     <li>Nemo molestias consequatur necessitatibus doloremque ipsa id, laborum, eius tempora nulla explicabo fugit quam accusamus autem ipsam ea impedit eveniet inventore accusantium, beatae deleniti! Eos harum mollitia temporibus vitae quia.</li>
@@ -96,14 +96,11 @@
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script>
         $(document).ready(function() {
-            var userdata = JSON.parse(localStorage.getItem('userdata'));
-            if (!userdata) {
-                $.get("/user", function(data) {
-                    userdata = data;
-                });
-            }
-            $(".userName").html(userdata.name);
-            $(".avatarBox input").val(userdata.avatar);
+            $.get("/user", function(data) {
+                userdata = data;
+                $(".userName").html(userdata.name);
+                $(".avatarBox input").val(userdata.avatar);
+            });
         });
         </script>
 </body>
