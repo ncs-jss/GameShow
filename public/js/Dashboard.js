@@ -10,14 +10,24 @@ $(document).ready(function() {
 
             }, 600);
 
+
+
+
             $.get("/user", function(data) {
                 localStorage.setItem('userdata',JSON.stringify(data));
                 console.log(data);
-                new Circlebar({
-                    element: "#circle-1",
-                    type: "progress",
-                    maxValue: parseInt(data.score / 2)
+
+                $.get("/totalLevel", function(maxLevel) {
+                    localStorage.setItem('totalLevel',JSON.stringify(maxLevel));
+                    console.log(data);
+                    new Circlebar({
+                        element: "#circle-1",
+                        type: "progress",
+                        maxValue: parseInt(((data.level-1)*100)/(maxLevel.maxLevel))
+                    });
                 });
+
+
                 $("#circle-1 .text").html(data.score);
                 $(".userName").html(data.name.split(" ")[0] + "'s DashBoard");
                 $(".levelText .level strong").html(data.level);

@@ -9,7 +9,7 @@ router.get('/getQuestion', function(req,res){
 	if(!req.session.email ||  req.session.email == '') 
 		 return res.redirect('/login');
 
-		//all the code for gettimg question;
+		// All the code for gettimg question.
 		questionAssigned.findOne({'user_ID' : req.session.email , 'level' : req.session.level }).populate('question_ID')
 		.exec(function(err,result) {
 				console.log(result);
@@ -72,8 +72,9 @@ var assignQuestion = function(req, res ) {
 				res.send({valid : 0, redirect: '/makeChoice'});
 
 			}
-			else if (req.session.choice) {
 
+			else if (req.session.choice) {
+   
 				var temp = result[(Math.floor((Math.random() * 1000) + 1))%result.length];
 
 				User.findOne({'email_ID' : req.session.email}, function(err, user){

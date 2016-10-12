@@ -40,6 +40,7 @@ var index = require('./routes/index');
 var rules =  require('./routes/rules');
 //var users = require('./routes/users');
 var user = require("./routes/user");
+var totalLevel = require("./routes/totalLevel");
 var getQuestion = require('./routes/getQuestion');
 var checkAnswer = require('./routes/checkAnswer');
 var renderMakeChoice = require('./routes/renderMakeChoice');
@@ -162,6 +163,8 @@ app.get('/', index);
 app.get('/rules', rules);
 
 app.get('/user',user);
+
+app.get('/totalLevel', totalLevel);  
 
 app.get('/getQuestion', getQuestion);
 
