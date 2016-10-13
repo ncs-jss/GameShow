@@ -1,0 +1,32 @@
+@font-face {
+    font-family: lemon;
+    src: url(../fonts/LemonMilk.otf);
+}
+body{
+      background-image: url(../img/main_login.jpg);
+        background-repeat: no-repeat;
+        font-family: 'lemon';
+        color: aliceblue;
+}
+.content{  
+    position: absolute;
+    top: 220px;
+    width: 100%;
+    text-align: center;
+    
+}
+.confetti{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+    position: relative;
+}
+.center {
+    margin: auto;
+/*    width: 50%;*/
+    padding: 10px;
+}
+.text{
+}
