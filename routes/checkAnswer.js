@@ -125,8 +125,20 @@ router.post('/checkAnswer', function(req, res) {
 
 										});
 										req.session.level = data.level;
-										res.send({valid: 1, redirect:'/'});
-
+										question.findOne()
+									     .sort({level : -1})
+									     .exec(function(err , result) {
+									     	if(err)
+									     		console.log(err);
+									     	else
+									     	{
+									     		console.log({maxLevel : result.level});
+									     		if(data.level > result.level)
+													return res.send({valid: 1, redirect:'/winner'});
+												else
+													return res.send({valid: 1, redirect:'/'});
+									     	}
+									     });
 									});
 								}
 							})
