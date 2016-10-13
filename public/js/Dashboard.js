@@ -14,16 +14,16 @@ $(document).ready(function() {
 
 
             $.get("/user", function(data) {
-                localStorage.setItem('userdata',JSON.stringify(data));
+                localStorage.setItem('userdata', JSON.stringify(data));
                 console.log(data);
 
                 $.get("/totalLevel", function(maxLevel) {
-                    localStorage.setItem('totalLevel',JSON.stringify(maxLevel));
+                    localStorage.setItem('totalLevel', JSON.stringify(maxLevel));
                     console.log(data);
                     new Circlebar({
                         element: "#circle-1",
                         type: "progress",
-                        maxValue: parseInt(((data.level-1)*100)/(maxLevel.maxLevel))
+                        maxValue: parseInt(((data.level - 1) * 100) / (maxLevel.maxLevel))
                     });
                 });
 
@@ -38,25 +38,25 @@ $(document).ready(function() {
                 // badges = [2,3];
                 var imgpath = "";
                 var elem = "";
-                badges.sort(function (a, b) {
-                  if (a.level > b.level) {
-                    return -1;
-                  }
-                  if (a.level < b.level) {
-                    return +1;
-                  }
-                  // a must be equal to b
-                  return 0;
+                badges.sort(function(a, b) {
+                    if (a.level > b.level) {
+                        return -1;
+                    }
+                    if (a.level < b.level) {
+                        return +1;
+                    }
+                    // a must be equal to b
+                    return 0;
                 });
                 console.log(badges);
-                $.each(badges,function(key,value){
+                $.each(badges, function(key, value) {
                     console.log(value);
                     key += 1;
                     imgpath = "/img/badges/" + value.name + ".png";
                     elem = ".badges:nth-child(" + key + ")";
                     console.log(elem);
-                    $(elem + " img").attr("src",imgpath);
-                    $(elem).tooltip().attr("data-original-title",value.name);
+                    $(elem + " img").attr("src", imgpath);
+                    $(elem).tooltip().attr("data-original-title", value.name);
                     $(elem + " p").html("Level " + value.level);
                 });
             });
@@ -65,8 +65,10 @@ $(document).ready(function() {
     $(".submit_btn button").click(function() {
         $.post("/checkAnswer", { answer: $(".ans input").val() }, function(data) {
             console.log(data);
+            $("#world").removeClass("hidden");
             if (data.valid == 1) {
                 $(".notifBox").find(".notif-correct").removeClass("hidden");
+                // $("#world").removeClass("hidden");
                 setTimeout(function() {
                     window.location = data.redirect;
                 }, 3000);
@@ -86,5 +88,4 @@ $(document).ready(function() {
             $(".submit_btn button").trigger("click");
         }
     });
-
 });
