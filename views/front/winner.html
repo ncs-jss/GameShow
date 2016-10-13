@@ -25,9 +25,11 @@
         flex-direction: column;
         align-items: center;
     }
+    
     #world {
         position: absolute;
     }
+    
     .box {
         height: 250px;
         display: flex;
@@ -70,6 +72,7 @@
                     <li><a href="/leader">LeaderBoard</a></li>
                     <li><a href="https://www.facebook.com/nibblecomputersociety/" target="_blank">Forum</a></li>
                     <li><a href="/logout">Logout</a></li>
+                    <li><a href="#">Music</a></li>
                 </ul>
             </div>
         </div>
@@ -93,6 +96,10 @@
             <h1 class="text-center animated infinite flash" style="color: #fff;">Hurray !!</h1>
             <!-- rule contents ends here-->
         </div>
+        <audio id="audio" autoplay="true">
+            <!-- <source src="/sounds/winner.wav" type="audio/mpeg" /> -->
+            <source src="/sounds/winner.mp3" type="audio/mpeg" />
+        </audio>
         <script type="text/javascript" src="/js/jquery.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script>
@@ -102,6 +109,12 @@
                 $(".userName").html(userdata.name);
                 $(".avatarBox input").val(userdata.avatar);
             });
+            var audio = document.querySelector("#audio");
+            audio.addEventListener('ended', function() {
+                console.log('test');
+                this.currentTime = 0;
+                this.play();
+            }, false);
         });
         </script>
         <script src="/js/confetti.js"></script>

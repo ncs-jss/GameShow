@@ -65,10 +65,10 @@ $(document).ready(function() {
     $(".submit_btn button").click(function() {
         $.post("/checkAnswer", { answer: $(".ans input").val() }, function(data) {
             console.log(data);
-            $("#world").removeClass("hidden");
+            // $("#world").removeClass("hidden");
             if (data.valid == 1) {
                 $(".notifBox").find(".notif-correct").removeClass("hidden");
-                // $("#world").removeClass("hidden");
+                $("#world").removeClass("hidden");
                 setTimeout(function() {
                     window.location = data.redirect;
                 }, 3000);
