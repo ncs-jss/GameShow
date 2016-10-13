@@ -18,17 +18,17 @@ router.post('/checkAnswer', function(req, res) {
 					console.log('the TechnicalAnswer answer is'+ result.question_ID.technicalAnswer )
 					console.log('the nonTechnicalAnswer answer is'+ result.question_ID.nonTechnicalAnswer )
 					console.log('now lets have this ' + (req.body.answer == result.question_ID.technicalAnswer));
-					
+
 					if((req.body.answer == result.question_ID.technicalAnswer )||(req.body.answer ==  result.question_ID.nonTechnicalAnswer)){
 						var badgeWon = false;
-						
+
 						question.find({level : req.session.level}).exec(function (err, multi) {
 							if(multi.length>1)
 								badgesCouldBeWon = true
-						
+
 
 							questionAssigned.find({ level : req.session.level, duration : {$gte: 1}}).populate('question_ID')
-							.exec(function (err, isAnswered) {	
+							.exec(function (err, isAnswered) {
 								console.log("the value")
 							 if(isAnswered.length==0) {
 							 	var badgeWon = true;
@@ -71,8 +71,21 @@ router.post('/checkAnswer', function(req, res) {
 
 										});
 										req.session.level = data.level;
-										return res.send({valid: 1, redirect:'/'});
 
+										 question.findOne()
+									     .sort({level : -1})
+									     .exec(function(err , result) {
+									     	if(err)
+									     		console.log(err);
+									     	else
+									     	{
+									     		console.log({maxLevel : result.level});
+									     		if(data.level > result.level)
+													return res.send({valid: 1, redirect:'/winner'});
+												else
+													return res.send({valid: 1, redirect:'/'});
+									     	}
+									     });
 									});
 								}
 
@@ -88,7 +101,7 @@ router.post('/checkAnswer', function(req, res) {
 												timeOfAssignment : Date.now()
 											});
 										}
-										if(badgesCouldBeWon){										
+										if(badgesCouldBeWon){
 											data.badges.push({
 													name : 'MileStone',
 													level : req.session.level,
@@ -111,12 +124,12 @@ router.post('/checkAnswer', function(req, res) {
 											}
 
 										});
-										req.session.level = data.level; 	
+										req.session.level = data.level;
 										res.send({valid: 1, redirect:'/'});
 
 									});
 								}
-							})			
+							})
 						});
 
 					}
@@ -128,7 +141,7 @@ router.post('/checkAnswer', function(req, res) {
 				}
 				else
 					res.send({valid : 0, comment : "no answer received"});
-				
+
 
 
 			}
