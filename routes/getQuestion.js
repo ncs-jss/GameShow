@@ -10,6 +10,8 @@ router.get('/getQuestion', function(req,res){
 		 return res.redirect('/login');
 
 		// All the code for gettimg question.
+
+
 		questionAssigned.findOne({'user_ID' : req.session.email , 'level' : req.session.level }).populate('question_ID')
 		.exec(function(err,result) {
 				console.log(result);
@@ -32,7 +34,7 @@ var assignQuestion = function(req, res ) {
 	question.find({'level' : req.session.level}).exec(function(err, result) {
 		console.log("the length of result is " + result.length);
 		if(result.length == 0)
-			return res.send({'status' : "No questions for this level"});
+			return res.send({valid : 0, redirect : '/winner'});
 
 		if(result.length == 1) {
 			req.session.choice = null;
