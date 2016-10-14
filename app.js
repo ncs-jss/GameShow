@@ -202,7 +202,7 @@ app.get('/removeQuestion', renderRemoveQuestion);
 
 app.post('/removeQuestion', removeQuestion);
 
-app.get('/generateMultipleReference', generateMultipleReference);
+app.post('/generateMultipleReference', generateMultipleReference);
 
 
 app.post('/removeUser', removeUser)

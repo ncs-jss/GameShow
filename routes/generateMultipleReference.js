@@ -8,19 +8,20 @@ router.post('/generateMultipleReference', function(req, res) {
 		var i=0;
 		var resArray = [];
 		
-		var users = req.body.users; //users in an array of mixed types  {email : string, trekreg_ID: number}
+		var users = req.body.users;//users in an array of mixed types  {email : string, trekreg_ID: number}
+		console.log(users);
 		for (i=0; i<users.length; i++) {
+	       // console.log(newReference);
 
 		
 	        var newReference = new Reference({
 	            state: true,
-	            email_ID: user[0].email_ID,
-	            trekreg_ID : user[0].email_ID
+	            email_ID: users[i].email_ID,
+	            trekreg_ID : users[i].trekreg_ID
 
 	        });
 
 	        newReference.referenceNumber = newReference._id //crypto.createHash('md5').update(req.body.email_ID).digest('hex')
-	        
 	        resArray.push(newReference);
 
 	        newReference.save(function(err) {
@@ -28,7 +29,7 @@ router.post('/generateMultipleReference', function(req, res) {
 	               // res.send({ id: newReference.referenceNumber });
 	            } else {
 	                console.log(err);
-	                res.send("try new email_ID")
+	                return    res.send("try new email_ID")
 	            }
 
 	        });
