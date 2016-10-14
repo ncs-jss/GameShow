@@ -60,6 +60,7 @@ var renderRemoveQuestion = require('./routes/renderRemoveQuestion');
 var removeQuestion = require('./routes/removeQuestion');
 var removeUser = require('./routes/removeUser');
 var renderGenerateReference = require('./routes/renderGenerateReference');
+var generateMultipleReference = require('./routes/generateMultipleReference')
 
 var logout = require('./routes/logout');
 //var renderHomePage = require ('./routes/renderHomePage')
@@ -145,7 +146,7 @@ app.post('/generateReference', function(req, res) {
 
         });
     } else
-        res.send("log in first!");
+        res.send({valid:0, redirect:"/admin"});
 });
 
 
@@ -201,6 +202,7 @@ app.get('/removeQuestion', renderRemoveQuestion);
 
 app.post('/removeQuestion', removeQuestion);
 
+app.get('/generateMultipleReference', generateMultipleReference);
 
 
 app.post('/removeUser', removeUser)
