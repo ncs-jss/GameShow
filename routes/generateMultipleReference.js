@@ -15,8 +15,8 @@ router.post('/generateMultipleReference', function(req, res) {
 		
 	        var newReference = new Reference({
 	            state: true,
-	            email_ID: users[i].email_ID,
-	            trekreg_ID : users[i].trekreg_ID
+	            email_ID: users[i].email,
+	            trekreg_ID : users[i].id
 
 	        });
 
