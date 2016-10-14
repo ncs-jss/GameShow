@@ -10,9 +10,6 @@ $(document).ready(function() {
 
             }, 600);
 
-
-
-
             $.get("/user", function(data) {
                 localStorage.setItem('userdata', JSON.stringify(data));
                 console.log(data);
@@ -48,7 +45,6 @@ $(document).ready(function() {
                     // a must be equal to b
                     return 0;
                 });
-                console.log(badges);
                 $.each(badges, function(key, value) {
                     console.log(value);
                     key += 1;

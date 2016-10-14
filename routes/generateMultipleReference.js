@@ -9,7 +9,6 @@ router.post('/generateMultipleReference', function(req, res) {
 		var resArray = [];
 		
 		var users = req.body.users;//users in an array of mixed types  {email : string, trekreg_ID: number}
-		console.log(users);
 		for (i=0; i<users.length; i++) {
 	       // console.log(newReference);
 
