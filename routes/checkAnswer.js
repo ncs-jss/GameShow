@@ -4,6 +4,7 @@ var questionAssigned = require('../Models/questionAssigned.js');
 var user = require('../Models/userInfo.js');
 var question = require('../Models/question.js');
 
+
 router.post('/checkAnswer', function(req, res) {
 	if(req.session.email && req.session.level) {
 		var badgesCouldBeWon = false ;
@@ -56,7 +57,7 @@ router.post('/checkAnswer', function(req, res) {
 												});
 										}
 										result.timeOfCompletion  = Date.now();
-										result.duration = result.timeOfCompletion.getTime()- result.timeOfAssignment.getTime();
+										result.duration = result.timeOfCompletion.getTime() - result.timeOfAssignment.getTime();
 										data.save(function(err) {
 											if (err){
 												console.log("err while saving data");
@@ -71,6 +72,7 @@ router.post('/checkAnswer', function(req, res) {
 
 										});
 										req.session.level = data.level;
+										return res.send({valid: 1, redirect:'/'});
 
 										 // question.findOne()
 									  //    .sort({level : -1})
@@ -83,7 +85,6 @@ router.post('/checkAnswer', function(req, res) {
 									  //    		if(data.level > result.level)
 											// 		return res.send({valid: 1, redirect:'/winner'});
 											// 	else
-											// 		return res.send({valid: 1, redirect:'/'});
 									  //    	}
 									  //    });
 									});
@@ -125,7 +126,9 @@ router.post('/checkAnswer', function(req, res) {
 
 										});
 										req.session.level = data.level;
+										 return res.send({valid: 1, redirect:'/'});
 										// question.findOne()
+									 //     		if(data.level > result.level)
 									 //     .sort({level : -1})
 									 //     .exec(function(err , result) {
 									 //     	if(err)
@@ -133,8 +136,6 @@ router.post('/checkAnswer', function(req, res) {
 									 //     	else
 									 //     	{
 									 //     		console.log({maxLevel : result.level});
-									 //     		if(data.level > result.level)
-										// 			return res.send({valid: 1, redirect:'/winner'});
 										// 		else
 										// 			return res.send({valid: 1, redirect:'/'});
 									 //     	}
