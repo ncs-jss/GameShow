@@ -34,6 +34,8 @@ router.post('/generateMultipleReference', function(req, res) {
         });
     }
     res.send({ valid: 1, data: resArray });
+    //} else
+    //   res.send(valid:0, redirect:"/admin");
 });
 
 

@@ -20,6 +20,7 @@ $(document).ready(function() {
             });
         }
         $(".receipt-container").removeClass("hidden");
+        window.print();
     }
 
     function fetchId(data) {
