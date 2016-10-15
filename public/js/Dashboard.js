@@ -26,9 +26,6 @@ $(document).ready(function() {
             }, 600);
 
             $.get("/user", function(data) {
-                localStorage.setItem('userdata', JSON.stringify(data));
-                console.log(data);
-
                 $.get("/totalLevel", function(maxLevel) {
                     localStorage.setItem('totalLevel', JSON.stringify(maxLevel));
                     console.log(data);
@@ -38,8 +35,7 @@ $(document).ready(function() {
                         maxValue: parseInt(((data.level - 1) * 100) / (maxLevel.maxLevel))
                     });
                 });
-
-
+                $("#circle-1").removeClass("hidden");
                 $("#circle-1 .text").html(data.score);
                 $(".userName").html(data.name.split(" ")[0] + "'s DashBoard");
                 $(".levelText .level strong").html(data.level);
@@ -79,6 +75,8 @@ $(document).ready(function() {
             if (data.valid == 1) {
                 $(".notifBox").find(".notif-correct").removeClass("hidden");
                 $("#world").removeClass("hidden");
+                $('#correct')[0].play();
+                navigator.vibrate([1000, 500, 500]);
                 setTimeout(function() {
                     window.location = data.redirect;
                 }, 3000);

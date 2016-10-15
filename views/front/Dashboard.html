@@ -54,6 +54,7 @@
                     <li class="active"><a href="/">Dashboard</a></li>
                     <li><a href="/leader">LeaderBoard</a></li>
                     <li><a href="https://www.facebook.com/nibblecomputersociety/" target="_blank">Forum</a></li>
+                    <li onclick="mute()"><a>Music</a></li>
                     <li><a href="/logout">Logout</a></li>
                 </ul>
             </div>
@@ -78,7 +79,6 @@
                 <div class="row">
                     <div class="col-xs-12 notifBox">
                         <div class="notif notif-error hidden">
-                            <strong>Really Starlord </strong> ! That's What you thought ?.
                         </div>
                         <div class="notif notif-correct hidden">
                             <strong> My Dear Holmes </strong> ! You're Right.
@@ -95,7 +95,7 @@
                 <div class=" levelIndicatorBox">
                     <div class="row">
                         <div class="col-xs-12 j-center">
-                            <div id="circle-1" class="levelIndicator" data-circle-fontSize="35px" data-circle-size="155px" data-circle-dialWidth=14 data-circle-skin="white">
+                            <div id="circle-1" class="levelIndicator hidden" data-circle-fontSize="35px" data-circle-size="155px" data-circle-dialWidth=14 data-circle-skin="white">
                                 <div class="loader-bg">
                                     <div class="text">0</div>
                                 </div>
@@ -140,13 +140,21 @@
             </div>
         </div>
     </div>
-    <div class="declaimer hidden">
-        <p>DECLAIMER : The fastest to collect all the badges will win a cash prize
-            <p>
-    </div>
+    <audio id="correct" src="/sounds/winner.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="audio" autoplay="true" loop="true" src="/sounds/gameplay.wav" type="audio/mpeg">
+    </audio>
     <script src="/js/Dashboard.js"></script>
     <script src="/js/circle.js"></script>
     <script src="/js/confetti.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#audio")[0].volume = 0.6;
+    });
+    function mute() {
+        $('#audio')[0].muted = true;
+    }
+    </script>
 </body>
 
 </html>

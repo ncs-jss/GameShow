@@ -39,6 +39,12 @@
         width: 50%;
         background: rgba(0, 0, 0, 0.5);
     }
+    
+    @media screen and (max-width: 400px) {
+        .box {
+            width: 100%;
+        }
+    }
     </style>
 </head>
 <!--Body starts-->
@@ -67,12 +73,12 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right" aria-labelledby="dropdownMenu1">
-                    <li class="active"><a href="/rules">Rules</a></li>
+                    <li><a href="/rules">Rules</a></li>
                     <li><a href="/">Dashboard</a></li>
                     <li><a href="/leader">LeaderBoard</a></li>
                     <li><a href="https://www.facebook.com/nibblecomputersociety/" target="_blank">Forum</a></li>
+                    <li onclick="mute()"><a>Music</a></li>
                     <li><a href="/logout">Logout</a></li>
-                    <li><a href="#">Music</a></li>
                 </ul>
             </div>
         </div>
@@ -96,9 +102,7 @@
             <h1 class="text-center animated infinite flash" style="color: #fff;">Hurray !!</h1>
             <!-- rule contents ends here-->
         </div>
-        <audio id="audio" autoplay="true">
-            <!-- <source src="/sounds/winner.wav" type="audio/mpeg" /> -->
-            <source src="/sounds/winner.mp3" type="audio/mpeg" />
+        <audio id="audio" autoplay="true" loop="true" src="/sounds/winner.mp3" type="audio/mpeg">
         </audio>
         <script type="text/javascript" src="/js/jquery.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
@@ -109,13 +113,12 @@
                 $(".userName").html(userdata.name);
                 $(".avatarBox input").val(userdata.avatar);
             });
-            var audio = document.querySelector("#audio");
-            audio.addEventListener('ended', function() {
-                console.log('test');
-                this.currentTime = 0;
-                this.play();
-            }, false);
+            $("#audio")[0].volume = 0.6;
         });
+
+        function mute() {
+            $('#audio')[0].muted = true;
+        }
         </script>
         <script src="/js/confetti.js"></script>
 </body>
