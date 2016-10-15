@@ -16,14 +16,14 @@ router.post('/generateMultipleReference', function(req, res) {
 
 	        });
 
-	        newReference.referenceNumber = newReference._id //crypto.createHash('md5').update(req.body.email_ID).digest('hex')
-	            newReference.email_ID: users[i].email,
-	            newReference.trekreg_ID : users[i].id
+	        newReference.referenceNumber = newReference._id; //crypto.createHash('md5').update(req.body.email_ID).digest('hex')
+	            newReference.email_ID = users[i].email;
+	            newReference.trekreg_ID = users[i].id;
 
 	        console.log("the new user registered is : " + newReference);
+			resArray.push(newReference);
 	        newReference.save(function(err) {
 	            if (!err) {
-			        resArray.push(newReference);
 	               // res.send({ id: newReference.referenceNumber });
 	            } else {
 	                console.log(err);
