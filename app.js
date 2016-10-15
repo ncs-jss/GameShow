@@ -212,8 +212,8 @@ app.post('/removeUser', removeUser)
 app.get('/logout', logout)
 
 
-app.listen("8080", function() {
-    console.log("server listening at port 8080");
+app.listen("8888", function() {
+    console.log("server listening at port 8888");
 });
 
 module.exports = app;
