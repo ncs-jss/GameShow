@@ -12,17 +12,18 @@ $(document).ready(function() {
         });
     });
     */
-    function showReceipts(receiptData){
-        if(receiptData.valid == 1){
-            $.each(receiptData.data,function(key,value){
-                console.log(value); 
+    function showReceipts(receiptData) {
+        if (receiptData.valid == 1) {
+            $.each(receiptData.data, function(key, value) {
+                var html = '<div class="i-card col-sm-3"><div class="content"><p>Trek-Reg-ID : <strong>'+ value.trekreg_ID+'</strong></p><p>Email : <strong>'+ value.email+'</strong></p><p>ID : <strong>'+ value.referenceNumber+'</strong></p></div><div class="logo"><img src="/img/ttlogo_new.png"><p style="flex-basis:100%;font-size:9px;margin:5px 0"><strong>NCS</strong><br>tech-trek.hackncs.com</p><p>Fee : <strong>Rs. 20/- Paid.</strong></p></div></div>';
+                $(".receipt-container").append(html);
             });
         }
         $(".receipt-container").removeClass("hidden");
     }
-    function fetchId(data){
+
+    function fetchId(data) {
         data = JSON.stringify(data);
-        console.log(data);
         $.post("/generateMultipleReference", { users: data }, function(receiptData) {
             console.log(receiptData);
             showReceipts(receiptData);
@@ -48,10 +49,4 @@ $(document).ready(function() {
         reader.readAsText(f);
     }
     document.querySelector('.jsonFile').addEventListener('change', handleFileSelect, false);
-    /*
-        $('.jsonFile').change(function(){
-            console.log('test');
-            handleFileSelect();   
-        });
-    */
 });
