@@ -20,7 +20,7 @@ var Reference = require('./Models/reference.js');
 var User = require('./Models/userInfo.js');
 
 
-var uristring = 'mongodb://localhost/first';
+var uristring = 'mongodb://localhost/test1';
 var mongoOptions = { db: { safe: true } };
 
 // Connect to Database
@@ -126,28 +126,28 @@ var sess;
 //  Registers the User and redirect you to login page.
 
 
-// This will generate a referance number and returns it .
-app.post('/generateReference', function(req, res) {
-    if (req.session.admin && req.session.admin == "admin") {
-        var newReference = new Reference({
-            state: true,
-            email_ID: req.body.email_ID
-        });
+// // This will generate a referance number and returns it .
+// app.post('/generateReference', function(req, res) {
+//     if (req.session.admin && req.session.admin == "admin") {
+//         var newReference = new Reference({
+//             state: true,
+//             email_ID: req.body.email_ID
+//         });
 
-        newReference.referenceNumber = newReference._id //crypto.createHash('md5').update(req.body.email_ID).digest('hex')
+//         newReference.referenceNumber = newReference._id //crypto.createHash('md5').update(req.body.email_ID).digest('hex')
 
-        newReference.save(function(err) {
-            if (!err) {
-                res.send({ id: newReference.referenceNumber });
-            } else {
-                console.log(err);
-                res.send("try new email_ID")
-            }
+//         newReference.save(function(err) {
+//             if (!err) {
+//                 res.send({ id: newReference.referenceNumber });
+//             } else {
+//                 console.log(err);
+//                 res.send("try new email_ID")
+//             }
 
-        });
-    } else
-        res.send({valid:0, redirect:"/admin"});
-});
+//         });
+//     } else
+//         res.send({valid:0, redirect:"/admin"});
+// });
 
 
 
