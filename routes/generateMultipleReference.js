@@ -11,21 +11,21 @@ router.post('/generateMultipleReference', function(req, res) {
 		var users = req.body.users;//users in an array of mixed types  {email : string, trekreg_ID: number}
 		console.log(users);
 		for (i=0; i<users.length; i++) {
-	       // console.log(newReference);
 
 		
 	        var newReference = new Reference({
 	            state: true,
-	            email_ID: users[i].email,
-	            trekreg_ID : users[i].id
 
 	        });
 
+	        console.log("the new user registered is : " + newReference);
 	        newReference.referenceNumber = newReference._id //crypto.createHash('md5').update(req.body.email_ID).digest('hex')
-	        resArray.push(newReference);
+	            newReference.email_ID: users[i].email,
+	            newReference.trekreg_ID : users[i].id
 
 	        newReference.save(function(err) {
 	            if (!err) {
+			        resArray.push(newReference);
 	               // res.send({ id: newReference.referenceNumber });
 	            } else {
 	                console.log(err);
