@@ -29,7 +29,7 @@ $(document).ready(function() {
         elem.addClass("animated fadeOut");
         setTimeout(function() {
             elem.addClass("hidden");
-        }, 600);
+        }, 1500);
     }
     $("#submit").click(function() {
         signup.email = $("#email").val();

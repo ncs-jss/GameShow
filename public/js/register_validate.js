@@ -62,7 +62,6 @@ $("#year").blur(function() {
 })
 
 $("#submit").click(function() {
-
     var name = $("#name").val();
     var email = $("#email").val();
     var referenceNo = $("#referenceNo").val();

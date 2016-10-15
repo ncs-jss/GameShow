@@ -4,7 +4,7 @@ function showError(elem,comment) {
     elem.removeClass("hidden");
     setTimeout(function() {
         elem.addClass("hidden");
-    }, 800);
+    }, 1400);
 }
 $(document).ready(function() {
     $(document).ready(function() {
@@ -27,7 +27,6 @@ $(document).ready(function() {
             toggled = false;
         }
         input.trigger("focus");
-
     });
 
     $(".checkModal1").click(function() {
