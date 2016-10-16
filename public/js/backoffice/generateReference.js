@@ -25,6 +25,7 @@ $(document).ready(function() {
 
     function fetchId(data) {
         data = JSON.stringify(data);
+        console.log("this is happening1");
         $.post("/generateMultipleReference", { "users" : data }, function(receiptData) {
             console.log(receiptData);
             showReceipts(receiptData);
