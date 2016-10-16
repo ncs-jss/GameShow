@@ -1,6 +1,6 @@
 body {
     background-image: url('../img/Techtrek.jpg');
-    background: cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100%;

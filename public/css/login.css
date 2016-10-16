@@ -12,6 +12,7 @@
     font-family: "LemonMilk";
     background-image: url('../img/main_login.jpg');
     background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
     height: 100%;
 }
