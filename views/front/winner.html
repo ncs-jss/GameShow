@@ -43,6 +43,10 @@
     @media screen and (max-width: 400px) {
         .box {
             width: 100%;
+            height: 200px;
+        }
+        .box h1{
+            font-size: 20px;
         }
     }
     </style>
@@ -77,8 +81,9 @@
                     <li><a href="/">Dashboard</a></li>
                     <li><a href="/leader">LeaderBoard</a></li>
                     <li><a href="https://www.facebook.com/nibblecomputersociety/" target="_blank">Forum</a></li>
-                    <li onclick="mute()"><a>Music</a></li>
+                    <!-- <li onclick="mute()"><a>Music</a></li> -->
                     <li><a href="/logout">Logout</a></li>
+                    <li onclick="mute()"><a><img style="margin: 0;height: 20px;width: auto;" src="/img/speaker.png" class="toggleAudio"></a></li>
                 </ul>
             </div>
         </div>
@@ -118,12 +123,13 @@
         function mute() {
             if ($('#audio')[0].muted) {
                 $('#audio')[0].muted = false;
+                $(".toggleAudio").attr("src","/img/speaker.png");
             } else {
                 $('#audio')[0].muted = true;
+                $(".toggleAudio").attr("src","/img/mute.png");
             }
         }
         </script>
         <script src="/js/confetti.js"></script>
 </body>
-
 </html>

@@ -54,8 +54,9 @@
                     <li class="active"><a href="/">Dashboard</a></li>
                     <li><a href="/leader">LeaderBoard</a></li>
                     <li><a href="https://www.facebook.com/nibblecomputersociety/" target="_blank">Forum</a></li>
-                    <li onclick="mute()"><a>Music</a></li>
                     <li><a href="/logout">Logout</a></li>
+                    <li onclick="mute()"><a><img style="margin: 0;height: 20px;width: auto;" src="/img/speaker.png" class="toggleAudio"></a></li>
+                    
                 </ul>
             </div>
         </div>
@@ -95,7 +96,7 @@
                 <div class=" levelIndicatorBox">
                     <div class="row">
                         <div class="col-xs-12 j-center">
-                            <div id="circle-1" class="levelIndicator hidden" data-circle-fontSize="35px" data-circle-size="155px" data-circle-dialWidth=14 data-circle-skin="white">
+                            <div id="circle-1" class="levelIndicator" data-circle-fontSize="35px" data-circle-size="155px" data-circle-dialWidth=14 data-circle-skin="white">
                                 <div class="loader-bg">
                                     <div class="text">0</div>
                                 </div>
@@ -154,14 +155,16 @@
     <script src="/js/confetti.js"></script>
     <script>
     $(document).ready(function() {
-        $("#audio")[0].volume = 0.6;
+        $("#audio")[0].volume = 0.65;
     });
 
     function mute() {
         if ($('#audio')[0].muted) {
             $('#audio')[0].muted = false;
+            $(".toggleAudio").attr("src","/img/speaker.png");
         } else {
             $('#audio')[0].muted = true;
+            $(".toggleAudio").attr("src","/img/mute.png");
         }
     }
     </script>
