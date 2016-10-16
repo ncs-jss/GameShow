@@ -1,6 +1,5 @@
 $(document).ready(function() {
     $.get("/leaderboard", function(data) {
-        console.log(data);
         $.get("/user", function(userdata) {
             $(".userName").html(userdata.name);
             $(".avatarBox input").val(userdata.avatar);
@@ -12,6 +11,24 @@ $(document).ready(function() {
                 allHtml += '<td class="table-score"><span>' + data[i].score + '</span></td>\n';
                 allHtml = '<tr>' + allHtml + '</tr>';
                 $(".userList").append(allHtml);
+                var badges = data[i].badges;
+                var imgpath = "";
+                var elem = "";
+                if(badges.length > 0){
+                   badges.sort(function(a, b) {
+                       return b.level - a.level;
+                   });
+                   var badgeHtml = '';
+                   $.each(badges, function(key, value) {
+                       badgeHtml += '<img src="/img/badges/' + value.name + '.png">';
+                   });
+                   $(".userList tr:eq(" + i + ")").popover({
+                       placement: 'bottom',
+                       trigger: 'hover',
+                       html: true,
+                       content: '<span>' + badgeHtml + '</span>'
+                   }); 
+                }
             }
         });
     });
