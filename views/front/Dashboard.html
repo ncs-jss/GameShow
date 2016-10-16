@@ -158,7 +158,11 @@
     });
 
     function mute() {
-        $('#audio')[0].muted = true;
+        if ($('#audio')[0].muted) {
+            $("#audio")[0].volume = 0.6;
+        } else {
+            $('#audio')[0].muted = true;
+        }
     }
     </script>
 </body>
