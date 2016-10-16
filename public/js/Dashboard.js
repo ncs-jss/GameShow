@@ -57,6 +57,7 @@ $(document).ready(function() {
     });
     $(".submit_btn button").click(function() {
         $.post("/checkAnswer", { answer: $(".ans input").val() }, function(data) {
+            $(".ans input").trigger("blur");
             console.log(data);
             if (data.valid == 1) {
                 $(".notifBox").find(".notif-correct").removeClass("hidden");
@@ -69,7 +70,6 @@ $(document).ready(function() {
             } else {
                 $(".notifBox").find(".notif-error").html(wrongNotifs[Math.random() * wrongNotifs.length >> 0]).removeClass("hidden");
                 setTimeout(function() {
-                    // $(".notifBox").find(".notif-error").addClass("animated fadeOut");
                     $(".notifBox").find(".notif-error").addClass("hidden");
                 }, 3500);
             }
