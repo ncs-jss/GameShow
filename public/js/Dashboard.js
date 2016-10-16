@@ -11,7 +11,7 @@ $(document).ready(function() {
         "Sorry dude...",
         "Keep trying. You can do it!!",
         "Just don't bang your head on wall :P",
-        "Cmon' let's give it another shot",
+        "C'mon let's give it another shot",
         "String didn't matched.",
         "Whoops! couldn't launch the next question."
     ]
@@ -33,7 +33,7 @@ $(document).ready(function() {
                         maxValue: parseInt(((data.level - 1) * 100) / (maxLevel.maxLevel))
                     });
                 });
-                $("#circle-1").removeClass("hidden");
+                // $("#circle-1").removeClass("hidden");
                 $("#circle-1 .text").html(data.score);
                 $(".userName").html(data.name.split(" ")[0] + "'s DashBoard");
                 $(".levelText .level strong").html(data.level);
@@ -43,14 +43,7 @@ $(document).ready(function() {
                 var imgpath = "";
                 var elem = "";
                 badges.sort(function(a, b) {
-                    if (a.level > b.level) {
-                        return -1;
-                    }
-                    if (a.level < b.level) {
-                        return +1;
-                    }
-                    // a must be equal to b
-                    return 0;
+                    return b.level - a.level;
                 });
                 $.each(badges, function(key, value) {
                     imgpath = "/img/badges/" + value.name + ".png";
@@ -75,9 +68,8 @@ $(document).ready(function() {
                     window.location = data.redirect;
                 }, 3000);
             } else {
-                $(".notifBox").find(".notif-error").html(wrongNotifs[Math.random()*wrongNotifs.length >> 0]).removeClass("hidden");
+                $(".notifBox").find(".notif-error").html(wrongNotifs[Math.random() * wrongNotifs.length >> 0]).removeClass("hidden");
                 setTimeout(function() {
-                    // $(".notifBox").find(".notif-error").addClass("animated fadeOut");
                     $(".notifBox").find(".notif-error").addClass("hidden");
                 }, 3500);
             }
@@ -90,22 +82,3 @@ $(document).ready(function() {
         }
     });
 });
-
-
-/*
-["Your key didn't opened the door!",
-"Be like Bill and just do it!",
-"Server says... it's wrong.",
-"Use the force! Luke. ",
-"Boom!.. But incorrect :P",
-"Don't worry.. keep trying and you can do it!",
-"Our Alien couldn't digest your answer.",
-"Remember.. google is there for help.",
-"Sorry dude...",
-"Keep trying. You can do it!!",
-"Try try try..",
-"Just don't bang your head on wall :P",
-"Cmon' let's give another shot",
-"String didn't matched.",
-"Woops. couldn't launch the next question."]
-*/
