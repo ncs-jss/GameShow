@@ -155,6 +155,9 @@
     <script>
     $(document).ready(function() {
         $("#audio")[0].volume = 0.6;
+        $("#audio")[0].load();
+        $("#audio")[0].play();
+
     });
 
     function mute() {
