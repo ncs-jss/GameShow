@@ -20,7 +20,7 @@ var Reference = require('./Models/reference.js');
 var User = require('./Models/userInfo.js');
 
 
-var uristring = 'mongodb://localhost/test1';
+var uristring = 'mongodb://localhost/first';
 var mongoOptions = { db: { safe: true } };
 
 // Connect to Database
