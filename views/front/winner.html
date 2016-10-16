@@ -115,10 +115,9 @@
             });
             $("#audio")[0].volume = 0.6;
         });
-
         function mute() {
             if ($('#audio')[0].muted) {
-                $("#audio")[0].volume = 0.6;
+                $('#audio')[0].muted = false;
             } else {
                 $('#audio')[0].muted = true;
             }

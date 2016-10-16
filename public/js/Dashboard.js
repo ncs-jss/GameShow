@@ -40,7 +40,6 @@ $(document).ready(function() {
                 $(".levelText .score strong").html(data.score);
                 $(".avatarBox input").val(data.avatar);
                 var badges = data.badges;
-                console.log(badges);
                 var imgpath = "";
                 var elem = "";
                 badges.sort(function(a, b) {
@@ -54,11 +53,8 @@ $(document).ready(function() {
                     return 0;
                 });
                 $.each(badges, function(key, value) {
-                    // key += 1;
                     imgpath = "/img/badges/" + value.name + ".png";
-                    // elem = ".badges:nth-child(" + key + ")";
                     elem = ".badges:eq(" + key + ")";
-                    console.log($(elem));
                     $(elem + " img").attr("src", imgpath);
                     $(elem).tooltip().attr("data-original-title", value.name);
                     $(elem + " p").html("Level " + value.level);

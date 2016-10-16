@@ -147,7 +147,7 @@
     </div>
     <audio id="correct" src="/sounds/winner.mp3" type="audio/mpeg">
     </audio>
-    <audio id="audio" autoplay="true" loop="true" src="/sounds/gameplay.wav" type="audio/mpeg">
+    <audio id="audio" autoplay="true" loop="true" src="/sounds/gameplaymin.mp3" type="audio/mpeg">
     </audio>
     <script src="/js/Dashboard.js"></script>
     <script src="/js/circle.js"></script>
@@ -159,7 +159,7 @@
 
     function mute() {
         if ($('#audio')[0].muted) {
-            $("#audio")[0].volume = 0.6;
+            $('#audio')[0].muted = false;
         } else {
             $('#audio')[0].muted = true;
         }
