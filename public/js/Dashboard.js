@@ -27,8 +27,6 @@ $(document).ready(function() {
 
             $.get("/user", function(data) {
                 $.get("/totalLevel", function(maxLevel) {
-                    localStorage.setItem('totalLevel', JSON.stringify(maxLevel));
-                    console.log(data);
                     new Circlebar({
                         element: "#circle-1",
                         type: "progress",
@@ -43,7 +41,6 @@ $(document).ready(function() {
                 $(".avatarBox input").val(data.avatar);
                 var badges = data.badges;
                 console.log(badges);
-                // badges = [2,3];
                 var imgpath = "";
                 var elem = "";
                 badges.sort(function(a, b) {
@@ -57,11 +54,11 @@ $(document).ready(function() {
                     return 0;
                 });
                 $.each(badges, function(key, value) {
-                    console.log(value);
-                    key += 1;
+                    // key += 1;
                     imgpath = "/img/badges/" + value.name + ".png";
-                    elem = ".badges:nth-child(" + key + ")";
-                    console.log(elem);
+                    // elem = ".badges:nth-child(" + key + ")";
+                    elem = ".badges:eq(" + key + ")";
+                    console.log($(elem));
                     $(elem + " img").attr("src", imgpath);
                     $(elem).tooltip().attr("data-original-title", value.name);
                     $(elem + " p").html("Level " + value.level);
