@@ -55,8 +55,9 @@
                     <li><a href="/leader">LeaderBoard</a></li>
                     <li><a href="https://www.facebook.com/nibblecomputersociety/" target="_blank">Forum</a></li>
                     <li><a href="/logout">Logout</a></li>
-                    <li onclick="mute()"><a><img style="margin: 0;height: 20px;width: auto;" src="/img/speaker.png" class="toggleAudio"></a></li>
-                    
+                    <li onclick="mute()">
+                        <a><img style="margin: 0;height: 20px;width: auto;" src="/img/speaker.png" class="toggleAudio"></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -127,7 +128,6 @@
                             </div>
                         </div>
                         <div class="row badgesBox text-center">
-                        
                             <div class="col-xs-4 badges" data-toggle="tooltip" data-title="Locked">
                                 <img src="/img/Badge.png">
                                 <p>Badge-4</p>
@@ -146,6 +146,11 @@
             </div>
         </div>
     </div>
+    <footer class="footer techtrekFooter">
+        <div class="container">
+            <span class="footerText pull-left"><strong>&#9400; Nibble Computer Society</strong></span>
+        </div>
+    </footer>
     <audio id="correct" src="/sounds/winner.mp3" type="audio/mpeg">
     </audio>
     <audio id="audio" autoplay="true" loop="true" src="/sounds/gameplaymin.mp3" type="audio/mpeg">
@@ -163,10 +168,10 @@
     function mute() {
         if ($('#audio')[0].muted) {
             $('#audio')[0].muted = false;
-            $(".toggleAudio").attr("src","/img/speaker.png");
+            $(".toggleAudio").attr("src", "/img/speaker.png");
         } else {
             $('#audio')[0].muted = true;
-            $(".toggleAudio").attr("src","/img/mute.png");
+            $(".toggleAudio").attr("src", "/img/mute.png");
         }
     }
     </script>

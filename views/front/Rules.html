@@ -71,7 +71,7 @@
     </nav>
     <!-- rules contents starts here-->
     <div class="container">
-                <h1 class="pageheading text-center">Rules</h1>
+        <h1 class="pageheading text-center">Rules</h1>
         <div>
             <div class="row overlay_anime hidden-xs">
                 <div class="col-md-3 col-md-offset-9 animated slideInRight">
@@ -92,17 +92,23 @@
             </div>
             <!-- rule contents ends here-->
         </div>
-        <script type="text/javascript" src="/js/jquery.min.js"></script>
-        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-        <script>
-        $(document).ready(function() {
-            $.get("/user", function(data) {
-                userdata = data;
-                $(".userName").html(userdata.name);
-                $(".avatarBox input").val(userdata.avatar);
-            });
+    </div>
+    <footer class="footer techtrekFooter">
+        <div class="container">
+            <span class="footerText pull-left"><strong>&#9400; Nibble Computer Society</strong></span>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $.get("/user", function(data) {
+            userdata = data;
+            $(".userName").html(userdata.name);
+            $(".avatarBox input").val(userdata.avatar);
         });
-        </script>
+    });
+    </script>
 </body>
 
 </html>

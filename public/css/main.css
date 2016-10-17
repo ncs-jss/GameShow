@@ -72,8 +72,20 @@ li a {
     font-family: "Milk";
     font-size: 10px;
 }
-
-
+.techtrekFooter{
+    margin-top: 30px;
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+.footerText{
+    color: #fff;
+    font-size: 14px;
+}
+.footerText strong{
+    color: #f58974;
+    color: #662a68;
+    font-size: 16px;
+}
 /************ super extra small devies only***/
 
 @media (max-width: 319px) {
