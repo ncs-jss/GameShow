@@ -6,7 +6,7 @@ router.get('/', function(req, res) {
 
  // remove code below to make things live
 
- return res.redirect('/login');
+ //return res.redirect('/login');
 
 
 	console.log(req.session.email);

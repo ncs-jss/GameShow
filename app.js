@@ -121,7 +121,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var sess;
+
 
 //  Registers the User and redirect you to login page.
 
@@ -151,34 +151,34 @@ var sess;
 
 
 
-console.log("following action needs to be done \n1 uncomment below routes \n 2 delete redirect code from '/' route \n3 remove comment from login signup modal");
+//console.log("following action needs to be done \n1 uncomment below routes \n 2 delete redirect code from '/' route \n3 remove comment from login signup modal");
  app.get('/login', renderLogin);
 
-// app.post('/register', register);
+app.post('/register', register);
 
-// app.post('/login', login);
+app.post('/login', login);
 
- app.get('/', index);
+app.get('/', index);
 
-// app.get('/rules', rules);
+app.get('/rules', rules);
 
-// app.get('/user', user);
+app.get('/user', user);
 
-// app.get('/totalLevel', totalLevel);
+app.get('/totalLevel', totalLevel);
 
-// app.get('/getQuestion', getQuestion);
+app.get('/getQuestion', getQuestion);
 
-// app.post('/checkAnswer', checkAnswer);
+app.post('/checkAnswer', checkAnswer);
 
-// app.get('/makeChoice', renderMakeChoice);
+app.get('/makeChoice', renderMakeChoice);
 
-// app.post("/makeChoice", makeChoice);
+app.post("/makeChoice", makeChoice);
 
-// app.get('/Leader', renderLeaderBoard);
+app.get('/Leader', renderLeaderBoard);
 
-// app.get('/winner', renderWinner);
+app.get('/winner', renderWinner);
 
-// app.get('/leaderBoard', leaderBoard);
+app.get('/leaderBoard', leaderBoard);
 
 
 //admin apis
