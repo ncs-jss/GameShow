@@ -25,6 +25,10 @@
         font-family: 'Lato', sans-serif !important;
     }
     
+    body {
+        overflow-x: hidden;
+    }
+    
     .techtrekFooter {
         margin-top: 30px;
         padding: 20px 0;
@@ -33,7 +37,8 @@
         position: absolute;
         width: 100%;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.2);
+        /*background: rgba(0, 0, 0, 0.2);*/
+        background: black;
     }
     
     .footerText {
@@ -42,14 +47,18 @@
         font-size: 14px;
         line-height: 20px;
     }
+    .footerText a{
+        text-decoration: none;
+    }
+    .footerText:nth-child(2) strong{
+        color: #662a68;
+    }
     
     .footerText strong {
         color: #f58974;
-        color: #662a68;
         font-size: 16px;
         line-height: 20px;
     }
-    
     .xsflexBox {
         padding-left: 0;
         padding-right: 0;
@@ -97,14 +106,14 @@
             <div class="col-md-3 col-md-offset-1">
                 <a href="#" data-toggle="modal" data-target="#loginmodal" class="checkModal2"><img src="/img/login.png" style="margin-top:15px;margin-bottom:30px ;height:70px; width:200px;"></a>
             </div>
-            <div class="col-md-3 col-md-offset-5 hidden-xs">
+            <div class="col-md-3 col-md-offset-2 hidden-xs">
                 <img class="animated bounceIn" src="/img/astronaut.png" style="margin-top:50px">
             </div>
         </div>
         <footer class="footer techtrekFooter">
             <div class="container">
-                <span class="footerText pull-left">Developed By <strong>Nibble Computer Society</strong></span>
-                <span class="footerText pull-right">Alumni's & Faculty, visit :<a href="https://www.facebook.com/nibblecomputersociety"><strong>Forum</strong></a> for trekking</span>
+                <span class="footerText pull-left">Developed By <a target="_blank" href="http://hackncs.com"><strong>Nibble Computer Society</strong></a></span>
+                <span class="footerText pull-right">Alumni's & Faculty, visit :<a target="_blank" href="https://www.facebook.com/nibblecomputersociety"><strong>Forum</strong></a> for trekking</span>
             </div>
         </footer>
     </div>
