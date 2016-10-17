@@ -7,13 +7,18 @@ $(document).ready(function() {
         "Use the force! Luke. ",
         "Boom!.. But incorrect :P",
         "Our Alien couldn't digest your answer.",
-        "Remember.. google is there for help.",
+        "Remember.. Google is there for help.",
         "Sorry dude...",
         "Keep trying. You can do it!!",
         "Just don't bang your head on wall :P",
         "C'mon let's give it another shot",
         "String didn't matched.",
-        "Whoops! couldn't launch the next question."
+        "Whoops! couldn't launch the next question.",
+        "Sherlock ignored your answer",
+        "Still waiting to say hurray!!",
+        "Mayday! Mayday! Unknown response!!",
+        "You are still knocking the door? ",
+        "Ahoy!! but you still missed it."
     ]
     $.get("/getQuestion", function(data) {
         if (data.valid == 0) {
