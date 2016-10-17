@@ -1,0 +1,72 @@
+@font-face {
+    font-family: lemon;
+    src: url("../fonts/LemonMilk.otf");
+}
+
+body {
+    background-image: url("../img/main_login.jpg");
+    font-family: lemon;
+}
+
+.overlay_anime {
+    position: absolute;
+    z-index: -1;
+}
+
+.Pad_m li {
+    font-size: 12px;
+    line-height: 32px;    
+}
+
+.box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.box::-webkit-scrollbar-thumb {
+    width: 8px;
+    background: #f58974;
+}
+
+.pageheading {
+    color: #f58974;
+    margin-bottom: 20px;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    letter-spacing: 10px;
+}
+@media screen and (max-width: 768px) {
+    .avatarBox {
+        display: flex;
+        justify-content: center;
+        display: inline-block;
+        padding-top: 10px;
+    }
+    .navbar-brand {
+        display: inline-block;
+    }
+    .pageheading {
+        margin: 0;
+        margin-bottom: 10px;
+        letter-spacing: 4px;
+        font-size: 16px;
+    }
+    .well{
+        margin-top: 0px;
+    }
+    .box{
+        height: 270px;
+    }
+    .overlay_anime {
+        display: none;
+    }
+    .table-score span {
+        border-left: 2px solid rgba(162, 133, 133, 0.29) !important;
+        padding-left: 10px;
+    }
+    .Pad_m {
+        padding-left: 0px !important;
+    }
+    .Pad_m li {
+        font-size: 10px;
+        line-height: 16px;
+    }
+}
