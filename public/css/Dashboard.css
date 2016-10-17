@@ -22,8 +22,12 @@ body {
 }
 
 .j-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .badgesBox p {
@@ -99,6 +103,7 @@ h1 {
     color: #f58974;
     border-radius: 4px;
     width: 100%;
+    -webkit-transition: .6s;
     transition: .6s;
 }
 
@@ -147,8 +152,12 @@ h1 {
 
 @media screen and (max-width: 768px) {
     .avatarBox {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         display: inline-block;
         padding-top: 10px;
     }

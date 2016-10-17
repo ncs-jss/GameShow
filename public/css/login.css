@@ -160,6 +160,7 @@ label {
     border-bottom: 1px solid #fff;
     border-radius: 0px;
     padding-left: 10px;
+    -webkit-transition: .4s ease-in-out;
     transition: .4s ease-in-out;
     margin-bottom: 25px;
     font-size: 16px;
@@ -177,7 +178,8 @@ label {
 }
 .transparentModal:after{
     content: " ";
-    filter: blur(5px);
+    -webkit-filter: blur(5px);
+            filter: blur(5px);
     /*background: #fff;*/
     position: absolute;
     width: 100%;
@@ -223,11 +225,20 @@ label {
 
 @media (max-width:767px) {
     .xsflexBox {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         /*justify-content: flex-end;*/
-        justify-content: center;
-        flex-direction: column;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         min-height: 100vh;
         position: relative;
         overflow: hidden;
@@ -240,8 +251,12 @@ label {
         width: 100%;
     }
     .pos-top * {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
     .avatar{
         width: 40px;
@@ -271,4 +286,3 @@ label {
 /*media queries for large devices*/
 
 @media (min-width: 1200px) {}
-

@@ -1,7 +1,10 @@
 .loader {
     position: relative;
     float:left;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     box-sizing: border-box;
     width: 150px;
     height: 150px;
@@ -12,9 +15,15 @@
     border-radius: 50%;
     box-sizing: border-box;
     border: 5px solid #eeeeee;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 .spinner-holder-one {
     position: absolute;
@@ -44,36 +53,52 @@
     box-sizing: border-box;
 }  
   .animate-0-25-a {
-    transform: rotate(90deg);
-    transform-origin: 100% 100%;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
 }
 .animate-0-25-b {
-    transform: rotate(-90deg);
-    transform-origin: 100% 100%;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
 }
 .animate-25-50-a {
-    transform: rotate(180deg);
-    transform-origin: 100% 100%;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
 }
 .animate-25-50-b {
-    transform: rotate(-90deg);
-    transform-origin: 100% 100%;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
 }
 .animate-50-75-a {
-    transform: rotate(270deg);
-    transform-origin: 100% 100%;
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+    -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
 }
 .animate-50-75-b {
-    transform: rotate(-90deg);
-    transform-origin:100% 100%;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    -webkit-transform-origin:100% 100%;
+            transform-origin:100% 100%;
 }
 .animate-75-100-a {
-    transform: rotate(0deg);
-    transform-origin: 100% 100%;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
 }
 .animate-75-100-b {
-    transform: rotate(-90deg);
-    transform-origin: 100% 100%;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
 }
 .text {
     text-align: center;
