@@ -121,7 +121,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var sess;
+
 
 //  Registers the User and redirect you to login page.
 
@@ -151,8 +151,8 @@ var sess;
 
 
 
-
-app.get('/login', renderLogin);
+//console.log("following action needs to be done \n1 uncomment below routes \n 2 delete redirect code from '/' route \n3 remove comment from login signup modal");
+ app.get('/login', renderLogin);
 
 app.post('/register', register);
 
