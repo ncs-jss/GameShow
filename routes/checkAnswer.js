@@ -3,10 +3,13 @@ var router =  express.Router();
 var questionAssigned = require('../Models/questionAssigned.js');
 var user = require('../Models/userInfo.js');
 var question = require('../Models/question.js');
+var crypto = require('crypto');
 
 
 router.post('/checkAnswer', function(req, res) {
 	if(req.session.email && req.session.level) {
+		//console.log("hash of abcd " +crypto.createHash('md5').update('abcd').digest('hex'));
+		var answerByUser = crypto.createHash('md5').update(req.body.answer).digest('hex');
 		var badgesCouldBeWon = false ;
 		questionAssigned.findOne({user_ID : req.session.email, level : req.session.level}).populate('question_ID')
 		.exec(function (err, result) {
@@ -14,13 +17,13 @@ router.post('/checkAnswer', function(req, res) {
 				return console.log(err);
 			if(result) {
 				console.log('the result is' + result );
-				if(req.body.answer) {
-					console.log("the answercoming from req is "+ req.body.answer);
+				if(answerByUser) {
+					console.log("the answercoming from req is "+ answerByUser);
 					console.log('the TechnicalAnswer answer is'+ result.question_ID.technicalAnswer )
 					console.log('the nonTechnicalAnswer answer is'+ result.question_ID.nonTechnicalAnswer )
-					console.log('now lets have this ' + (req.body.answer == result.question_ID.technicalAnswer));
+					console.log('now lets have this ' + (answerByUser == result.question_ID.technicalAnswer));
 
-					if((req.body.answer == result.question_ID.technicalAnswer )||(req.body.answer ==  result.question_ID.nonTechnicalAnswer)){
+					if((answerByUser == result.question_ID.technicalAnswer )||(answerByUser ==  result.question_ID.nonTechnicalAnswer)){
 						var badgeWon = false;
 
 						question.find({level : req.session.level}).exec(function (err, multi) {
@@ -36,7 +39,7 @@ router.post('/checkAnswer', function(req, res) {
 							 	}
 
 
-								if(req.body.answer == result.question_ID.technicalAnswer) {
+								if(answerByUser == result.question_ID.technicalAnswer) {
 									console.log("technicalAnswer Matched");
 									user.findOne({email_ID : req.session.email}, function(err, data) {
 										data.score +=10;
@@ -90,7 +93,7 @@ router.post('/checkAnswer', function(req, res) {
 									});
 								}
 
-								else if(req.body.answer ==  result.question_ID.nonTechnicalAnswer) {
+								else if(answerByUser ==  result.question_ID.nonTechnicalAnswer) {
 									user.findOne({email_ID : req.session.email}, function(err, data) {
 										data.score +=5;
 										data.lastAttemptTime = Date.now();
