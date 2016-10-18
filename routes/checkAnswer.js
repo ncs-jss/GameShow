@@ -9,9 +9,13 @@ var crypto = require('crypto');
 router.post('/checkAnswer', function(req, res) {
 	if(req.session.email && req.session.level) {
 		//console.log("hash of abcd " +crypto.createHash('md5').update('abcd').digest('hex'));
-		var answerByUser = crypto.createHash('md5').update(req.body.answer).digest('hex');
+		
+		//var answerByUser = crypto.createHash('md5').update(req.body.answer).digest('hex');
+		var answerByUser = req.body.answer;
 		var badgesCouldBeWon = false ;
-		questionAssigned.findOne({user_ID : req.session.email, level : req.session.level}).populate('question_ID')
+		questionAssigned.findOne({user_ID : req.session.email, duration : {$exists: false}})
+		.sort({level : -1})
+		.populate('question_ID')
 		.exec(function (err, result) {
 			if(err)
 				return console.log(err);
@@ -26,7 +30,7 @@ router.post('/checkAnswer', function(req, res) {
 					if((answerByUser == result.question_ID.technicalAnswer )||(answerByUser ==  result.question_ID.nonTechnicalAnswer)){
 						var badgeWon = false;
 
-						question.find({level : req.session.level}).exec(function (err, multi) {
+						question.find({level : result.level}).exec(function (err, multi) {
 							if(multi.length>1)
 								badgesCouldBeWon = true
 
@@ -42,6 +46,9 @@ router.post('/checkAnswer', function(req, res) {
 								if(answerByUser == result.question_ID.technicalAnswer) {
 									console.log("technicalAnswer Matched");
 									user.findOne({email_ID : req.session.email}, function(err, data) {
+										if (data.level != req.session.level)
+											return res.send({valid : 0, comment : "incorrect choice"});
+
 										data.score +=10;
 										data.lastAttemptTime = Date.now();
 										data.level ++;
@@ -95,6 +102,10 @@ router.post('/checkAnswer', function(req, res) {
 
 								else if(answerByUser ==  result.question_ID.nonTechnicalAnswer) {
 									user.findOne({email_ID : req.session.email}, function(err, data) {
+
+										if (data.level != req.session.level)
+											return res.send({valid : 0, comment : "incorrect choice"});
+
 										data.score +=5;
 										data.lastAttemptTime = Date.now();
 										data.level ++;

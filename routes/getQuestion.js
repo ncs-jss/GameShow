@@ -10,12 +10,20 @@ router.get('/getQuestion', function(req,res){
 		 return res.redirect('/login');
 
 		// All the code for gettimg question.
-
+		User.findOne({email_ID : req.session.email},function(err, userData) {
+			if(err){
+				console.log(err);
+				return  res.send({valid : 0, redirect : '/'});
+			}
 
 		questionAssigned.findOne({'user_ID' : req.session.email , 'level' : req.session.level }).populate('question_ID')
 		.exec(function(err,result) {
 				console.log(result);
 				if(result) {
+					if(userData.level != req.session.level) {
+						req.session.level = userData.level;
+						return res.send({valid:0,redirect : '/'})
+					}
 					//populate question details then send
 					res.send({valid :1, "question" :result.question_ID.question});
 				}
@@ -23,6 +31,7 @@ router.get('/getQuestion', function(req,res){
 					assignQuestion(req, res);
 			});
 	
+		})
 
 });
 
