@@ -10,7 +10,7 @@ router.get('/leaderBoard', function(req, res, next) {
   User.find({})
   .sort({'score' : -1, 'lastAttemptTime' : 1})
   .select({email_ID : 1,name : 1,year : 1,score :1 , level :1,avatar : 1,badges : 1})
-  .limit(20).exec(function(err, result) {
+  .limit().exec(function(err, result) {
     if(err)
       return console.log(err);
     res.send(result);

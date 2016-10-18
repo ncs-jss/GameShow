@@ -61,6 +61,7 @@ var removeQuestion = require('./routes/removeQuestion');
 var removeUser = require('./routes/removeUser');
 var renderGenerateReference = require('./routes/renderGenerateReference');
 var generateMultipleReference = require('./routes/generateMultipleReference')
+var userAdmin = require('./routes/userAdmin');
 
 var logout = require('./routes/logout');
 //var renderHomePage = require ('./routes/renderHomePage')
@@ -152,7 +153,7 @@ app.use(function(err, req, res, next) {
 
 
 //console.log("following action needs to be done \n1 uncomment below routes \n 2 delete redirect code from '/' route \n3 remove comment from login signup modal");
- app.get('/login', renderLogin);
+app.get('/login', renderLogin);
 
 app.post('/register', register);
 
@@ -207,7 +208,7 @@ app.post('/generateMultipleReference', generateMultipleReference);
 
 app.post('/removeUser', removeUser)
 
-
+app.get('/userAdmin', userAdmin);
 
 app.get('/logout', logout)
 
