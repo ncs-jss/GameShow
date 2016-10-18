@@ -62,6 +62,7 @@ var removeUser = require('./routes/removeUser');
 var renderGenerateReference = require('./routes/renderGenerateReference');
 var generateMultipleReference = require('./routes/generateMultipleReference')
 var userAdmin = require('./routes/userAdmin');
+var referenceAdmin = require('./routes/referenceAdmin');
 
 var logout = require('./routes/logout');
 //var renderHomePage = require ('./routes/renderHomePage')
@@ -209,6 +210,8 @@ app.post('/generateMultipleReference', generateMultipleReference);
 app.post('/removeUser', removeUser)
 
 app.get('/userAdmin', userAdmin);
+
+app.get('/referenceAdmin', referenceAdmin);
 
 app.get('/logout', logout)
 
