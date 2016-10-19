@@ -63,6 +63,7 @@ var renderGenerateReference = require('./routes/renderGenerateReference');
 var generateMultipleReference = require('./routes/generateMultipleReference')
 var userAdmin = require('./routes/userAdmin');
 var referenceAdmin = require('./routes/referenceAdmin');
+var studentProfile = require('./routes/studentProfile');
 
 var logout = require('./routes/logout');
 //var renderHomePage = require ('./routes/renderHomePage')
@@ -212,6 +213,9 @@ app.post('/removeUser', removeUser)
 app.get('/userAdmin', userAdmin);
 
 app.get('/referenceAdmin', referenceAdmin);
+
+
+app.get('/studentProfile',studentProfile);
 
 app.get('/logout', logout)
 
