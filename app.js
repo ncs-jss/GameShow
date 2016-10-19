@@ -48,6 +48,8 @@ var makeChoice = require('./routes/makeChoice');
 var leaderBoard = require('./routes/leaderBoard')
 var renderLeaderBoard = require('./routes/renderLeaderBoard');
 var renderWinner = require('./routes/renderWinner');
+var renderEnding = require('./routes/renderEnding');
+
 //for backOffice use routes
 
 var renderAdminLogin = require('./routes/renderAdminLogin');
@@ -183,7 +185,12 @@ app.get('/winner', renderWinner);
 
 app.get('/leaderBoard', leaderBoard);
 
+//Change this for final winners 
 
+app.get('/end', renderEnding);
+
+
+//-------------------------------------
 //admin apis
 
 
