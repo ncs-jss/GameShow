@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
     var wrongNotifs = [
-        "Your key didn't opened the door!",
+        "Your key didn't open the door!",
         "Be like Bill and just do it!",
         "Server says... it's wrong.",
         "Use the force! Luke. ",
@@ -12,12 +12,12 @@ $(document).ready(function() {
         "Keep trying. You can do it!!",
         "Just don't bang your head on wall :P",
         "C'mon let's give it another shot",
-        "String didn't matched.",
+        "String didn't match.",
         "Whoops! couldn't launch the next question.",
         "Sherlock ignored your answer",
         "Still waiting to say hurray!!",
         "Mayday! Mayday! Unknown response!!",
-        "You are still knocking the door? ",
+        "Are you still knocking at the door? ",
         "Ahoy!! but you still missed it."
     ]
     $.get("/getQuestion", function(data) {
@@ -38,7 +38,6 @@ $(document).ready(function() {
                         maxValue: parseInt(((data.level - 1) * 100) / (maxLevel.maxLevel))
                     });
                 });
-                // $("#circle-1").removeClass("hidden");
                 $("#circle-1 .text").html(data.score);
                 $(".userName").html(data.name.split(" ")[0] + "'s DashBoard");
                 $(".levelText .level strong").html(data.level);
