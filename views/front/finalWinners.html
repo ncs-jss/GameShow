@@ -104,17 +104,17 @@
             <div class="well box animated fadeIn">
                 <div class="row">
                     <div class="winnerbox col-xs-4">
-                        <h1>Name</h1>
+                        <h1 id = "win0">Name</h1>
                         <img src="/img/avatars/0.png" alt="" class="img-resposive">
                         <h1>First</h1>
                     </div>
                     <div class="winnerbox col-xs-4">
-                        <h1>Name</h1>
+                        <h1 id = "win1">Name</h1>
                         <img src="/img/avatars/1.png" alt="" class="img-resposive">
                         <h1>Second</h1>
                     </div>
                     <div class="winnerbox col-xs-4">
-                        <h1>Name</h1>
+                        <h1 id = "win2>Name</h1>
                         <img src="/img/avatars/2.png" alt="" class="img-resposive">
                         <h1>Third</h1>
                     </div>
@@ -130,10 +130,16 @@
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script>
     $(document).ready(function() {
-        $.get("/user", function(data) {
+        var i;
+        $.get("/LeaderBoard", function(data) {
             userdata = data;
-            $(".userName").html(userdata.name);
-            $(".avatarBox input").val(userdata.avatar);
+            //console.log(userdata[0].name);
+            for(i=0;i<3;i++){
+               var name = userdata[i].name
+               console.log($("#win"+i));
+              //$("#win"+i).val("something"); 
+               // $(".avatarBox input").val(userdata.avatar);
+            }
         });
         $("#audio")[0].load();
         $("#audio")[0].play();

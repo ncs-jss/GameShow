@@ -46,6 +46,11 @@ router.post('/checkAnswer', function(req, res) {
 								if(answerByUser == result.question_ID.technicalAnswer) {
 									console.log("technicalAnswer Matched");
 									user.findOne({email_ID : req.session.email}, function(err, data) {
+										if(!data){
+											req.session.email = null 
+											return res.send({valid : 0, comment : "incorrect choice"});
+										}
+
 										if (data.level != req.session.level)
 											return res.send({valid : 0, comment : "incorrect choice"});
 
@@ -102,6 +107,12 @@ router.post('/checkAnswer', function(req, res) {
 
 								else if(answerByUser ==  result.question_ID.nonTechnicalAnswer) {
 									user.findOne({email_ID : req.session.email}, function(err, data) {
+
+										if(!data){
+											req.session.email = null 
+											return res.send({valid : 0, comment : "incorrect choice"});
+										}
+
 
 										if (data.level != req.session.level)
 											return res.send({valid : 0, comment : "incorrect choice"});

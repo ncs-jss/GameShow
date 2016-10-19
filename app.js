@@ -187,7 +187,7 @@ app.get('/leaderBoard', leaderBoard);
 
 //Change this for final winners 
 
-app.get('/end', renderEnding);
+app.get('/finish', renderEnding);
 
 
 //-------------------------------------

@@ -16,6 +16,11 @@ router.get('/getQuestion', function(req,res){
 				return  res.send({valid : 0, redirect : '/'});
 			}
 
+			if(!userData){
+				req.session.email = null 
+				return res.send({valid:0,redirect : '/'})
+			}
+
 		questionAssigned.findOne({'user_ID' : req.session.email , 'level' : req.session.level }).populate('question_ID')
 		.exec(function(err,result) {
 				console.log(result);
