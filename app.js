@@ -171,13 +171,13 @@ app.get('/user', user);
 
 app.get('/totalLevel', totalLevel);
 
-app.get('/getQuestion', getQuestion);
+// app.get('/getQuestion', getQuestion);
 
-app.post('/checkAnswer', checkAnswer);
+// app.post('/checkAnswer', checkAnswer);
 
-app.get('/makeChoice', renderMakeChoice);
+// app.get('/makeChoice', renderMakeChoice);
 
-app.post("/makeChoice", makeChoice);
+// app.post("/makeChoice", makeChoice);
 
 app.get('/Leader', renderLeaderBoard);
 
