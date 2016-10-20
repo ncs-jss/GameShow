@@ -7,6 +7,4 @@ router.get('/finish', function(req, res) {
     	return res.sendFile('/views/front/finalWinners.html', { root: '.' });
     return res.send({valid : 0, redirect : "/"})
 });
-
-
 module.exports = router;

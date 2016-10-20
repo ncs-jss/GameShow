@@ -25,31 +25,32 @@
         flex-direction: column;
         align-items: center;
     }
-    
+
     #world {
         position: absolute;
     }
-    
+
     .box {
         min-height: 350px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
         margin-top: 50px;
-        width: 70%;
+        width: 80%;
         background: rgba(0, 0, 0, 0.5);
     }
-    
+
     .winnerbox {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
+
     .winnerbox img {
         width: 150px;
     }
-    
+
+    .winnerbox h3 {
+        color: #f58974;
+    }
+
     @media screen and (max-width: 400px) {
         .box {
             width: 100%;
@@ -103,20 +104,23 @@
             </div>
             <div class="well box animated fadeIn">
                 <div class="row">
-                    <div class="winnerbox col-xs-4">
-                        <h1 id = "win0">Name</h1>
-                        <img src="/img/avatars/0.png" alt="" class="img-resposive">
+                    <div class="winnerbox col-sm-4">
                         <h1>First</h1>
+                        <img src="/img/avatars/0.png" alt="" class="img-resposive">
+                        <h3>Name</h3>
+                        <h5>Email</h5>
                     </div>
-                    <div class="winnerbox col-xs-4">
-                        <h1 id = "win1">Name</h1>
-                        <img src="/img/avatars/1.png" alt="" class="img-resposive">
+                    <div class="winnerbox col-sm-4">
                         <h1>Second</h1>
+                        <img src="/img/avatars/1.png" alt="" class="img-resposive">
+                        <h3>Name</h3>
+                        <h5>Email</h5>
                     </div>
-                    <div class="winnerbox col-xs-4">
-                        <h1 id = "win2>Name</h1>
-                        <img src="/img/avatars/2.png" alt="" class="img-resposive">
+                    <div class="winnerbox col-sm-4">
                         <h1>Third</h1>
+                        <img src="/img/avatars/2.png" alt="" class="img-resposive">
+                        <h3>Name</h3>
+                        <h5>Email</h5>
                     </div>
                 </div>
             </div>
@@ -128,34 +132,7 @@
     </audio>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script>
-    $(document).ready(function() {
-        var i;
-        $.get("/LeaderBoard", function(data) {
-            userdata = data;
-            //console.log(userdata[0].name);
-            for(i=0;i<3;i++){
-               var name = userdata[i].name
-               console.log($("#win"+i));
-              //$("#win"+i).val("something"); 
-               // $(".avatarBox input").val(userdata.avatar);
-            }
-        });
-        $("#audio")[0].load();
-        $("#audio")[0].play();
-        $("#audio")[0].volume = 0.6;
-    });
-
-    function mute() {
-        if ($('#audio')[0].muted) {
-            $('#audio')[0].muted = false;
-            $(".toggleAudio").attr("src", "/img/speaker.png");
-        } else {
-            $('#audio')[0].muted = true;
-            $(".toggleAudio").attr("src", "/img/mute.png");
-        }
-    }
-    </script>
+    <script type="text/javascript" src="/js/finalWinners.js"></script>
     <script src="/js/confetti.js"></script>
 </body>
 

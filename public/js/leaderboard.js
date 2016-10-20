@@ -27,38 +27,9 @@ $(document).ready(function() {
                        trigger: 'hover',
                        html: true,
                        content: '<span>' + badgeHtml + '</span>'
-                   }); 
+                   });
                 }
             }
         });
     });
 });
-
-// content: '<span><img src="img/badges/' + badges[i].avatar + '.png" > <img src="img/avatars/' + data[i].avatar + '.png"></span>'
-
-
-/*
-var badges = userdata.badges;
-var imgpath = "";
-var elem = "";
-badges.sort(function(a, b) {
-    if (a.level > b.level) {
-        return -1;
-    }
-    if (a.level < b.level) {
-        return +1;
-    }
-    // a must be equal to b
-    return 0;
-});
-var badgeHtml = '';
-$.each(badges, function(key, value) {
-    badgeHtml += '<img src="/img/badges/' + value.name + '.png">';
-});
-$(".userList tr:eq(" + i + ")").popover({
-    placement: 'bottom',
-    trigger: 'hover',
-    html: true,
-    content: '<span>' + badgeHtml + '</span>'
-});
-*/
