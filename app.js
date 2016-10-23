@@ -81,12 +81,12 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 
-// app.use(session({
-//     secret: '57eac3e1d6a4cc1134578440',
-//     store: new MongoStore({
-//         mongooseConnection: mongoose.connection
-//     })
-// }));
+app.use(session({
+    secret: '57eac3e1d6a4cc1134578440',
+    // store: new MongoStore({
+    //     mongooseConnection: mongoose.connection
+    //})
+}));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
