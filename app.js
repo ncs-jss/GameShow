@@ -227,7 +227,7 @@ app.get('/studentProfile',studentProfile);
 app.get('/logout', logout)
 
 
-app.listen("8895", function() {
+app.listen(process.env.PORT||8895, function() {
     console.log("server listening at port 8895");
 });
 
