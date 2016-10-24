@@ -84,7 +84,7 @@ app.set('view engine', 'jade');
 app.use(session({
     secret: '57eac3e1d6a4cc1134578440',
     // store: new MongoStore({
-    //     mongooseConnection: mongoose.connection
+    //     mongooseConnection: mongoose.connection//
     //})
 }));
 app.use(logger('dev'));
