@@ -6,6 +6,7 @@ var Question = require('../Models/question.js');
 router.post('/addQuestion', function(req, res) {
 	// Check Session.
 	// parsing value from req.body object
+	console.log("Received Request post:/addQuestion");
 	var question = req.body.question;
 	var level =  req.body.level;
 	var techAnswer = req.body.techAnswer;
@@ -23,8 +24,10 @@ router.post('/addQuestion', function(req, res) {
 	});
 
 	newQuestion.save(function(err){
-		if(err)
+		if(err){
+			res.send("Question Not saved");
 			return console.log(err);
+		}
 		return res.send('data saved');
 	});
 });
