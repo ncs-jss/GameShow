@@ -60,9 +60,10 @@ $(document).ready(function() {
         }
     });
     $(".submit_btn button").click(function() {
+        $(".submit_btn button").prop("disabled", true);
         $.post("/checkAnswer", { answer: $(".ans input").val() }, function(data) {
             $(".ans input").trigger("blur");
-            console.log(data);
+            $(".submit_btn button").prop("disabled", false);
             if (data.valid == 1) {
                 $(".notifBox").find(".notif-correct").removeClass("hidden");
                 $("#world").removeClass("hidden");

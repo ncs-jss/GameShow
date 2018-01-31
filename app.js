@@ -24,13 +24,13 @@ var uristring = 'mongodb://localhost/first';
 var mongoOptions = { db: { safe: true } };
 
 // Connect to Database
-// mongoose.connect(uristring, mongoOptions, function(err, res) {
-//     if (err) {
-//         console.log('ERROR connecting to: remote' + uristring + '. ' + err);
-//     } else {
-//         console.log('Successfully connected to: remote' + uristring);
-//     }
-// });
+mongoose.connect(uristring, mongoOptions, function(err, res) {
+    if (err) {
+        console.log('ERROR connecting to: remote' + uristring + '. ' + err);
+    } else {
+        console.log('Successfully connected to: remote' + uristring);
+    }
+});
 
 // Requiring Routes
 var renderLogin = require('./routes/renderLogin');
@@ -83,9 +83,9 @@ app.set('view engine', 'jade');
 
 app.use(session({
     secret: '57eac3e1d6a4cc1134578440',
-    // store: new MongoStore({
-    //     mongooseConnection: mongoose.connection//
-    //})
+    store: new MongoStore({
+        mongooseConnection: mongoose.connection//
+    })
 }));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -133,28 +133,28 @@ app.use(function(err, req, res, next) {
 //  Registers the User and redirect you to login page.
 
 
-// // This will generate a referance number and returns it .
-// app.post('/generateReference', function(req, res) {
-//     if (req.session.admin && req.session.admin == "admin") {
-//         var newReference = new Reference({
-//             state: true,
-//             email_ID: req.body.email_ID
-//         });
+// This will generate a referance number and returns it .
+app.post('/generateReference', function(req, res) {
+    if (req.session.admin && req.session.admin == "admin") {
+        var newReference = new Reference({
+            state: true,
+            email_ID: req.body.email_ID
+        });
 
-//         newReference.referenceNumber = newReference._id //crypto.createHash('md5').update(req.body.email_ID).digest('hex')
+        newReference.referenceNumber = newReference._id //crypto.createHash('md5').update(req.body.email_ID).digest('hex')
 
-//         newReference.save(function(err) {
-//             if (!err) {
-//                 res.send({ id: newReference.referenceNumber });
-//             } else {
-//                 console.log(err);
-//                 res.send("try new email_ID")
-//             }
+        newReference.save(function(err) {
+            if (!err) {
+                res.send({ id: newReference.referenceNumber });
+            } else {
+                console.log(err);
+                res.send("try new email_ID")
+            }
 
-//         });
-//     } else
-//         res.send({valid:0, redirect:"/admin"});
-// });
+        });
+    } else
+        res.send({valid:0, redirect:"/admin"});
+});
 
 
 
@@ -173,13 +173,13 @@ app.get('/user', user);
 
 app.get('/totalLevel', totalLevel);
 
-// app.get('/getQuestion', getQuestion);
+app.get('/getQuestion', getQuestion);
 
-// app.post('/checkAnswer', checkAnswer);
+app.post('/checkAnswer', checkAnswer);
 
-// app.get('/makeChoice', renderMakeChoice);
+app.get('/makeChoice', renderMakeChoice);
 
-// app.post("/makeChoice", makeChoice);
+app.post("/makeChoice", makeChoice);
 
 app.get('/Leader', renderLeaderBoard);
 

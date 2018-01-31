@@ -10,8 +10,8 @@ router.post('/checkAnswer', function(req, res) {
 	if(req.session.email && req.session.level) {
 		//console.log("hash of abcd " +crypto.createHash('md5').update('abcd').digest('hex'));
 		
-		var answerByUser = crypto.createHash('md5').update(req.body.answer).digest('hex');
-		//var answerByUser = req.body.answer;
+		// var answerByUser = crypto.createHash('md5').update(req.body.answer).digest('hex');
+		var answerByUser = req.body.answer;
 		var badgesCouldBeWon = false ;
 		questionAssigned.findOne({user_ID : req.session.email, duration : {$exists: false}})
 		.sort({level : -1})
