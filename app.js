@@ -19,18 +19,18 @@ var QuestionAssigned = require('./Models/questionAssigned.js');
 var Reference = require('./Models/reference.js');
 var User = require('./Models/userInfo.js');
 
-
+mongoose.Promise = global.Promise;
 var uristring = 'mongodb://localhost/first';
 var mongoOptions = { db: { safe: true } };
 
-// Connect to Database
-// mongoose.connect(uristring, mongoOptions, function(err, res) {
-//     if (err) {
-//         console.log('ERROR connecting to: remote' + uristring + '. ' + err);
-//     } else {
-//         console.log('Successfully connected to: remote' + uristring);
-//     }
-// });
+//Connect to Database
+mongoose.connect(uristring, mongoOptions, function(err, res) {
+    if (err) {
+        console.log('ERROR connecting to: remote' + uristring + '. ' + err);
+    } else {
+        console.log('Successfully connected to: remote' + uristring);
+    }
+});
 
 // Requiring Routes
 var renderLogin = require('./routes/renderLogin');
@@ -134,15 +134,15 @@ app.use(function(err, req, res, next) {
 
 
 // // This will generate a referance number and returns it .
-// app.post('/generateReference', function(req, res) {
-//     if (req.session.admin && req.session.admin == "admin") {
+// app.get('/generateReferenceForTests', function(req, res) {
+//     if (true||(req.session.admin && req.session.admin == "admin")) {
 //         var newReference = new Reference({
 //             state: true,
 //             email_ID: req.body.email_ID
 //         });
-
+//
 //         newReference.referenceNumber = newReference._id //crypto.createHash('md5').update(req.body.email_ID).digest('hex')
-
+//
 //         newReference.save(function(err) {
 //             if (!err) {
 //                 res.send({ id: newReference.referenceNumber });
@@ -150,12 +150,12 @@ app.use(function(err, req, res, next) {
 //                 console.log(err);
 //                 res.send("try new email_ID")
 //             }
-
+//
 //         });
 //     } else
 //         res.send({valid:0, redirect:"/admin"});
 // });
-
+//
 
 
 //console.log("following action needs to be done \n1 uncomment below routes \n 2 delete redirect code from '/' route \n3 remove comment from login signup modal");
@@ -173,13 +173,13 @@ app.get('/user', user);
 
 app.get('/totalLevel', totalLevel);
 
-// app.get('/getQuestion', getQuestion);
+app.get('/getQuestion', getQuestion);
 
-// app.post('/checkAnswer', checkAnswer);
+app.post('/checkAnswer', checkAnswer);
 
-// app.get('/makeChoice', renderMakeChoice);
+app.get('/makeChoice', renderMakeChoice);
 
-// app.post("/makeChoice", makeChoice);
+app.post("/makeChoice", makeChoice);
 
 app.get('/Leader', renderLeaderBoard);
 
@@ -187,7 +187,7 @@ app.get('/winner', renderWinner);
 
 app.get('/leaderBoard', leaderBoard);
 
-//Change this for final winners 
+//Change this for final winners
 
 app.get('/finish', renderEnding);
 

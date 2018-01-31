@@ -6,7 +6,8 @@ var question = require ('../Models/question.js');
 
 
 router.get('/getQuestion', function(req,res){
-	if(!req.session.email ||  req.session.email == '') 
+	console.log("GET /GetQuestion ");
+	if(!req.session.email ||  req.session.email == '')
 		 return res.redirect('/login');
 
 		// All the code for gettimg question.
@@ -17,7 +18,7 @@ router.get('/getQuestion', function(req,res){
 			}
 
 			if(!userData){
-				req.session.email = null 
+				req.session.email = null
 				return res.send({valid:0,redirect : '/'})
 			}
 
@@ -35,16 +36,16 @@ router.get('/getQuestion', function(req,res){
 				else
 					assignQuestion(req, res);
 			});
-	
+
 		})
 
 });
 
 
 
-var assignQuestion = function(req, res ) { 
+var assignQuestion = function(req, res ) {
 	console.log("Assigning question for: level : " + req.session.level);
-	
+
 	question.find({'level' : req.session.level}).exec(function(err, result) {
 		console.log("the length of result is " + result.length);
 		if(result.length == 0)
@@ -77,7 +78,7 @@ var assignQuestion = function(req, res ) {
 					});
 
 				}
-				else 
+				else
 					res.send("Invalid session");
 			})
 		}
@@ -90,7 +91,7 @@ var assignQuestion = function(req, res ) {
 			}
 
 			else if (req.session.choice) {
-   
+
 				var temp = result[(Math.floor((Math.random() * 1000) + 1))%result.length];
 
 				User.findOne({'email_ID' : req.session.email}, function(err, user){
@@ -118,15 +119,14 @@ var assignQuestion = function(req, res ) {
 					});
 
 				}
-				else 
+				else
 					res.send("Invalid session");
 			})
 			}
 
 		}
-	}); 
+	});
 }
 
 
 module.exports = router;
-

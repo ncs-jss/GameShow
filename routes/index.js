@@ -6,12 +6,12 @@ router.get('/', function(req, res) {
 
  // remove code below to make things live
 
-  
+
 
 
 	console.log(req.session.email);
   if(req.session.email && req.session.email != "") {
-    return res.redirect('/finish');
+    //return res.redirect('/finish');
   User.find({email_ID :req.session.email}).exec(function(err,result){
 		//console.log('reached request');
   		if(result)
