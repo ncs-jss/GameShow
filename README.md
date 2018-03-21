@@ -1,22 +1,25 @@
 # GameShow
-Tech-Trek Back-end .
+Tech-Trek 2016-17 .
 
-install node 
-install mongo
-run mongod demon service
+## Get following things installed
+* __node__ 
+* __mongo__
+* clone the [!project](http://www.github.com/ncs-jss/GameShow) 
 
-clone the project from http://www.github.com/ncs-jss/GameShow
-navigate through the cmd to the project directory
+### Perform Following actions
+1. run *mongod* demon service
+2. navigate the terminal to the project directory
 
-run the following commands
-$npm install --save
-npm install --save nodemon -g
+### Run Following commands
+
+* $ npm install --save
+* $ npm install --save nodemon -g
 
 after the successfull inclusion of necessary modules
 
-run :
-$nodemon app.js
-wait till cmd logs "Server listening at port 8080"
+### Execute :
+* $nodemon app.js
+### wait till cmd logs "Server listening at port 8895"
 
-visit  http://localhost:8080/
+# visit  http://localhost:8895/
 
