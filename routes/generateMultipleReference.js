@@ -7,7 +7,9 @@ router.post('/generateMultipleReference', function(req, res) {
     if (req.session.admin && req.session.admin == "admin") {
         var i = 0;
         var resArray = [];
-        var users = req.body.users; //users in an array of mixed types  {email : string, trekreg_ID: number}
+        var users = req.body.users; //users in an array of mixed types  
+        //{email : string, trekreg_ID: number} 
+        //you can find one sample file in routes by name data.json
         users = JSON.parse(users);
         for (i = 0; i < users.length; i++) {
 

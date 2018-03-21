@@ -22,7 +22,8 @@ router.get('/getQuestion', function(req,res){
 				return res.send({valid:0,redirect : '/'})
 			}
 
-		questionAssigned.findOne({'user_ID' : req.session.email , 'level' : req.session.level }).populate('question_ID')
+		questionAssigned.findOne({'user_ID' : req.session.email , 'level' : req.session.level })
+		.populate('question_ID')
 		.exec(function(err,result) {
 				console.log(result);
 				if(result) {
@@ -31,7 +32,7 @@ router.get('/getQuestion', function(req,res){
 						return res.send({valid:0,redirect : '/'})
 					}
 					//populate question details then send
-					res.send({valid :1, "question" :result.question_ID.question});
+					res.send({valid :1, "question" : result.question_ID.question});
 				}
 				else
 					assignQuestion(req, res);
@@ -46,7 +47,8 @@ router.get('/getQuestion', function(req,res){
 var assignQuestion = function(req, res ) {
 	console.log("Assigning question for: level : " + req.session.level);
 
-	question.find({'level' : req.session.level}).exec(function(err, result) {
+	question.find({'level' : req.session.level})
+	.exec(function(err, result) {
 		console.log("the length of result is " + result.length);
 		if(result.length == 0)
 			return res.send({valid : 0, redirect : '/winner'});
@@ -112,6 +114,7 @@ var assignQuestion = function(req, res ) {
 						else {
 							console.log("Question with choice assigned");
 							req.session.choice = null;
+							req.session.level += 1;
 							res.send({valid : 0,redirect:'/'});
 
 						}

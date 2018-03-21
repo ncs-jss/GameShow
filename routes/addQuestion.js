@@ -1,7 +1,7 @@
 var express = require ('express');
 var router = express.Router();
 var Question = require('../Models/question.js');
-
+var crypto = require('crypto');
 
 router.post('/addQuestion', function(req, res) {
 	// Check Session.
@@ -9,8 +9,14 @@ router.post('/addQuestion', function(req, res) {
 	console.log("Received Request post:/addQuestion");
 	var question = req.body.question;
 	var level =  req.body.level;
-	var techAnswer = req.body.techAnswer;
-	var nonTechAnswer = req.body.nonTechAnswer;
+	var techAnswer = crypto
+					.createHash('md5')
+					.update(req.body.techAnswer)
+					.digest('hex');
+	var nonTechAnswer = crypto
+					.createHash('md5')
+					.update(req.body.nonTechAnswer)
+					.digest('hex');
 	var hint = req.body.hint;
 	//validate data here
 
